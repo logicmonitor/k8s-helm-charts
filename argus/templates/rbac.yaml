@@ -1,0 +1,77 @@
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: argus
+rules:
+- apiGroups:
+    - ""
+  resources:
+    - pods
+    - containers
+    - nodes
+    - services
+    - namespaces
+    - componentstatuses
+  verbs:
+    - list
+    - get
+    - watch
+    - update
+- nonResourceURLs:
+    - /
+    - /healthz
+    - /healthz/*
+  verbs:
+    - get
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: argus
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: argus
+subjects:
+- kind: ServiceAccount
+  name: argus
+  namespace: kube-monitoring
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: collector
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - containers
+  - nodes
+  - componentstatuses
+  - replicasets
+  - ingress
+  - services
+  verbs:
+  - list
+  - get
+- nonResourceURLs:
+  - /
+  - /healthz
+  - /healthz/*
+  verbs:
+  - get
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: collector
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: collector
+subjects:
+- kind: ServiceAccount
+  name: collector
+  namespace: kube-monitoring
