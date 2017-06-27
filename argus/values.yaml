@@ -9,7 +9,8 @@ argus:
     repository: logicmonitor/argus
     tag: latest
     pullPolicy: Always
-  disable_alerting: false
+  disableAlerting: false
+  deleteDevices: false
   debug: false
 collector:
   image:

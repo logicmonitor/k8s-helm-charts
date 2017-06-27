@@ -23,27 +23,29 @@ spec:
         - name: WATCHER_ID
           valueFrom:
             secretKeyRef:
-              name: logicmonitor-api-user
+              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
               key: api_id
         - name: WATCHER_KEY
           valueFrom:
             secretKeyRef:
-              name: logicmonitor-api-user
+              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
               key: api_key
         - name: WATCHER_COMPANY
           valueFrom:
             secretKeyRef:
-              name: logicmonitor-api-user
+              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
               key: company
         - name: WATCHER_COMPANY
           valueFrom:
             secretKeyRef:
-              name: logicmonitor-api-user
+              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
               key: company
         - name: WATCHER_CLUSTER_NAME
-          value: "{{ required "A valid .Values.argus.cluster_name entry is required!" .Values.argus.cluster_name }}"
+          value: "{{ required "A valid .Values.argus.clusterName entry is required!" .Values.argus.clusterName }}"
         - name: WATCHER_DISABLE_ALERTING
-          value: "{{ required "A valid .Values.argus.disable_alerting entry is required!" .Values.argus.disable_alerting }}"
+          value: "{{ required "A valid .Values.argus.disable_alerting entry is required!" .Values.argus.disableAlerting }}"
+        - name: WATCHER_DELETE_DEVICES
+          value: "{{ required "A valid .Values.argus.disable_alerting entry is required!" .Values.argus.deleteDevices }}"
         - name: WATCHER_DEBUG
           value: "{{ .Values.argus.debug }}"
         - name: WATCHER_PREFERRED_COLLECTOR
@@ -55,17 +57,17 @@ spec:
         - name: company
           valueFrom:
             secretKeyRef:
-              name: logicmonitor-api-user
+              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
               key: company
         - name: username
           valueFrom:
             secretKeyRef:
-              name: logicmonitor-api-user
+              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
               key: username
         - name: password
           valueFrom:
             secretKeyRef:
-              name: logicmonitor-api-user
+              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
               key: password
         - name: collector_id
           value: {{ required "A valid .Values.collector.id entry is required!" .Values.collector.id | quote }}
