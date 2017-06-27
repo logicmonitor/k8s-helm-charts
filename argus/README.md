@@ -27,6 +27,7 @@ $ helm upgrade \
     --set collector.tag=latest \
     --set collector.id=COLLECTOR_ID \
     --set argus.tag=latest \
-    --set argus.cluster_name=CLUSTER_NAME \
+    --set argus.clusterName=CLUSTER_NAME \
+    --set argus.secretName=SECRET_NAME \
     argus ./argus
 ```
