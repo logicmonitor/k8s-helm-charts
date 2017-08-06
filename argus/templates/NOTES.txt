@@ -1,4 +1,2 @@
 1. View the logs for Argus by running this command:
-{{- if contains "ClusterIP"  .Values.service.type }}
-  kubectl logs -f $(kubectl get pods --namespace=kube-monitoring -l app={{ .Values.service.name }} -o name) -c argus -n kube-monitoring
-{{- end }}
+kubectl logs -f $(kubectl get pods --namespace={{ .Release.Namespace }} -l app=argus -o name) -c argus -n {{ .Release.Namespace }}

@@ -36,7 +36,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: argus
-  namespace: kube-monitoring
+  namespace: {{ .Release.Namespace }}
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -74,4 +74,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: collector
-  namespace: kube-monitoring
+  namespace: {{ .Release.Namespace }}

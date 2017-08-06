@@ -1,8 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ .Values.service.name }}
-  namespace: kube-monitoring
+  name: argus
   labels:
     chart: "argus"
 spec:
@@ -10,66 +9,71 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Values.service.name }}
+        app: argus
     spec:
       serviceAccountName: argus
       containers:
       - name: argus
-        image: "{{ .Values.argus.image.repository }}:{{ .Values.argus.image.tag }}"
-        imagePullPolicy: {{ .Values.argus.image.pullPolicy }}
+        image: "{{ .Values.imageRepository }}:{{ .Values.imageTag }}"
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
         args:
           - watch
         env:
-        - name: WATCHER_ID
+        - name: ACCESS_ID
           valueFrom:
             secretKeyRef:
-              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
-              key: api_id
-        - name: WATCHER_KEY
+              name: argus
+              key: accessID
+        - name: ACCESS_KEY
           valueFrom:
             secretKeyRef:
-              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
-              key: api_key
-        - name: WATCHER_COMPANY
+              name: argus
+              key: accessKey
+        - name: ACCOUNT
           valueFrom:
             secretKeyRef:
-              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
-              key: company
-        - name: WATCHER_COMPANY
+              name: argus
+              key: account
+        - name: ETCD_DISCOVERY_TOKEN
           valueFrom:
             secretKeyRef:
-              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
-              key: company
-        - name: WATCHER_CLUSTER_NAME
-          value: "{{ required "A valid .Values.argus.clusterName entry is required!" .Values.argus.clusterName }}"
-        - name: WATCHER_DISABLE_ALERTING
-          value: "{{ required "A valid .Values.argus.disable_alerting entry is required!" .Values.argus.disableAlerting }}"
-        - name: WATCHER_DELETE_DEVICES
-          value: "{{ required "A valid .Values.argus.disable_alerting entry is required!" .Values.argus.deleteDevices }}"
-        - name: WATCHER_DEBUG
-          value: "{{ .Values.argus.debug }}"
-        - name: WATCHER_PREFERRED_COLLECTOR
-          value: "{{ required "A valid .Values.collector.id entry is required!" .Values.collector.id }}"
+              name: argus
+              key: etcdDiscoveryToken
+        volumeMounts:
+        - name: etc-argus
+          mountPath: "/etc/argus"
+          readOnly: true
       - name: collector
-        image: "{{ .Values.collector.image.repository }}:{{ .Values.collector.image.tag }}"
-        imagePullPolicy: {{ .Values.collector.image.pullPolicy }}
+        image: "logicmonitor/collector:latest"
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
         env:
-        - name: company
+        - name: access_id
           valueFrom:
             secretKeyRef:
-              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
-              key: company
-        - name: username
+              name: argus
+              key: accessID
+        - name: access_key
           valueFrom:
             secretKeyRef:
-              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
-              key: username
-        - name: password
+              name: argus
+              key: accessKey
+        - name: account
           valueFrom:
             secretKeyRef:
-              name: {{ required "A valid .Values.argus.secretName entry is required!" .Values.argus.secretName }}
-              key: password
-        - name: collector_id
-          value: {{ required "A valid .Values.collector.id entry is required!" .Values.collector.id | quote }}
-        - name: cleanup
-          value: "false"
+              name: argus
+              key: account
+        - name: collector_size
+          value: {{ default "small" .Values.collectorSize }}
+        - name: collector_version
+          value: {{ default 24126 .Values.collectorVersion | quote }}
+        - name: description
+          value: {{ required "A .Values.collectorDescription entry is required!" .Values.collectorDescription }}
+      volumes:
+      - name: etc-argus
+        projected:
+          sources:
+          - configMap:
+              name: argus
+              items:
+                - key: config.yaml
+                  path: config.yaml
