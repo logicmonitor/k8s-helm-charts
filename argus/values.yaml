@@ -1,19 +1,10 @@
 replicaCount: 1
-service:
-  name: argus
-  type: ClusterIP
-  externalPort: 8080
-  internalPort: 8080
 argus:
-  image:
-    repository: logicmonitor/argus
-    tag: latest
-    pullPolicy: Always
-  disableAlerting: false
-  deleteDevices: false
-  debug: false
-collector:
-  image:
-    repository: logicmonitor/lm_collector
-    tag: latest
-    pullPolicy: Always
+imageRepository: logicmonitor/argus
+imageTag: 0.1.0-alpha.1
+imagePullPolicy: Always
+collectorSize: small
+collectorVersion: 24200
+disableAlerting: false
+deleteDevices: false
+debug: false

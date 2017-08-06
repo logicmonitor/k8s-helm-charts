@@ -1,33 +1,32 @@
 # Argus
 
-Save the following secret to a file named `logicmonitor.yaml`:
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: logicmonitor-api-user
-  namespace: kube-monitoring
-type: Opaque
-data:
-  company: "COMPANY"
-  username: "USERNAME"
-  password: "PASSWORD"
-  api_id: "API_ID"
-  api_key: "API_KEY"
-```
-This secret is used by Argus to authenticate to LogicMonitor. Now, create the namespace and secret in Kubernetes:
+This Helm chart installs [Argus](https://github.com/logicmonitor/k8s-argus). A [LogicMonitor](https://www.logicmonitor.com) account is required.
+
 ```bash
-$ kubectl create namespace kube-monitoring
-$ kubectl apply -f logicmonitor.yaml
+$ helm upgrade
+  --install \
+  --debug \
+  --wait \
+  --namespace $NAMESPACE \
+  --set accessID='$ACCESS_ID' \
+  --set accessKey='$ACCESS_KEY' \
+  --set clusterName='$CLUSTER_NAME' \
+  --set collectorDescription='$COLLECTOR_DESCRIPTION' \
+  --set collectorSize='$COLLECTORSIZE' \
+  --set collectorVersion='$COLLECTOR_VERSION' \
+  --set account='$ACCOUNT' \
+  --set imageTag='$IMAGE_TAG' \
+  --set etcdDiscoveryToken='$ETCD_DISCOVERY_TOKEN' \
+  argus logicmonitor/argus
 ```
-Install Argus:
-```bash
-$ helm upgrade \
-    --install \
-    --set collector.tag=latest \
-    --set collector.id=COLLECTOR_ID \
-    --set argus.tag=latest \
-    --set argus.clusterName=CLUSTER_NAME \
-    --set argus.secretName=SECRET_NAME \
-    argus ./argus
-```
+
+Values:
+-   **accessID:** The LogicMonitor API key ID.
+-   **accessKey:** The LogicMonitor API key.
+-   **clusterName:** A unique name given to the cluster's device group.
+-   **collectorDescription:** A unique collector description used to look up a collector dynamically.
+-   **collectorSize:** The collector size to install. Can be nano, small, medium, or large.
+-   **collectorVersion:** The collector version to install.
+-   **account:** The LogicMonitor account name.
+-   **imageTag:** The argus image tag to use.
+-   **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
