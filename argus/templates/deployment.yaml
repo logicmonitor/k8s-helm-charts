@@ -44,7 +44,7 @@ spec:
           mountPath: "/etc/argus"
           readOnly: true
       - name: collector
-        image: "logicmonitor/collector:latest"
+        image: "logicmonitor/collector:${{ default "latest" .Values.collectorImageTag }}"
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         env:
         - name: access_id
