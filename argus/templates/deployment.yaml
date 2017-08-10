@@ -14,7 +14,7 @@ spec:
       serviceAccountName: argus
       containers:
       - name: argus
-        image: "{{ .Values.imageRepository }}:{{ .Values.imageTag }}"
+        image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         args:
           - watch
