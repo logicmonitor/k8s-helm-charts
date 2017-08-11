@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   argus:
   - apiVersion: v1
-    created: 2017-08-10T12:26:33.19856403-07:00
+    created: 2017-08-10T22:45:17.764867412-07:00
     description: Automated Kubernetes monitoring
     digest: e7ddcc08d0e48f36e6555d22f9f561766d9e790381feb91b22920e433e6c8c60
     maintainers:
@@ -12,4 +12,15 @@ entries:
     urls:
     - https://logicmonitor.github.com/k8s-helm-charts/argus-0.2.0.tgz
     version: 0.2.0
-generated: 2017-08-10T12:26:33.198075744-07:00
+  - apiVersion: v1
+    created: 2017-08-10T22:45:17.764312755-07:00
+    description: Automated Kubernetes monitoring
+    digest: e3d830320bbfa73c44a6969199b79d30257a6bc45342d48def93995a4d97bdbb
+    maintainers:
+    - email: andrew.rynhard@logicmonitor.com
+      name: Andrew Rynhard
+    name: argus
+    urls:
+    - https://logicmonitor.github.com/k8s-helm-charts/argus-0.1.0.tgz
+    version: 0.1.0
+generated: 2017-08-10T22:45:17.763851513-07:00

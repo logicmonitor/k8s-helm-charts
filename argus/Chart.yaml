@@ -1,7 +1,7 @@
 apiVersion: v1
 description: Automated Kubernetes monitoring
 name: argus
-version: 0.2.0
+version: 0.1.0
 maintainers:
 - name: Andrew Rynhard
   email: andrew.rynhard@logicmonitor.com
