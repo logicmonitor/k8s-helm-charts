@@ -1,7 +1,7 @@
 replicaCount: 1
 argus:
 imageRepository: logicmonitor/argus
-imageTag: 0.1.0-alpha.3
+imageTag: 0.1.0-beta.0
 imagePullPolicy: Always
 collectorSize: small
 collectorVersion: 24200
