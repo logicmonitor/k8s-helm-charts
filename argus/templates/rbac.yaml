@@ -76,4 +76,4 @@ subjects:
 - kind: ServiceAccount
   name: collector
   namespace: {{ .Release.Namespace }}
-{{- end -}}}
+{{- end -}}
