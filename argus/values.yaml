@@ -8,3 +8,4 @@ collectorVersion: 24200
 disableAlerting: false
 deleteDevices: false
 debug: false
+enableRBAC: true
