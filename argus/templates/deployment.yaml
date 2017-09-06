@@ -12,9 +12,9 @@ spec:
         app: argus
     spec:
       serviceAccountName: argus
-    {{- if .Values.deployment.nodeSelector }}
+    {{- if .Values.nodeSelector }}
       nodeSelector:
-{{ toYaml .Values.deployment.nodeSelector | indent 8 }}
+{{ toYaml .Values.nodeSelector | indent 8 }}
     {{- end }}
       containers:
       - name: argus
