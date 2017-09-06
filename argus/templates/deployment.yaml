@@ -12,6 +12,10 @@ spec:
         app: argus
     spec:
       serviceAccountName: argus
+    {{- if .Values.deployment.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.deployment.nodeSelector | indent 8 }}
+    {{- end }}
       containers:
       - name: argus
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
