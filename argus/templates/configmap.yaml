@@ -6,7 +6,7 @@ data:
   config.yaml: |
     cluster_name: {{ required "A valid .Values.clusterName entry is required!" .Values.clusterName }}
     collector_description: {{ required "A valid .Values.collectorDescription entry is required!" .Values.collectorDescription }}
-    collector_escalation_chain_id: {{ .Values.collectorEscalationChainID }}
+    collector_escalation_chain_id: {{ .Values.collectorEscalatingChainID }}
     debug: {{ required "A valid .Values.debug entry is required!" .Values.debug }}
     delete_devices: {{ required "A valid .Values.deleteDevices entry is required!" .Values.deleteDevices }}
     disable_alerting: {{ required "A valid .Values.disableAlerting entry is required!" .Values.disableAlerting }}
