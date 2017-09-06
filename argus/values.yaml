@@ -4,7 +4,6 @@ imageRepository: logicmonitor/argus
 imageTag: latest
 imagePullPolicy: Always
 collectorSize: small
-collectorVersion: 24200
 disableAlerting: false
 deleteDevices: false
 debug: false
