@@ -68,8 +68,8 @@ spec:
               key: account
         - name: collector_size
           value: {{ default "small" .Values.collectorSize }}
-        - name: collector_version
-          value: {{ default 24126 .Values.collectorVersion | quote }}
+        - name: use_ea
+          value: {{ .Values.useEACollector | quote }}
         - name: escalating_chain_id
           value: {{ default 1 .Values.collectorEscalatingChainID | quote }}
         - name: description
