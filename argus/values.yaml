@@ -8,4 +8,5 @@ disableAlerting: false
 deleteDevices: false
 debug: false
 enableRBAC: true
+useEACollector: false
 nodeSelector: {}
