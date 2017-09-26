@@ -10,3 +10,4 @@ debug: false
 enableRBAC: true
 useEACollector: false
 nodeSelector: {}
+affinity: {}
