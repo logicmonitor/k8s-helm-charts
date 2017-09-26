@@ -15,7 +15,6 @@ $ helm upgrade
   --set collectorDescription='$COLLECTOR_DESCRIPTION' \
   --set collectorImageTag='$COLLECTORIMAGETAG' \
   --set collectorSize='$COLLECTORSIZE' \
-  --set collectorVersion='$COLLECTOR_VERSION' \
   --set etcdDiscoveryToken='$ETCD_DISCOVERY_TOKEN' \
   --set imageTag='$IMAGE_TAG' \
   argus logicmonitor/argus
@@ -29,6 +28,6 @@ Values:
 -   **collectorDescription:** A unique collector description used to look up a collector dynamically.
 -   **collectorImageTag:** The collector image tag.
 -   **collectorSize:** The collector size to install. Can be nano, small, medium, or large.
--   **collectorVersion:** The collector version to install.
 -   **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
 -   **imageTag:** The argus image tag to use.
+-   **useEACollector:** Use an early access collector.
