@@ -1,8 +1,6 @@
-imageRepository: logicmonitor/argus
+imageRepository: logicmonitor/collectorset-controller
 imageTag: latest
 imagePullPolicy: Always
-disableAlerting: false
-deleteDevices: true
 debug: false
 enableRBAC: true
 nodeSelector: {}

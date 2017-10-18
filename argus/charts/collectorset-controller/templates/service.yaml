@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: collectorset-controller
+spec:
+  selector:
+    app: collectorset-controller
+  ports:
+  - protocol: TCP
+    port: 50000
+    targetPort: 50000
