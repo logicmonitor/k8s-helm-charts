@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: argus
+  name: collectorset-controller
   labels:
-    chart: "argus"
+    chart: "collectorset-controller"
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: argus
+        app: collectorset-controller
     spec:
-      serviceAccountName: argus
+      serviceAccountName: collectorset-controller
     {{- if .Values.affinity }}
       affinity:
 {{ toYaml .Values.affinity | indent 8 }}
@@ -21,42 +21,40 @@ spec:
 {{ toYaml .Values.nodeSelector | indent 8 }}
     {{- end }}
       containers:
-      - name: argus
+      - name: collectorset-controller
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
         imagePullPolicy: {{ .Values.imagePullPolicy }}
-        args:
-          - watch
         env:
         - name: ACCESS_ID
           valueFrom:
             secretKeyRef:
-              name: argus
+              name: collectorset-controller
               key: accessID
         - name: ACCESS_KEY
           valueFrom:
             secretKeyRef:
-              name: argus
+              name: collectorset-controller
               key: accessKey
         - name: ACCOUNT
           valueFrom:
             secretKeyRef:
-              name: argus
+              name: collectorset-controller
               key: account
         - name: ETCD_DISCOVERY_TOKEN
           valueFrom:
             secretKeyRef:
-              name: argus
+              name: collectorset-controller
               key: etcdDiscoveryToken
         volumeMounts:
-        - name: etc-argus
-          mountPath: "/etc/argus"
+        - name: etc-collectorset-controller
+          mountPath: "/etc/collectorset-controller"
           readOnly: true
       volumes:
-      - name: etc-argus
+      - name: etc-collectorset-controller
         projected:
           sources:
           - configMap:
-              name: argus
+              name: collectorset-controller
               items:
                 - key: config.yaml
                   path: config.yaml
