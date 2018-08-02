@@ -1,0 +1,33 @@
+Release Manager has been installed with the release name '{{ tpl (.Release.Name) .}}'
+
+ This cluster's release state is beign stored in
+{{- if and .Values.s3 (eq .Values.backend.type "s3") }}
+  s3://{{ .Values.s3.bucket }}/{{ .Values.backend.path }}
+{{- end }}
+
+You can import the stored state into another cluster by executing
+releasemanager import \
+  --path {{ .Values.backend.path }} \
+{{- if .Values.namespace }}
+    --namespace {{- .Values.namespace }} \
+{{- end }}
+  {{ .Values.backend.type }} \
+{{- if and .Values.s3 (eq .Values.backend.type "s3") }}
+    --bucket {{ .Values.s3.bucket }} \
+{{- if .Values.s3.region }}
+    --region {{ .Values.s3.region }} \
+{{- end }}
+{{- if .Values.s3.accessKeyID }}
+    --accessKeyID {{ .Values.s3.accessKeyID }} \
+{{- end }}
+{{- if .Values.s3.secretAccessKey }}
+    --secretAccessKey {{ .Values.s3.secretAccessKey }} \
+{{- end }}
+{{- if .Values.s3.sessionToken }}
+    --sessionToken {{ .Values.s3.sessionToken }} \
+{{- end }}
+{{- end }} {{/* s3 backend type if */}}
+    --new-path "new-cluster"
+
+IMPORTANT!! Be sure to update --new-path to reflect the backend storage \
+path you want to use for the target cluster's new Release Manager

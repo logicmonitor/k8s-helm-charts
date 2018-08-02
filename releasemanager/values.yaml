@@ -1,0 +1,68 @@
+# Default values for releasemanager.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: logicmonitor/releasemanager
+  tag: latest
+  pullPolicy: IfNotPresent
+
+## Communicate with the instance of Tiller in this namespace (default "kube-system")
+##
+# namespace: kube-system
+
+## Enable debugging output
+##
+# debug: true
+
+## Print planned actions without making any modifications
+##
+# dryRun: true
+
+## Enable verbose output
+##
+# verbose: true
+
+
+## Release Manager daemon configuration options
+##
+# daemon:
+    ## Specify, in seconds, how frequently the daemon should export the current state (default 30)
+    ##
+    # pollingInterval: 30
+
+## Backend configuration options
+##
+backend:
+  ## Required. Use this path within the backend for state storage
+  ##
+  # path:
+
+  ## Required: The backend type to use. Valid options are: s3
+  ##
+  type: s3
+
+## s3 backend configuration options
+##
+s3:
+  ## Required for s3 backend. Use this S3 bucket for backend storage
+  ##
+  # bucket:
+
+  ## The backend S3 bucket's region
+  ##
+  # region: us-east-1
+
+  ## An AWS Access Key ID for accessing the S3 bucket, otherwise use the default AWS credential provider chain
+  ##
+  # accessKeyID:
+
+  ## An AWS Secret Access Key for accessing the S3 bucket, otherwise use the default AWS credential provider chain
+  ##
+  # secretAccessKey:
+
+  ## An AWS STS Session Token  for accessing the S3 bucket, otherwise use the default AWS credential provider chain
+  ##
+  # sessionToken:
