@@ -9,4 +9,5 @@ charts:
 
 index:
 	helm repo index ./ --url https://logicmonitor.github.com/k8s-helm-charts
+	sed -i '' 's/\/docs//' index.yaml
 	mv index.yaml ./docs
