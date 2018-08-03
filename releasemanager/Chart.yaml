@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Release Manager provides a long-running application that will periodically poll the Tiller server installed in your cluster.
+name: releasemanager
+version: 0.1.0

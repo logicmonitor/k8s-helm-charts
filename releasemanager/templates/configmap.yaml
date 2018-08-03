@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: releasemanager
+data:
+  config.yaml: |
+    debug: {{ .Values.debug }}
+    dryRun: {{ .Values.dryRun }}
+    tillerNamespace: {{ .Values.tillerNamespace }}
+    path: {{ required "A valid .Values.backend.path entry required" .Values.backend.path }}
+    pollingInterval: {{ .Values.daemon.pollingInterval }}
+    verbose: {{ .Values.verbose }}
+{{- if and .Values.s3 (eq .Values.backend.type "s3") }}
+    region: {{ required "A valid .Values.s3.region entry required for s3 backend type" .Values.s3.region }}
+    bucket: {{ required "A valid .Values.s3.bucket entry required for s3 backend type" .Values.s3.bucket }}
+{{- end }}
