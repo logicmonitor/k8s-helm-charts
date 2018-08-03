@@ -25,63 +25,46 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
           - export
+          - --config
+          - /etc/releasemanager/config.yaml
           - --daemon
           - {{ required "A valid .Values.backend.type entry required" .Values.backend.type }}
-          - --path
-          - {{ required "A valid .Values.backend.path entry required" .Values.backend.path }}
           - --release-name
           - {{ tpl (.Release.Name) .}}
-{{- if .Values.dryRun }}
-          - --dry-run
-{{- end }}
-{{- if .Values.debug }}
-          - --debug
-{{- end }}
-{{- if .Values.verbose }}
-          - --verbose
-{{- end }}
-{{- if .Values.daemon }}
-{{- if .Values.daemon.pollingInterval }}
-          - --polling-interval
-          - {{ .Values.daemon.pollingInterval }}
-{{- end }}
-{{- end }}
-{{- if .Values.namespace }}
-          - --namespace
-          - {{ .Values.namespace }}
-{{- end }}
-{{- if and .Values.s3 (eq .Values.backend.type "s3") }}
-          - --region
-          - {{ required "A valid .Values.s3.region entry required for s3 backend type" .Values.s3.region }}
-          - --bucket
-          - {{ required "A valid .Values.s3.bucket entry required for s3 backend type" .Values.s3.bucket }}
-{{- range $key, $value := .Values.s3 }}
-{{- if and (ne $key "bucket") (ne $key "region") }}
-          - --{{ $key }}
-          - {{ $value }}
-{{- end }}
-{{- end }}
-{{- else }}
-# {{- required "A valid .Values.s3 entry required for s3 backend type" .Values.s3 }}
-{{- end }}
-{{- if .Values.environment }}
           env:
-  {{- range .Values.environment }}
-          - name: {{ .name }}
-            value: {{ .value }}
-  {{- end }}
+{{- if and .Values.s3 (eq .Values.backend.type "s3") }}
+{{- if and .Values.s3 .Values.s3.accessKeyID }}
+          - name: AWS_ACCESS_KEY_ID
+            valueFrom:
+              secretKeyRef:
+                name: releasemanager
+                key: accessKeyID
 {{- end }}
-          resources:
-{{ toYaml .Values.resources | indent 12 }}
-    {{- with .Values.nodeSelector }}
-      nodeSelector:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.affinity }}
-      affinity:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
-      tolerations:
-{{ toYaml . | indent 8 }}
-    {{- end }}
+{{- if and .Values.s3 .Values.s3.secretAccessKey }}
+          - name: AWS_SECRET_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: releasemanager
+                key: secretAccessKey
+{{- end }}
+{{- if and .Values.s3 .Values.s3.sessionToken }}
+          - name: AWS_SESSION_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: releasemanager
+                key: sessionToken
+{{- end }}
+{{- end }}
+          volumeMounts:
+          - name: etc-releasemanager
+            mountPath: "/etc/releasemanager"
+            readOnly: true
+      volumes:
+      - name: etc-releasemanager
+        projected:
+          sources:
+          - configMap:
+              name: releasemanager
+              items:
+                - key: config.yaml
+                  path: config.yaml

@@ -11,27 +11,27 @@ image:
 
 ## Communicate with the instance of Tiller in this namespace (default "kube-system")
 ##
-# namespace: kube-system
+tillerNamespace: kube-system
 
 ## Enable debugging output
 ##
-# debug: true
+debug: false
 
 ## Print planned actions without making any modifications
 ##
-# dryRun: true
+dryRun: false
 
 ## Enable verbose output
 ##
-# verbose: true
+verbose: false
 
 
 ## Release Manager daemon configuration options
 ##
-# daemon:
+daemon:
     ## Specify, in seconds, how frequently the daemon should export the current state (default 30)
     ##
-    # pollingInterval: 30
+    pollingInterval: 30
 
 ## Backend configuration options
 ##

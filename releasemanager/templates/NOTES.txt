@@ -8,8 +8,8 @@ Release Manager has been installed with the release name '{{ tpl (.Release.Name)
 You can import the stored state into another cluster by executing
 releasemanager import \
   --path {{ .Values.backend.path }} \
-{{- if .Values.namespace }}
-    --namespace {{- .Values.namespace }} \
+{{- if .Values.tillerNamespace }}
+    --tiller-namespace {{- .Values.tillerNamespace }} \
 {{- end }}
   {{ .Values.backend.type }} \
 {{- if and .Values.s3 (eq .Values.backend.type "s3") }}

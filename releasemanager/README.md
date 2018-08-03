@@ -7,10 +7,10 @@ $ helm upgrade
   --install \
   --debug \
   --wait \
-  --namespace $NAMESPACE \
+  --tiller-namespace $NAMESPACE \
   --set debug=$DEBUG \
   --set verbose=$VERBOSE \
-  --set namespace=$TILLER_NAMESPACE \
+  --set tillerNamespace=$NAMESPACE \
   --set daemon.pollingInterval=$POLLING_INTERVAL \
   --set backend.type=s3 \
   --set backend.path=$BACKEND_PATH \
@@ -26,7 +26,7 @@ $ helm upgrade
 -   **debug:** Enable debugging output
 -   **dryRun:** Print planned actions without making any modifications
 -   **verbose:** Enable verbose output
--   **namespace:** Communicate with the instance of Tiller in this namespace (default "kube-system")
+-   **tillerNamespace:** Communicate with the instance of Tiller in this namespace (default "kube-system")
 -   **backend.path:** Required. Use this path within the backend for state storage
 -   **backend.type:** Required: The backend type to use. Valid options are: s3
 -   **daemon.pollingInterval:** Specify, in seconds, how frequently the daemon should export the current state (default 30)

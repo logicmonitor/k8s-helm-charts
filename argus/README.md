@@ -7,7 +7,7 @@ $ helm upgrade
   --install \
   --debug \
   --wait \
-  --namespace $NAMESPACE \
+  --tiller-namespace $NAMESPACE \
   --set accessID='$ACCESS_ID' \
   --set accessKey='$ACCESS_KEY' \
   --set account='$ACCOUNT' \
