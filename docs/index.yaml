@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   argus:
   - apiVersion: v1
-    created: 2018-08-03T16:08:02.635661-05:00
+    created: 2018-08-03T17:05:47.33918-05:00
     description: Automated Kubernetes monitoring
     digest: 316c7c7d17085a65027667ef4a053062c3b2304b12f2f7e178b1f633baef73b0
     maintainers:
@@ -10,10 +10,10 @@ entries:
       name: Andrew Rynhard
     name: argus
     urls:
-    - https://logicmonitor.github.com/k8s-helm-charts/docs/argus-0.2.0.tgz
+    - https://logicmonitor.github.com/k8s-helm-charts/argus-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v1
-    created: 2018-08-03T16:08:02.635146-05:00
+    created: 2018-08-03T17:05:47.338626-05:00
     description: Automated Kubernetes monitoring
     digest: b5e475acc633064f72e56d604bceb181920e194372807ed7e7384b4b75a8a8eb
     maintainers:
@@ -21,16 +21,16 @@ entries:
       name: Andrew Rynhard
     name: argus
     urls:
-    - https://logicmonitor.github.com/k8s-helm-charts/docs/argus-0.1.0.tgz
+    - https://logicmonitor.github.com/k8s-helm-charts/argus-0.1.0.tgz
     version: 0.1.0
   releasemanager:
   - apiVersion: v1
-    created: 2018-08-03T16:08:02.635984-05:00
+    created: 2018-08-03T17:05:47.339621-05:00
     description: Release Manager provides a long-running application that will periodically
       poll the Tiller server installed in your cluster.
     digest: 6245adbf95c1aaba235f4f52cfbb27a3c6621d17e534b57319e0fd76f396c304
     name: releasemanager
     urls:
-    - https://logicmonitor.github.com/k8s-helm-charts/docs/releasemanager-0.1.0.tgz
+    - https://logicmonitor.github.com/k8s-helm-charts/releasemanager-0.1.0.tgz
     version: 0.1.0
-generated: 2018-08-03T16:08:02.634541-05:00
+generated: 2018-08-03T17:05:47.337987-05:00
