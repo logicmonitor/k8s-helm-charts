@@ -19,6 +19,7 @@ spec:
         app: {{ template "releasemanager.name" . }}
         release: {{ .Release.Name }}
     spec:
+      serviceAccountName: releasemanager
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
