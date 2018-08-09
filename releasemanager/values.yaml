@@ -44,6 +44,16 @@ backend:
   ##
   type: s3
 
+## ingress configuration options
+##
+# ingress:
+  ## A list of hosts to associate with the ingress object
+  ##
+  # hosts:
+  # - host1
+  # - host2
+
+
 ## s3 backend configuration options
 ##
 s3:

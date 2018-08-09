@@ -1,8 +1,18 @@
 Release Manager has been installed with the release name '{{ tpl (.Release.Name) .}}'
 
- This cluster's release state is beign stored in
+ This cluster's release state is being stored in
 {{- if and .Values.s3 (eq .Values.backend.type "s3") }}
   s3://{{ .Values.s3.bucket }}/{{ .Values.backend.path }}
+{{- end }}
+
+{{- if .Values.ingress }}
+{{- if .Values.ingress.hosts }}
+You can view Release Manager metrics and stored releases by querying:
+{{- range $host := .Values.ingress.hosts }}
+    {{ $host }}/debug/vars
+    {{ $host }}/releases
+{{- end }}
+{{- end }}
 {{- end }}
 
 You can import the stored state into another cluster by executing

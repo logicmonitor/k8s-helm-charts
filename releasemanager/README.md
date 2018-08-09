@@ -31,6 +31,9 @@ $ helm upgrade
 -   **backend.type:** Required: The backend type to use. Valid options are: s3
 -   **daemon.pollingInterval:** Specify, in seconds, how frequently the daemon should export the current state (default 30)
 
+### ingress configuration values
+-   **ingress.hosts:** A list of hosts to associate with the ingress object. If this is empty, ot ingress will be created
+
 ### s3 backend configuration values
 -   **s3.bucket:** Required for s3 backend. Use this S3 bucket for backend storage
 -   **s3.region:** The backend S3 bucket's region

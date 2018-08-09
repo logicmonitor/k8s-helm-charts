@@ -1,0 +1,24 @@
+{{- if .Values.ingress }}
+{{- if .Values.ingress.hosts }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "releasemanager.name" $ }}
+spec:
+  tls:
+  - hosts:
+{{- range $host := .Values.ingress.hosts }}
+      - {{ $host }}
+{{- end }}
+  rules:
+{{- range $host := .Values.ingress.hosts }}
+  - host: {{ $host }}
+    http:
+      paths:
+        - backend:
+            serviceName: {{ template "releasemanager.name" $ }}
+            servicePort: 8080
+          path: /
+{{- end }}
+{{- end }}
+{{- end }}
