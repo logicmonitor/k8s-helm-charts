@@ -3,5 +3,5 @@ description: Automated Kubernetes monitoring
 name: argus
 version: 0.2.0
 maintainers:
-- name: Andrew Rynhard
-  email: andrew.rynhard@logicmonitor.com
+- name: LogicMonitor
+  email: argus@logicmonitor.com
