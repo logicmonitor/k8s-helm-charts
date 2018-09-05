@@ -18,9 +18,10 @@ $ helm upgrade \
 ```
 
 Values:
--   **accessID:** The LogicMonitor API key ID.
--   **accessKey:** The LogicMonitor API key.
--   **account:** The LogicMonitor account name.
--   **clusterName:** A unique name given to the cluster's device group.
--   **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
--   **imageTag:** The collectorset-controller image tag to use.
+
+- **accessID:** The LogicMonitor API key ID.
+- **accessKey:** The LogicMonitor API key.
+- **account:** The LogicMonitor account name.
+- **clusterName:** A unique name given to the cluster's device group.
+- **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
+- **imageTag:** The collectorset-controller image tag to use.
