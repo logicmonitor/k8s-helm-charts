@@ -19,7 +19,7 @@ $ helm upgrade \
   argus logicmonitor/argus
 ```
 
-Values:
+Required Values:
 
 - **accessID:** The LogicMonitor API key ID.
 - **accessKey:** The LogicMonitor API key.
@@ -28,4 +28,14 @@ Values:
 - **collector.replicas:** The number of collectors to create and use with Argus.
 - **collector.size:** The collector size to install. Can be nano, small, medium, or large.
 - **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
-- **imageTag:** The argus image tag to use.
+
+Optional Values:
+
+- **debug (default: `false`):** Enable debug logging.
+- **deleteDevices (default: `true`):** On a delete event, either delete from LogicMonitor or move the device to the `_delted` device group.
+- **disableAlerting (default: `false`):** Disable alerting for all devices added.
+- **enableRBAC (default: `true`):** Enable RBAC.
+- **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
+- **imagePullPolicy (default: `"Always"`):**
+- **imageRepository (default: `"logicmonitor/argus"`):** The respository to use for the Argus docker image.
+- **imageTag:** The argus container image tag to use.

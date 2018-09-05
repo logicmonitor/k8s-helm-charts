@@ -17,11 +17,17 @@ $ helm upgrade \
   collectorset-controller logicmonitor/collectorset-controller
 ```
 
-Values:
+Required Values:
 
 - **accessID:** The LogicMonitor API key ID.
 - **accessKey:** The LogicMonitor API key.
 - **account:** The LogicMonitor account name.
 - **clusterName:** A unique name given to the cluster's device group.
+
+Optional Values:
+
+- **enableRBAC (default: `true`):** Enable RBAC.
 - **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
+- **imagePullPolicy (default: `"Always"`):**
+- **imageRepository (default: `"logicmonitor/collectorset-controller"`):** The respository to use for the Argus docker image.
 - **imageTag:** The collectorset-controller image tag to use.
