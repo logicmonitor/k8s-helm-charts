@@ -1,0 +1,2 @@
+1. View the logs for Argus by running this command:
+kubectl logs -f $(kubectl get pods --namespace={{ .Release.Namespace }} -l app=argus -o name) -c argus -n {{ .Release.Namespace }}

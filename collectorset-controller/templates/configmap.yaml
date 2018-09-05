@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: collectorset-controller
+data:
+  config.yaml: |
+    debug: {{ required "A valid .Values.debug entry is required!" .Values.debug }}
