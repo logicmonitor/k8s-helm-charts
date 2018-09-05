@@ -1,0 +1,11 @@
+apiVersion: logicmonitor.com/v1alpha1
+kind: CollectorSet
+metadata:
+  name: {{ .Values.clusterName }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  policy:
+    distributionStrategy: RoundRobin
+    orchestrator: Kubernetes
+  replicas: {{ required "A valid .Values.collector.replicas entry is required!" .Values.collector.replicas }}
+  size: {{ required "A valid .Values.collector.size entry is required!" .Values.collector.size }}
