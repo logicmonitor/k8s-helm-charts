@@ -1,7 +1,0 @@
-imageRepository: logicmonitor/collectorset-controller
-imageTag: latest
-imagePullPolicy: Always
-debug: false
-enableRBAC: true
-nodeSelector: {}
-affinity: {}
