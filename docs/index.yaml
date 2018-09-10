@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   argus:
   - apiVersion: v1
-    created: 2018-09-05T11:39:03.745065-07:00
+    created: 2018-09-10T11:30:41.548689-07:00
     description: Automated Kubernetes monitoring
     digest: 92a0d65fe6ec5c1bc1adb81394fb00e0aec73740e41f0a64ad6c3a680c8633f7
     maintainers:
@@ -13,7 +13,7 @@ entries:
     - https://logicmonitor.github.com/k8s-helm-charts/argus-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v1
-    created: 2018-09-05T11:39:03.744805-07:00
+    created: 2018-09-10T11:30:41.548401-07:00
     description: Automated Kubernetes monitoring
     digest: 316c7c7d17085a65027667ef4a053062c3b2304b12f2f7e178b1f633baef73b0
     maintainers:
@@ -24,7 +24,7 @@ entries:
     - https://logicmonitor.github.com/k8s-helm-charts/argus-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v1
-    created: 2018-09-05T11:39:03.744436-07:00
+    created: 2018-09-10T11:30:41.54801-07:00
     description: Automated Kubernetes monitoring
     digest: b5e475acc633064f72e56d604bceb181920e194372807ed7e7384b4b75a8a8eb
     maintainers:
@@ -34,9 +34,21 @@ entries:
     urls:
     - https://logicmonitor.github.com/k8s-helm-charts/argus-0.1.0.tgz
     version: 0.1.0
+  collectorset-controller:
+  - apiVersion: v1
+    created: 2018-09-10T11:30:41.548948-07:00
+    description: Automated collector management
+    digest: 801cde44721d013839958a6ba44693c0ed3fdca61acef2bf32075e73d5f91604
+    maintainers:
+    - email: argus@logicmonitor.com
+      name: LogicMonitor
+    name: collectorset-controller
+    urls:
+    - https://logicmonitor.github.com/k8s-helm-charts/collectorset-controller-0.1.0.tgz
+    version: 0.1.0
   releasemanager:
   - apiVersion: v1
-    created: 2018-09-05T11:39:03.745377-07:00
+    created: 2018-09-10T11:30:41.549277-07:00
     description: Release Manager provides a long-running application that will periodically
       poll the Tiller server installed in your cluster.
     digest: dbcac371af7b29c4c5d6e9fc02ddf65b7093109c45fa3875b7f5b259d71f87ca
@@ -44,4 +56,4 @@ entries:
     urls:
     - https://logicmonitor.github.com/k8s-helm-charts/releasemanager-0.1.0.tgz
     version: 0.1.0
-generated: 2018-09-05T11:39:03.743975-07:00
+generated: 2018-09-10T11:30:41.547546-07:00
