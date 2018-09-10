@@ -3,5 +3,5 @@ description: Automated collector management
 name: collectorset-controller
 version: 0.1.0
 maintainers:
-- name: Andrew Rynhard
-  email: andrew.rynhard@logicmonitor.com
+- name: LogicMonitor
+  email: argus@logicmonitor.com

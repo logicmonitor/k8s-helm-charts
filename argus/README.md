@@ -3,31 +3,39 @@
 This Helm chart installs [Argus](https://github.com/logicmonitor/k8s-argus). A [LogicMonitor](https://www.logicmonitor.com) account is required.
 
 ```bash
-$ helm upgrade
+$ helm upgrade \
   --install \
   --debug \
   --wait \
-  --tiller-namespace $NAMESPACE \
-  --set accessID='$ACCESS_ID' \
-  --set accessKey='$ACCESS_KEY' \
-  --set account='$ACCOUNT' \
-  --set clusterName='$CLUSTER_NAME' \
-  --set collectorDescription='$COLLECTOR_DESCRIPTION' \
-  --set collectorImageTag='$COLLECTORIMAGETAG' \
-  --set collectorSize='$COLLECTORSIZE' \
-  --set etcdDiscoveryToken='$ETCD_DISCOVERY_TOKEN' \
-  --set imageTag='$IMAGE_TAG' \
+  --tiller-namespace="$NAMESPACE" \
+  --set accessID="$ACCESS_ID" \
+  --set accessKey="$ACCESS_KEY" \
+  --set account="$ACCOUNT" \
+  --set clusterName="$CLUSTER_NAME" \
+  --set etcdDiscoveryToken="$ETCD_DISCOVERY_TOKEN" \
+  --set imageTag="$IMAGE_TAG" \
+  --set collector.replicas="$COLLECTOR_REPLICAS" \
+  --set collector.size="$COLLECTOR_SIZE" \
   argus logicmonitor/argus
 ```
 
-Values:
--   **accessID:** The LogicMonitor API key ID.
--   **accessKey:** The LogicMonitor API key.
--   **account:** The LogicMonitor account name.
--   **clusterName:** A unique name given to the cluster's device group.
--   **collectorDescription:** A unique collector description used to look up a collector dynamically.
--   **collectorImageTag:** The collector image tag.
--   **collectorSize:** The collector size to install. Can be nano, small, medium, or large.
--   **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
--   **imageTag:** The argus image tag to use.
--   **useEACollector:** Use an early access collector.
+Required Values:
+
+- **accessID:** The LogicMonitor API key ID.
+- **accessKey:** The LogicMonitor API key.
+- **account:** The LogicMonitor account name.
+- **clusterName:** A unique name given to the cluster's device group.
+- **collector.replicas:** The number of collectors to create and use with Argus.
+- **collector.size:** The collector size to install. Can be nano, small, medium, or large.
+- **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
+
+Optional Values:
+
+- **debug (default: `false`):** Enable debug logging.
+- **deleteDevices (default: `true`):** On a delete event, either delete from LogicMonitor or move the device to the `_delted` device group.
+- **disableAlerting (default: `false`):** Disable alerting for all devices added.
+- **enableRBAC (default: `true`):** Enable RBAC.
+- **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
+- **imagePullPolicy (default: `"Always"`):**
+- **imageRepository (default: `"logicmonitor/argus"`):** The respository to use for the Argus docker image.
+- **imageTag:** The argus container image tag to use.
