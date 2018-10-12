@@ -25,7 +25,6 @@ Required Values:
 - **accessID:** The LogicMonitor API key ID.
 - **accessKey:** The LogicMonitor API key.
 - **account:** The LogicMonitor account name.
-- **clusterGroupID:** A parent group id of the cluster's device group.
 - **clusterName:** A unique name given to the cluster's device group.
 - **collector.replicas:** The number of collectors to create and use with Argus.
 - **collector.size:** The collector size to install. Can be nano, small, medium, or large.
@@ -37,6 +36,7 @@ Optional Values:
 - **deleteDevices (default: `true`):** On a delete event, either delete from LogicMonitor or move the device to the `_delted` device group.
 - **disableAlerting (default: `false`):** Disable alerting for all devices added.
 - **enableRBAC (default: `true`):** Enable RBAC.
+- **clusterGroupID:** A parent group id of the cluster's device group.
 - **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
 - **imagePullPolicy (default: `"Always"`):**
 - **imageRepository (default: `"logicmonitor/argus"`):** The respository to use for the Argus docker image.
