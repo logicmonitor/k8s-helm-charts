@@ -11,6 +11,7 @@ $ helm upgrade \
   --set accessID="$ACCESS_ID" \
   --set accessKey="$ACCESS_KEY" \
   --set account="$ACCOUNT" \
+  --set clusterGroupID="$CLUSTER_GROUP_ID" \
   --set clusterName="$CLUSTER_NAME" \
   --set etcdDiscoveryToken="$ETCD_DISCOVERY_TOKEN" \
   --set imageTag="$IMAGE_TAG" \
@@ -24,6 +25,7 @@ Required Values:
 - **accessID:** The LogicMonitor API key ID.
 - **accessKey:** The LogicMonitor API key.
 - **account:** The LogicMonitor account name.
+- **clusterGroupID:** A parent group id of the cluster's device group.
 - **clusterName:** A unique name given to the cluster's device group.
 - **collector.replicas:** The number of collectors to create and use with Argus.
 - **collector.size:** The collector size to install. Can be nano, small, medium, or large.

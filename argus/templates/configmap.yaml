@@ -5,6 +5,7 @@ metadata:
 data:
   config.yaml: |
     address: collectorset-controller:50000
+    cluster_group_id: {{ required "A valid .Values.clusterGroupID entry is required!" .Values.clusterGroupID }}
     cluster_name: {{ required "A valid .Values.clusterName entry is required!" .Values.clusterName }}
     debug: {{ required "A valid .Values.debug entry is required!" .Values.debug }}
     delete_devices: {{ required "A valid .Values.deleteDevices entry is required!" .Values.deleteDevices }}
