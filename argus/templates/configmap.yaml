@@ -10,3 +10,4 @@ data:
     delete_devices: {{ required "A valid .Values.deleteDevices entry is required!" .Values.deleteDevices }}
     disable_alerting: {{ required "A valid .Values.disableAlerting entry is required!" .Values.disableAlerting }}
     etcd_discovery_token: {{ .Values.etcdDiscoveryToken }}
+    cluster_group_id: {{ .Values.clusterGroupID }}
