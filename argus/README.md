@@ -17,6 +17,7 @@ $ helm upgrade \
   --set imageTag="$IMAGE_TAG" \
   --set collector.replicas="$COLLECTOR_REPLICAS" \
   --set collector.size="$COLLECTOR_SIZE" \
+  --set collector.escalationChainID="$COLLECTOR_ESCALATION_CHAIN_ID" \
   argus logicmonitor/argus
 ```
 
@@ -41,3 +42,4 @@ Optional Values:
 - **imagePullPolicy (default: `"Always"`):**
 - **imageRepository (default: `"logicmonitor/argus"`):** The respository to use for the Argus docker image.
 - **imageTag:** The argus container image tag to use.
+- **collector.escalationChainID:** The ID of the escalation chain of the collectors.
