@@ -18,6 +18,8 @@ $ helm upgrade \
   --set collector.replicas="$COLLECTOR_REPLICAS" \
   --set collector.size="$COLLECTOR_SIZE" \
   --set collector.escalationChainID="$COLLECTOR_ESCALATION_CHAIN_ID" \
+  --set collector.version="$COLLECTOR_VERSION" \
+  --set collector.useEA="$COLLECTOR_USE_EA" \
   argus logicmonitor/argus
 ```
 
@@ -43,3 +45,5 @@ Optional Values:
 - **imageRepository (default: `"logicmonitor/argus"`):** The respository to use for the Argus docker image.
 - **imageTag:** The argus container image tag to use.
 - **collector.escalationChainID:** The ID of the escalation chain of the collectors.
+- **collector.version:** The version of the collectors.
+- **collector.useEA:** On a collector downloading event, either download the latest EA version or the latest GD version.
