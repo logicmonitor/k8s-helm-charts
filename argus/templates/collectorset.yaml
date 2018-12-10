@@ -9,6 +9,7 @@ spec:
     orchestrator: Kubernetes
   replicas: {{ required "A valid .Values.collector.replicas entry is required!" .Values.collector.replicas }}
   size: {{ required "A valid .Values.collector.size entry is required!" .Values.collector.size }}
+  groupName: {{ required "A valid .Values.clusterName entry is required!" .Values.clusterName }}
   {{- if .Values.collector.escalationChainID }}
   escalationChainID: {{ .Values.collector.escalationChainID }}
   {{- end }}
