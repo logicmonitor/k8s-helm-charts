@@ -1,7 +1,7 @@
 apiVersion: logicmonitor.com/v1alpha1
 kind: CollectorSet
 metadata:
-  name: {{ .Values.clusterName }}
+  name: {{ lower .Values.clusterName }}
   namespace: {{ .Release.Namespace }}
 spec:
   policy:
@@ -9,3 +9,13 @@ spec:
     orchestrator: Kubernetes
   replicas: {{ required "A valid .Values.collector.replicas entry is required!" .Values.collector.replicas }}
   size: {{ required "A valid .Values.collector.size entry is required!" .Values.collector.size }}
+  groupName: {{ required "A valid .Values.clusterName entry is required!" .Values.clusterName }}
+  {{- if .Values.collector.escalationChainID }}
+  escalationChainID: {{ .Values.collector.escalationChainID }}
+  {{- end }}
+  {{- if .Values.collector.collectorVersion }}
+  collectorVersion: {{ .Values.collector.collectorVersion }}
+  {{- end }}
+  {{- if .Values.collector.useEA }}
+  useEA: {{ .Values.collector.useEA }}
+  {{- end }}
