@@ -61,6 +61,12 @@ rules:
   verbs:
   - list
   - get
+- apiGroups:
+  - ""
+  resources:
+  - nodes/stats
+  verbs:
+  - get
 - nonResourceURLs:
   - /
   - /healthz
