@@ -1,7 +1,7 @@
 apiVersion: v1
 description: Automated collector management
 name: collectorset-controller
-version: 0.1.0
+version: 0.2.0
 maintainers:
 - name: LogicMonitor
   email: argus@logicmonitor.com
