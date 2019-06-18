@@ -19,12 +19,6 @@ rules:
     - get
     - watch
     - update
-- nonResourceURLs:
-    - /
-    - /healthz
-    - /healthz/*
-  verbs:
-    - get
 - apiGroups:
     - "apps"
   resources:
@@ -34,6 +28,12 @@ rules:
     - get
     - watch
     - update
+- nonResourceURLs:
+    - /
+    - /healthz
+    - /healthz/*
+  verbs:
+    - get
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
