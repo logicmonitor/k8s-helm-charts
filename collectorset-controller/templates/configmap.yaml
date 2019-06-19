@@ -5,4 +5,4 @@ metadata:
 data:
   config.yaml: |
     debug: {{ required "A valid .Values.debug entry is required!" .Values.debug }}
-    proxy_url: {{ .Values.proxyURL }}
+    namespace: {{ .Release.Namespace }}
