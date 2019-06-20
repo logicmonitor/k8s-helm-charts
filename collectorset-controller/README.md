@@ -14,6 +14,7 @@ $ helm upgrade \
   --set clusterName="$CLUSTER_NAME" \
   --set etcdDiscoveryToken="$ETCD_DISCOVERY_TOKEN" \
   --set imageTag="$IMAGE_TAG" \
+  --set proxyURL="$PROXY_URL" \
   collectorset-controller logicmonitor/collectorset-controller
 ```
 
@@ -31,3 +32,4 @@ Optional Values:
 - **imagePullPolicy (default: `"Always"`):**
 - **imageRepository (default: `"logicmonitor/collectorset-controller"`):** The respository to use for the Argus docker image.
 - **imageTag:** The collectorset-controller image tag to use.
+- **proxyURL:** Http proxy url used by collectorset-controller request.
