@@ -15,7 +15,10 @@ $ helm upgrade \
   --set clusterName="$CLUSTER_NAME" \
   --set etcdDiscoveryToken="$ETCD_DISCOVERY_TOKEN" \
   --set imageTag="$IMAGE_TAG" \
-  --set proxyURL="$PROXY_URL" \
+  --set proxyHost="$PROXY_HOST" \
+  --set proxyPort="$PROXY_PORT" \
+  --set-string proxyUser="$PROXY_USER" \
+  --set-string proxyPass="$PROXY_PASS" \
   --set collector.replicas="$COLLECTOR_REPLICAS" \
   --set collector.size="$COLLECTOR_SIZE" \
   --set collector.groupID="$COLLECTOR_GROUP_ID" \
@@ -46,7 +49,10 @@ Optional Values:
 - **imagePullPolicy (default: `"Always"`):**
 - **imageRepository (default: `"logicmonitor/argus"`):** The respository to use for the Argus docker image.
 - **imageTag:** The argus container image tag to use.
-- **proxyURL:** The Http/s proxy url for application request routing.
+- **proxyHost:** The Http/s proxy hostname.
+- **proxyPort:** The Http/s proxy port.
+- **proxyUser:** The Http/s proxy credential username.
+- **proxyPass:** The Http/s proxy credential password.
 - **collector.groupID:** The ID of the group of the collectors.
 - **collector.escalationChainID:** The ID of the escalation chain of the collectors.
 - **collector.version:** The version of the collectors.

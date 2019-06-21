@@ -45,11 +45,16 @@ spec:
             secretKeyRef:
               name: collectorset-controller
               key: etcdDiscoveryToken
-        - name: PROXY_URL
+        - name: PROXY_USER
           valueFrom:
             secretKeyRef:
               name: collectorset-controller
-              key: proxyURL
+              key: proxyUser
+        - name: PROXY_PASS
+          valueFrom:
+            secretKeyRef:
+              name: collectorset-controller
+              key: proxyPass
         volumeMounts:
         - name: etc-collectorset-controller
           mountPath: "/etc/collectorset-controller"
