@@ -47,16 +47,20 @@ spec:
             secretKeyRef:
               name: argus
               key: etcdDiscoveryToken
+        {{- if .Values.proxyUser }}
         - name: PROXY_USER
           valueFrom:
             secretKeyRef:
               name: argus
               key: proxyUser
+        {{- end }}
+        {{- if .Values.proxyPass }}
         - name: PROXY_PASS
           valueFrom:
             secretKeyRef:
               name: argus
               key: proxyPass
+        {{- end }}
         volumeMounts:
         - name: etc-argus
           mountPath: "/etc/argus"
