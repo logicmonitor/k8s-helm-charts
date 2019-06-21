@@ -46,7 +46,7 @@ Optional Values:
 - **imagePullPolicy (default: `"Always"`):**
 - **imageRepository (default: `"logicmonitor/argus"`):** The respository to use for the Argus docker image.
 - **imageTag:** The argus container image tag to use.
-- **proxyURL:** Http proxy url used by argus request.
+- **proxyURL:** The Http/s proxy url for application request routing.
 - **collector.groupID:** The ID of the group of the collectors.
 - **collector.escalationChainID:** The ID of the escalation chain of the collectors.
 - **collector.version:** The version of the collectors.

@@ -5,4 +5,3 @@ metadata:
 data:
   config.yaml: |
     debug: {{ required "A valid .Values.debug entry is required!" .Values.debug }}
-    namespace: {{ .Release.Namespace }}

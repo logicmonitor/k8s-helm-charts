@@ -32,4 +32,4 @@ Optional Values:
 - **imagePullPolicy (default: `"Always"`):**
 - **imageRepository (default: `"logicmonitor/collectorset-controller"`):** The respository to use for the Argus docker image.
 - **imageTag:** The collectorset-controller image tag to use.
-- **proxyURL:** Http proxy url used by collectorset-controller request.
+- **proxyURL:** The Http/s proxy url for application request routing.
