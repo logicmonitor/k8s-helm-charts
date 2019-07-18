@@ -62,6 +62,14 @@ rules:
   - list
   - get
 - apiGroups:
+  - "apps"
+  - "extensions"
+  resources:
+  - deployments
+  verbs:
+  - list
+  - get
+- apiGroups:
   - ""
   resources:
   - nodes/stats
