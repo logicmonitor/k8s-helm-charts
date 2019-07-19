@@ -15,8 +15,7 @@ $ helm upgrade \
   --set clusterName="$CLUSTER_NAME" \
   --set etcdDiscoveryToken="$ETCD_DISCOVERY_TOKEN" \
   --set imageTag="$IMAGE_TAG" \
-  --set proxyHost="$PROXY_HOST" \
-  --set proxyPort="$PROXY_PORT" \
+  --set proxyURL="$PROXY_URL" \
   --set proxyUser="$PROXY_USER" \
   --set proxyPass="$PROXY_PASS" \
   --set collector.replicas="$COLLECTOR_REPLICAS" \
@@ -25,6 +24,9 @@ $ helm upgrade \
   --set collector.escalationChainID="$COLLECTOR_ESCALATION_CHAIN_ID" \
   --set collector.version="$COLLECTOR_VERSION" \
   --set collector.useEA="$COLLECTOR_USE_EA" \
+  --set collector.proxyURL="$COLLECTOR_PROXY_URL" \
+  --set collector.proxyUser="$COLLECTOR_PROXY_USER" \
+  --set collector.proxyPass="$COLLECTOR_PROXY_PASS" \
   argus logicmonitor/argus
 ```
 
@@ -49,11 +51,13 @@ Optional Values:
 - **imagePullPolicy (default: `"Always"`):**
 - **imageRepository (default: `"logicmonitor/argus"`):** The respository to use for the Argus docker image.
 - **imageTag:** The argus container image tag to use.
-- **proxyHost (default: `""`):** The Http/s proxy hostname.
-- **proxyPort (default: `""`):** The Http/s proxy port.
-- **proxyUser (default: `""`):** The Http/s proxy credential username.
-- **proxyPass (default: `""`):** The Http/s proxy credential password.
+- **proxyURL (default: `""`):** The Http/s proxy url.
+- **proxyUser (default: `""`):** The Http/s proxy username.
+- **proxyPass (default: `""`):** The Http/s proxy password.
 - **collector.groupID:** The ID of the group of the collectors.
 - **collector.escalationChainID:** The ID of the escalation chain of the collectors.
 - **collector.version:** The version of the collectors.
 - **collector.useEA:** On a collector downloading event, either download the latest EA version or the latest GD version.
+- **collector.proxyURL (default: `""`):** The Http/s proxy url of the collectors.
+- **collector.proxyUser (default: `""`):** The Http/s proxy username of the collectors.
+- **collector.proxyPass (default: `""`):** The Http/s proxy password of the collectors.

@@ -11,9 +11,6 @@ data:
     disable_alerting: {{ required "A valid .Values.disableAlerting entry is required!" .Values.disableAlerting }}
     etcd_discovery_token: {{ .Values.etcdDiscoveryToken }}
     cluster_group_id: {{ .Values.clusterGroupID }}
-    {{- if .Values.proxyHost }}
-    proxy_host: {{ .Values.proxyHost }}
-    {{- end }}
-    {{- if .Values.proxyPort }}
-    proxy_port: {{ .Values.proxyPort }}
+    {{- if .Values.proxyURL }}
+    proxy_url: {{ .Values.proxyURL }}
     {{- end }}
