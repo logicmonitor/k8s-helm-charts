@@ -19,6 +19,15 @@ rules:
     - get
     - watch
     - update
+- apiGroups:
+    - "apps"
+  resources:
+    - deployments
+  verbs:
+    - list
+    - get
+    - watch
+    - update
 - nonResourceURLs:
     - /
     - /healthz
