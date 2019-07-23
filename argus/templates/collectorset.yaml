@@ -26,5 +26,5 @@ spec:
   proxyURL: {{ .Values.collector.proxyURL }}
   {{- end }}
   {{- if .Values.collector.proxyUser }}
-  proxyCredentialsSecret: collector
+  secretName: {{ required "A valid .Values.collector.secretName entry is required!" .Values.collector.secretName }}
   {{- end }}

@@ -7,4 +7,5 @@ debug: false
 enableRBAC: true
 nodeSelector: {}
 affinity: {}
-collector: {}
+collector:
+  secretName: collector
