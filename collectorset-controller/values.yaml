@@ -1,5 +1,5 @@
 imageRepository: logicmonitor/collectorset-controller
-imageTag: latest
+imageTag: v1
 imagePullPolicy: Always
 debug: false
 enableRBAC: true
