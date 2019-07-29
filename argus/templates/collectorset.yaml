@@ -22,3 +22,9 @@ spec:
   {{- if .Values.collector.useEA }}
   useEA: {{ .Values.collector.useEA }}
   {{- end }}
+  {{- if .Values.collector.proxyURL }}
+  proxyURL: {{ .Values.collector.proxyURL }}
+  {{- end }}
+  {{- if .Values.collector.proxyUser }}
+  secretName: {{ required "A valid .Values.collector.secretName entry is required!" .Values.collector.secretName }}
+  {{- end }}

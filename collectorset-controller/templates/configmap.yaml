@@ -5,3 +5,6 @@ metadata:
 data:
   config.yaml: |
     debug: {{ required "A valid .Values.debug entry is required!" .Values.debug }}
+    {{- if .Values.proxyURL }}
+    proxy_url: {{ .Values.proxyURL }}
+    {{- end }}
