@@ -4,6 +4,9 @@ metadata:
   name: {{ lower .Values.clusterName }}
   namespace: {{ .Release.Namespace }}
 spec:
+  imageRepository: {{ required "A valid .Values.collector.imageRepository entry is required!" .Values.collector.imageRepository }}
+  imageTag: {{ default "latest" .Values.collector.imageTag }}
+  imagePullPolicy: {{ required "A valid .Values.collector.imagePullPolicy entry is required!" .Values.collector.imagePullPolicy }}
   policy:
     distributionStrategy: RoundRobin
     orchestrator: Kubernetes

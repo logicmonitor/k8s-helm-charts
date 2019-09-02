@@ -8,4 +8,7 @@ enableRBAC: true
 nodeSelector: {}
 affinity: {}
 collector:
+  imageRepository: logicmonitor/collector
+  imageTag: latest
+  imagePullPolicy: Always
   secretName: collector
