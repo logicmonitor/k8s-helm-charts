@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   imageRepository: {{ required "A valid .Values.collector.imageRepository entry is required!" .Values.collector.imageRepository }}
-  imageTag: {{ default "latest" .Values.collector.imageTag }}
+  imageTag: {{ required "A valid .Values.collector.imageTag entry is required!" .Values.collector.imageTag }}
   imagePullPolicy: {{ required "A valid .Values.collector.imagePullPolicy entry is required!" .Values.collector.imagePullPolicy }}
   policy:
     distributionStrategy: RoundRobin
