@@ -1,5 +1,5 @@
 imageRepository: logicmonitor/argus
-imageTag: v1
+imageTag: v2
 imagePullPolicy: Always
 disableAlerting: false
 deleteDevices: true
