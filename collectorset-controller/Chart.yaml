@@ -2,7 +2,7 @@ apiVersion: v3
 description: Automated collector management
 name: collectorset-controller
 version: 0.4.0
-kubeVersion: ">= 1.14.*"
+kubeVersion: ">= 1.14.0-0"
 maintainers:
 - name: LogicMonitor
   email: argus@logicmonitor.com
