@@ -58,6 +58,7 @@ rules:
   - replicasets
   - ingress
   - services
+  - endpoints
   verbs:
   - list
   - get
@@ -74,6 +75,13 @@ rules:
   resources:
   - nodes/stats
   verbs:
+  - get
+- apiGroups:
+  - "discovery.k8s.io"
+  resources:
+  - endpointslices
+  verbs:
+  - list
   - get
 - nonResourceURLs:
   - /
