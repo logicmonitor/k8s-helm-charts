@@ -7,8 +7,10 @@ debug: false
 enableRBAC: true
 nodeSelector: {}
 affinity: {}
+priorityClassName: ""
 collector:
   imageRepository: logicmonitor/collector
   imageTag: latest
   imagePullPolicy: Always
   secretName: collector
+  priorityClassName: ""

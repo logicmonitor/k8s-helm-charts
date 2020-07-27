@@ -23,6 +23,9 @@ spec:
       nodeSelector:
 {{ toYaml .Values.nodeSelector | indent 8 }}
     {{- end }}
+    {{- if .Values.priorityClassName }}
+      priorityClassName: {{ .Values.priorityClassName }}
+    {{- end }}
       containers:
       - name: argus
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
