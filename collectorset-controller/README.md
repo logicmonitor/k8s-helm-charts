@@ -37,3 +37,4 @@ Optional Values:
 - **proxyURL (default: `""`):** The Http/s proxy url.
 - **proxyUser (default: `""`):** The Http/s proxy username.
 - **proxyPass (default: `""`):** The Http/s proxy password.
+- **priorityClassName (default: `""`):** The priority class name for Pod priority. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.

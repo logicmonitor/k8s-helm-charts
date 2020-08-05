@@ -57,6 +57,7 @@ Optional Values:
 - **proxyURL (default: `""`):** The Http/s proxy url.
 - **proxyUser (default: `""`):** The Http/s proxy username.
 - **proxyPass (default: `""`):** The Http/s proxy password.
+- **priorityClassName (default: `""`):** The priority class name for Pod priority. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
 - **collector.imageRepository (default: `logicmonitor/collector`):** The image repository of the collector.
 - **collector.imageTag (default: `latest`):** The image tag of the collector.
 - **collector.imagePullPolicy (default: `Always`):** The image pull policy of the collector.
@@ -67,3 +68,4 @@ Optional Values:
 - **collector.proxyURL (default: `""`):** The Http/s proxy url of the collectors.
 - **collector.proxyUser (default: `""`):** The Http/s proxy username of the collectors.
 - **collector.proxyPass (default: `""`):** The Http/s proxy password of the collectors.
+- **collector.priorityClassName (default: `""`):** The priority class name for Pod priority of the collector. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
