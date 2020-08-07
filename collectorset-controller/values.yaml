@@ -3,6 +3,13 @@ imageTag: v1
 imagePullPolicy: Always
 debug: false
 enableRBAC: true
+accessID: ""
+accessKey: ""
+account: ""
+etcdDiscoveryToken: ""
+proxyUser: ""
+proxyPass: ""
+proxyURL: ""
 nodeSelector: {}
 affinity: {}
 priorityClassName: ""

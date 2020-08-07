@@ -5,6 +5,15 @@ disableAlerting: false
 deleteDevices: true
 debug: false
 enableRBAC: true
+clusterName: ""
+accessID: ""
+accessKey: ""
+account: ""
+etcdDiscoveryToken: ""
+proxyUser: ""
+proxyPass: ""
+proxyURL: ""
+clusterGroupID: 0
 nodeSelector: {}
 affinity: {}
 priorityClassName: ""
@@ -13,4 +22,13 @@ collector:
   imageTag: latest
   imagePullPolicy: Always
   secretName: collector
+  replicas: 1
+  size: ""
+  groupID: 0
+  escalationChainID: 0
+  collectorVersion: 0
+  useEA: false
+  proxyURL: ""
+  proxyUser: ""
+  proxyPass: ""
   priorityClassName: ""
