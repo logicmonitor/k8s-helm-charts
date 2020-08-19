@@ -9,10 +9,6 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
-## Communicate with the instance of Tiller in this namespace (default "kube-system")
-##
-tillerNamespace: kube-system
-
 ## Enable debugging output
 ##
 debug: false
@@ -38,7 +34,7 @@ daemon:
 backend:
   ## Required. Use this path within the backend for state storage
   ##
-  # path:
+  path: ""
 
   ## Required: The backend type to use. Valid options are: s3
   ##
@@ -46,17 +42,17 @@ backend:
 
 ## ingress configuration options
 ##
-# ingress:
+ingress:
   ## A list of hosts to associate with the ingress object
   ##
-  # hosts:
+  hosts: []
   # - host1
   # - host2
 
 
 ## s3 backend configuration options
 ##
-s3:
+s3: {}
   ## Required for s3 backend. Use this S3 bucket for backend storage
   ##
   # bucket:
@@ -76,3 +72,7 @@ s3:
   ## An AWS STS Session Token  for accessing the S3 bucket, otherwise use the default AWS credential provider chain
   ##
   # sessionToken:
+
+nameOverride: ""
+
+fullnameOverride: ""

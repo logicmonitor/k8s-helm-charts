@@ -6,7 +6,6 @@ data:
   config.yaml: |
     debug: {{ .Values.debug }}
     dryRun: {{ .Values.dryRun }}
-    tillerNamespace: {{ .Values.tillerNamespace }}
     path: {{ required "A valid .Values.backend.path entry required" .Values.backend.path }}
     pollingInterval: {{ .Values.daemon.pollingInterval }}
     verbose: {{ .Values.verbose }}
