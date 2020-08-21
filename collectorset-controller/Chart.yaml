@@ -1,8 +1,9 @@
-apiVersion: v3
+apiVersion: v2
 description: Automated collector management
 name: collectorset-controller
-version: 0.6.0
+version: 0.7.0
 kubeVersion: ">= 1.14.0-0"
 maintainers:
 - name: LogicMonitor
   email: argus@logicmonitor.com
+icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
