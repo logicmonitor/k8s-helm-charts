@@ -17,11 +17,16 @@ index:
 	sed -i '' 's/\/docs//' index.yaml
 	mv index.yaml ./docs
 
-lint:
+lint: 
+     
 	@helm lint --strict argus --set accessID=dummy \
 	--set accessKey=dummy \
 	--set account=dummy \
 	--set clusterName=dummy \
 	--set collector.size=dummy
-	@helm lint --strict releasemanager
-	@helm lint --strict collectorset-controller
+	@helm lint --strict collectorset-controller --set accessID=dummy \
+	--set accessKey=dummy \
+	--set account=dummy 
+	@helm lint --strict releasemanager --set backend.path=dummy
+	
+	
