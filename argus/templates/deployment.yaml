@@ -33,6 +33,10 @@ spec:
         args:
           - watch
         env:
+        - name: MY_POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
         - name: ACCESS_ID
           valueFrom:
             secretKeyRef:
@@ -80,3 +84,5 @@ spec:
               items:
                 - key: config.yaml
                   path: config.yaml
+                - key: rl-policy.yaml
+                  path: rl-policy.yaml
