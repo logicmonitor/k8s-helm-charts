@@ -13,3 +13,22 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "fullname" -}}
 {{- printf "%s" .Release.Name -}}
 {{- end -}}
+
+{{/* Tolerations template for Collectorset-controller. */}}
+{{- define "csc.tolerations" -}}
+    {{- range .Values.tolerations }}
+      {{- if and (eq .operator "Exists") (ne .value "") }}
+          {{- fail "Value must be empty when 'operator' is 'Exists'"}}
+      {{- else if and (ne .operator "Exists") (eq .key "") }}
+          {{- fail "Operator must be 'Exists' when 'key' is empty." }}
+      {{- else if and (ne .effect "NoExecute") (.tolerationSeconds)}}
+          {{- fail "Effect must be 'NoExecute' when 'tolerationSeconds' is set." }}
+      {{- else }}
+      - key: {{ .key | quote }}
+        value: {{ .value | quote }}
+        operator: {{ .operator | quote }}
+        effect: {{ .effect | quote }}
+        tolerationSeconds: {{ .tolerationSeconds }}
+      {{- end }}
+    {{- end }}
+{{- end -}}
