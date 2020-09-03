@@ -14,6 +14,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- printf "%s" .Release.Name -}}
 {{- end -}}
 
+# TODO - When we implement 'custom values YAML file', remove this template and use tolerations values directly.
 {{/* Tolerations template for Argus. */}}
 {{- define "argus.tolerations" -}}
     {{- range .Values.tolerations }}
@@ -33,6 +34,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
     {{- end }}
 {{- end -}}
 
+# TODO - When we implement 'custom values YAML file', remove this template and use tolerations values directly.
 {{/* Tolerations template for collectorset. */}}
 {{- define "collectorset.tolerations" -}}
 {{- range .Values.collector.tolerations }}

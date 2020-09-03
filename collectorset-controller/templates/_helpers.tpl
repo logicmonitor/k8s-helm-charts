@@ -14,6 +14,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- printf "%s" .Release.Name -}}
 {{- end -}}
 
+# TODO - When we implement 'custom values YAML file', remove this template and use tolerations values directly.
 {{/* Tolerations template for Collectorset-controller. */}}
 {{- define "csc.tolerations" -}}
     {{- range .Values.tolerations }}
