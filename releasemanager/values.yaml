@@ -9,10 +9,6 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
-## Communicate with the instance of Tiller in this namespace (default "kube-system")
-##
-tillerNamespace: kube-system
-
 ## Enable debugging output
 ##
 debug: false
