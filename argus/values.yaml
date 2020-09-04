@@ -17,6 +17,7 @@ clusterGroupID: 0
 nodeSelector: {}
 affinity: {}
 priorityClassName: ""
+tolerations: []
 collector:
   imageRepository: logicmonitor/collector
   imageTag: latest
@@ -32,3 +33,4 @@ collector:
   proxyUser: ""
   proxyPass: ""
   priorityClassName: ""
+  tolerations: []

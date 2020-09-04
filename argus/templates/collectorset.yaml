@@ -34,3 +34,7 @@ spec:
   {{- if .Values.collector.priorityClassName }}
   priorityClassName: {{ .Values.collector.priorityClassName }}
   {{- end }}
+  {{- if .Values.collector.tolerations }}
+  tolerations:
+  {{- template "collectorset.tolerations" . }}
+  {{- end }}
