@@ -13,3 +13,4 @@ proxyURL: ""
 nodeSelector: {}
 affinity: {}
 priorityClassName: ""
+tolerations: []

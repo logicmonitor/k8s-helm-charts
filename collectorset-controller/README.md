@@ -38,3 +38,14 @@ Optional Values:
 - **proxyUser (default: `""`):** The Http/s proxy username.
 - **proxyPass (default: `""`):** The Http/s proxy password.
 - **priorityClassName (default: `""`):** The priority class name for Pod priority. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
+- **tolerations:** Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
+
+**Tolerations Example:**
+```bash
+$ helm upgrade --reuse-values \
+  --set tolerations[0].key="key1" \
+  --set tolerations[0].operator="Equal" \
+  --set tolerations[0].value="value1" \
+  --set tolerations[0].effect="NoSchedule" \
+  collectorset-controller logicmonitor/collectorset-controller
+```
