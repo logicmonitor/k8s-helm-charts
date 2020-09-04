@@ -59,6 +59,10 @@ Optional Values:
 - **proxyPass (default: `""`):** The Http/s proxy password.
 - **priorityClassName (default: `""`):** The priority class name for Pod priority. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
 - **tolerations:** Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
+- **filters.pod (default: `""`):** The filtered expression for Pod device type. Based on this parameter, Pods would be added/deleted for discovery on LM.
+- **filters.svc (default: `""`):** The filtered expression for Service device type. Based on this parameter, Services would be added/deleted for discovery on LM.
+- **filters.node (default: `""`):** The filtered expression for Node device type. Based on this parameter, Nodes would be added/deleted for discovery on LM.
+- **filters.deployment (default: `""`):** The filtered expression for Deployment device type. Based on this parameter, Deployments would be added/deleted for discovery on LM.
 - **collector.imageRepository (default: `logicmonitor/collector`):** The image repository of the collector.
 - **collector.imageTag (default: `latest`):** The image tag of the collector.
 - **collector.imagePullPolicy (default: `Always`):** The image pull policy of the collector.

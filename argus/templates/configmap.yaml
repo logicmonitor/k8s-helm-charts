@@ -40,4 +40,10 @@ data:
         pod: 70
         dep: 10
         svc: 10
-        node: 10
+        node: 10        node: 10
+  filters-config.yaml: |
+    filter:
+      pod: {{ .Values.filters.pod }}
+      service: {{ .Values.filters.svc }}
+      deployment: {{ .Values.filters.deployment }}
+      node: {{ .Values.filters.node }}
