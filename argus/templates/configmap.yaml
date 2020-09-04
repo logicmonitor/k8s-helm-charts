@@ -43,7 +43,7 @@ data:
         node: 10
   filters-config.yaml: |
     filter:
-      pod: {{ .Values.filters.pod }}
-      service: {{ .Values.filters.svc }}
-      deployment: {{ .Values.filters.deployment }}
-      node: {{ .Values.filters.node }}
+      pods: {{ .Values.filters.pod }}
+      services: {{ .Values.filters.svc }}
+      deployments: {{ .Values.filters.deployment }}
+      nodes: {{ .Values.filters.node }}
