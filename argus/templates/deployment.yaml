@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: argus
+  name: {{ .Release.Name }}
   labels:
     chart: "argus"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: argus
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: argus
+        app: {{ .Release.Name }}
     spec:
-      serviceAccountName: argus
+      serviceAccountName: {{ .Release.Name }}
     {{- if .Values.affinity }}
       affinity:
 {{ toYaml .Values.affinity | indent 8 }}
@@ -44,35 +44,35 @@ spec:
         - name: ACCESS_ID
           valueFrom:
             secretKeyRef:
-              name: argus
+              name: {{ .Release.Name }}
               key: accessID
         - name: ACCESS_KEY
           valueFrom:
             secretKeyRef:
-              name: argus
+              name: {{ .Release.Name }}
               key: accessKey
         - name: ACCOUNT
           valueFrom:
             secretKeyRef:
-              name: argus
+              name: {{ .Release.Name }}
               key: account
         - name: ETCD_DISCOVERY_TOKEN
           valueFrom:
             secretKeyRef:
-              name: argus
+              name: {{ .Release.Name }}
               key: etcdDiscoveryToken
         {{- if .Values.proxyUser }}
         - name: PROXY_USER
           valueFrom:
             secretKeyRef:
-              name: argus
+              name: {{ .Release.Name }}
               key: proxyUser
         {{- end }}
         {{- if .Values.proxyPass }}
         - name: PROXY_PASS
           valueFrom:
             secretKeyRef:
-              name: argus
+              name: {{ .Release.Name }}
               key: proxyPass
         {{- end }}
         volumeMounts:
@@ -84,7 +84,7 @@ spec:
         projected:
           sources:
           - configMap:
-              name: argus
+              name: {{ .Release.Name }}
               items:
                 - key: config.yaml
                   path: config.yaml

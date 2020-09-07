@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: argus
+  name: {{ .Release.Name }}
 data:
   config.yaml: |
     address: collectorset-controller:50000
