@@ -31,3 +31,7 @@ spec:
   {{- if .Values.collector.proxyUser }}
   secretName: {{ required "A valid .Values.collector.secretName entry is required!" .Values.collector.secretName }}
   {{- end }}
+  {{- if .Values.collector.priorityClassName }}
+  priorityClassName: {{ .Values.collector.priorityClassName }}
+  {{- end }}
+  
