@@ -2,7 +2,6 @@ all: charts index lint
 
 .PHONY: charts
 charts:
-	
 	@helm package argus --destination docs
 	@helm repo index docs --url=https://logicmonitor.github.com/k8s-helm-charts
 	
@@ -17,8 +16,7 @@ index:
 	sed -i '' 's/\/docs//' index.yaml
 	mv index.yaml ./docs
 
-lint: 
-     
+lint:
 	@helm lint --strict argus --set accessID=dummy \
 	--set accessKey=dummy \
 	--set account=dummy \
@@ -28,5 +26,3 @@ lint:
 	--set accessKey=dummy \
 	--set account=dummy 
 	@helm lint --strict releasemanager --set backend.path=dummy
-	
-	
