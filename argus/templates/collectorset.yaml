@@ -34,3 +34,4 @@ spec:
   {{- if .Values.collector.priorityClassName }}
   priorityClassName: {{ .Values.collector.priorityClassName }}
   {{- end }}
+  
