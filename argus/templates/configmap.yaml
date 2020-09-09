@@ -41,3 +41,9 @@ data:
         dep: 10
         svc: 10
         node: 10
+  filters-config.yaml: |
+    filter:
+      pods: {{ .Values.filters.pod }}
+      services: {{ .Values.filters.svc }}
+      deployments: {{ .Values.filters.deployment }}
+      nodes: {{ .Values.filters.node }}

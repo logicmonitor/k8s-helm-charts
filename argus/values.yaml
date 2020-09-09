@@ -18,6 +18,11 @@ nodeSelector: {}
 affinity: {}
 priorityClassName: ""
 tolerations: []
+filters:
+  pod: ""
+  svc: ""
+  node: ""
+  deployment: ""
 collector:
   imageRepository: logicmonitor/collector
   imageTag: latest

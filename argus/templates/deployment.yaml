@@ -90,3 +90,6 @@ spec:
                   path: config.yaml
                 - key: rl-policy.yaml
                   path: rl-policy.yaml
+                - key: filters-config.yaml
+                  path: filters-config.yaml
+
