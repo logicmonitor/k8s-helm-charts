@@ -1,7 +1,7 @@
 apiVersion: logicmonitor.com/v1alpha1
 kind: CollectorSet
 metadata:
-  name: {{ lower .Release.Name }}
+  name: {{ lower .Values.clusterName }}
   namespace: {{ .Release.Namespace }}
 spec:
   imageRepository: {{ required "A valid .Values.collector.imageRepository entry is required!" .Values.collector.imageRepository }}
