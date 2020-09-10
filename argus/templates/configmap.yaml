@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: argus
+  name: {{ .Release.Name }}
 data:
   config.yaml: |
     address: collectorset-controller:50000
@@ -14,3 +14,36 @@ data:
     {{- if .Values.proxyURL }}
     proxy_url: {{ .Values.proxyURL }}
     {{- end }}
+  rl-policy.yaml: |
+    device:
+      get:
+        pod: 70
+        dep: 10
+        svc: 10
+        node: 10
+      post:
+        pod: 70
+        dep: 10
+        svc: 10
+        node: 10
+      put:
+        pod: 70
+        dep: 10
+        svc: 10
+        node: 10
+      patch:
+        pod: 70
+        dep: 10
+        svc: 10
+        node: 10
+      delete:
+        pod: 70
+        dep: 10
+        svc: 10
+        node: 10
+  filters-config.yaml: |
+    filter:
+      pods: {{ .Values.filters.pod }}
+      services: {{ .Values.filters.svc }}
+      deployments: {{ .Values.filters.deployment }}
+      nodes: {{ .Values.filters.node }}
