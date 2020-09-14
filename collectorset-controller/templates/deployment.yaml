@@ -26,6 +26,10 @@ spec:
     {{- if .Values.priorityClassName }}
       priorityClassName: {{ .Values.priorityClassName }}
     {{- end }}
+    {{- if .Values.tolerations }}
+      tolerations:
+      {{- template "csc.tolerations" . }}
+    {{- end }}
       containers:
       - name: collectorset-controller
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
