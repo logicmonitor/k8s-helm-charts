@@ -20,7 +20,7 @@ priorityClassName: ""
 tolerations: []
 filters:
   pod: ""
-  svc: ""
+  service: ""
   node: ""
   deployment: ""
 collector:
