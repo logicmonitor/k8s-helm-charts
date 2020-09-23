@@ -4,8 +4,6 @@ metadata:
   name: {{ .Release.Name }}
   labels:
     chart: "argus"
-    helm-chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
-    helm-revision: "{{ .Release.Revision }}"
 spec:
   replicas: 1
   selector:
