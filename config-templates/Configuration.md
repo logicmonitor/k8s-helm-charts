@@ -1,5 +1,5 @@
 
-# Configuration templates for charts  
+# Configuration templates of Helm charts values.yaml  
   
 ## Collectorset Controller  
 Latest [collectorset-controller-config.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/dev-ui/config-templates/collectorset-controller/collectorset-controller-config.yaml)  
