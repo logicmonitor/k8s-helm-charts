@@ -1,5 +1,5 @@
 imageRepository: logicmonitor/argus
-imageTag: v2
+imageTag: v4
 imagePullPolicy: Always
 disableAlerting: false
 deleteDevices: true
@@ -17,6 +17,12 @@ clusterGroupID: 0
 nodeSelector: {}
 affinity: {}
 priorityClassName: ""
+tolerations: []
+filters:
+  pod: ""
+  service: ""
+  node: ""
+  deployment: ""
 collector:
   imageRepository: logicmonitor/collector
   imageTag: latest
@@ -32,3 +38,4 @@ collector:
   proxyUser: ""
   proxyPass: ""
   priorityClassName: ""
+  tolerations: []

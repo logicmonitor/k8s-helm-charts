@@ -3,7 +3,7 @@
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  name: argus
+  name: {{ .Release.Name }}
 rules:
 - apiGroups:
     - ""
@@ -14,6 +14,7 @@ rules:
     - services
     - namespaces
     - componentstatuses
+    - configmaps
   verbs:
     - list
     - get
@@ -38,13 +39,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: argus
+  name: {{ .Release.Name }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: argus
+  name: {{ .Release.Name }}
 subjects:
 - kind: ServiceAccount
-  name: argus
+  name: {{ .Release.Name }}
   namespace: {{ .Release.Namespace }}
 {{- end -}}

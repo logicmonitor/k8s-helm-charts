@@ -18,10 +18,7 @@ You can view Release Manager metrics and stored releases by querying:
 You can import the stored state into another cluster by executing
 releasemanager import \
   --path {{ .Values.backend.path }} \
-{{- if .Values.tillerNamespace }}
-    --tiller-namespace {{- .Values.tillerNamespace }} \
-{{- end }}
-  {{ .Values.backend.type }} \
+{{ .Values.backend.type }} \
 {{- if and .Values.s3 (eq .Values.backend.type "s3") }}
     --bucket {{ .Values.s3.bucket }} \
 {{- if .Values.s3.region }}
