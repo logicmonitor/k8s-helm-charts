@@ -1,0 +1,16 @@
+imageRepository: logicmonitor/collectorset-controller
+imageTag: v2
+imagePullPolicy: Always
+debug: false
+enableRBAC: true
+accessID: ""
+accessKey: ""
+account: ""
+etcdDiscoveryToken: ""
+proxyUser: ""
+proxyPass: ""
+proxyURL: ""
+nodeSelector: {}
+affinity: {}
+priorityClassName: ""
+tolerations: []
