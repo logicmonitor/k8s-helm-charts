@@ -4,16 +4,16 @@ imagePullPolicy: Always
 disableAlerting: false
 deleteDevices: true
 debug: false
-enableRBAC: <<enableRBAC>>
-clusterName: <<clusterName>>
-accessID: <<accessID>>
-accessKey: <<accessKey>>
-account: <<account>>
-etcdDiscoveryToken: <<etcdDiscoveryToken>>
+enableRBAC: true
+clusterName: ""
+accessID: ""
+accessKey: ""
+account: ""
+etcdDiscoveryToken: ""
 proxyUser: ""
 proxyPass: ""
 proxyURL: ""
-clusterGroupID: <<clusterGroupID>>
+clusterGroupID: 0
 nodeSelector: {}
 affinity: {}
 priorityClassName: ""
@@ -28,8 +28,8 @@ collector:
   imageTag: latest
   imagePullPolicy: Always
   secretName: collector
-  replicas: <<collector.replicas>>
-  size: <<collector.size>>
+  replicas: 1
+  size: ""
   groupID: 0
   escalationChainID: 0
   collectorVersion: 0
