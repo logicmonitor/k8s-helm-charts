@@ -1,0 +1,19 @@
+image:
+  repository: lmmuhammadahsan/lm-logs-k8s-fluentd
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+resources:
+  limits:
+    memory: 200Mi
+  requests:
+    cpu: 100m
+    memory: 200Mi
+
+tolerations:
+  - operator: Exists
+
