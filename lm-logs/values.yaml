@@ -1,5 +1,5 @@
 image:
-  repository: lmmuhammadahsan/lm-logs-k8s-fluentd
+  repository: logicmonitor/lm-logs-k8s-fluentd
   pullPolicy: IfNotPresent
   tag: "latest"
 
