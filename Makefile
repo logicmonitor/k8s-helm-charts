@@ -12,6 +12,9 @@ charts:
 	@helm package collectorset-controller --destination docs
 	@helm repo index docs --url=https://logicmonitor.github.com/k8s-helm-charts
 
+	@helm package lm-logs --destination docs
+	@helm repo index docs --url=https://logicmonitor.github.com/k8s-helm-charts
+
 index:
 	helm repo index ./ --url https://logicmonitor.github.com/k8s-helm-charts
 	sed -i '' 's/\/docs//' index.yaml
