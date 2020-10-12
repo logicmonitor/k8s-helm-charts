@@ -22,6 +22,14 @@ data:
       </record>
     </filter>
 
+    <filter kubernetes.**>
+      @type grep 
+      <exclude>
+       key kubernetes.container_name
+       pattern /lm-logs/
+      </exclude>
+    </filter>
+
     <match kubernetes.**>
       @type lm
       company_name {{ .Values.lm_company_name }}
