@@ -22,7 +22,7 @@ data:
       </record>
     </filter>
 
-    <match kubernetes.var.log.containers.{{ $.Release.Name }}**>
+    <match kubernetes.var.log.containers.{{ include "fluentd.fullname" . }}**>
      @type null
     </match>
 
