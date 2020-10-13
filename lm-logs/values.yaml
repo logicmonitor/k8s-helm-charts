@@ -1,7 +1,7 @@
 image:
   repository: logicmonitor/lm-logs-k8s-fluentd
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "0.0.9"
 
 imagePullSecrets: []
 nameOverride: ""
