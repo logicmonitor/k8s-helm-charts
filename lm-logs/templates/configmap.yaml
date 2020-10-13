@@ -22,13 +22,9 @@ data:
       </record>
     </filter>
 
-    <filter kubernetes.**>
-      @type grep 
-      <exclude>
-       key kubernetes.container_name
-       pattern /lm-logs/
-      </exclude>
-    </filter>
+    <match kubernetes.var.log.containers.{{ $.Release.Name }}**>
+     @type null
+    </match>
 
     <match kubernetes.**>
       @type lm
