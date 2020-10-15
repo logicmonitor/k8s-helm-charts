@@ -4,6 +4,7 @@ imagePullPolicy: Always
 disableAlerting: false
 deleteDevices: true
 debug: false
+## Must be true for authorization with kubernetes RBAC using cluster roles. Argus does not support Node based authorizationt
 enableRBAC: true
 clusterName: ""
 accessID: ""
