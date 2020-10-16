@@ -22,6 +22,10 @@ data:
       </record>
     </filter>
 
+    <match kubernetes.var.log.containers.{{ include "fluentd.fullname" . }}**>
+     @type null
+    </match>
+
     <match kubernetes.**>
       @type lm
       company_name {{ .Values.lm_company_name }}
