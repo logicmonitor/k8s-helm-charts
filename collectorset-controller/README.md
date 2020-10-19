@@ -7,40 +7,57 @@ $ helm upgrade \
   --install \
   --debug \
   --wait \
-  --tiller-namespace="$NAMESPACE" \
+  --namespace="$NAMESPACE" \
   --set accessID="$ACCESS_ID" \
   --set accessKey="$ACCESS_KEY" \
   --set account="$ACCOUNT" \
   --set clusterName="$CLUSTER_NAME" \
-  --set etcdDiscoveryToken="$ETCD_DISCOVERY_TOKEN" \
   --set imageTag="$IMAGE_TAG" \
-  --set proxyURL="$PROXY_URL" \
-  --set proxyUser="$PROXY_USER" \
-  --set proxyPass="$PROXY_PASS" \
   collectorset-controller logicmonitor/collectorset-controller
 ```
 
+> **_NOTE:_** For Helm v2 use `--tiller-namespace="$NAMESPACE"` in the helm command.
+
+**Install Collectorset-controller with custom values yaml file**
+
+```bash
+$ helm upgrade \
+  --install \
+  --debug \
+  --wait \
+  --namespace="$NAMESPACE" \
+  -f collectorset-controller-configuration.yaml \
+  collectorset-controller logicmonitor/collectorset-controller
+```
+
+---
+
 Required Values:
 
-- **accessID:** The LogicMonitor API key ID.
-- **accessKey:** The LogicMonitor API key.
-- **account:** The LogicMonitor account name.
-- **clusterName:** A unique name given to the cluster's device group.
+- **accessID (default: `""`):** The LogicMonitor API key ID.
+- **accessKey (default: `""`):** The LogicMonitor API key.
+- **account (default: `""`):** The LogicMonitor account name.
+- **debug (default: `false`):** Enable debug logging.
 
 Optional Values:
 
 - **enableRBAC (default: `true`):** Enable RBAC.
-- **etcdDiscoveryToken:** The public etcd discovery token used to add etcd hosts to the cluster device group.
-- **imagePullPolicy (default: `"Always"`):**
-- **imageRepository (default: `"logicmonitor/collectorset-controller"`):** The respository to use for the Argus docker image.
-- **imageTag:** The collectorset-controller image tag to use.
+- **etcdDiscoveryToken (default: `""`):** The public etcd discovery token used to add etcd hosts to the cluster device group.
+- **imagePullPolicy (default: `"Always"`):** The image pull policy of the Collectorset-controller container.
+- **imageRepository (default: `"logicmonitor/collectorset-controller"`):** The image repository of the [Collectorset-controller](https://hub.docker.com/r/logicmonitor/collectorset-controller) container.
+- **imageTag:** The image tag of the [Collectorset-controller](https://hub.docker.com/r/logicmonitor/collectorset-controller/tags) container.
 - **proxyURL (default: `""`):** The Http/s proxy url.
 - **proxyUser (default: `""`):** The Http/s proxy username.
 - **proxyPass (default: `""`):** The Http/s proxy password.
+- **nodeSelector (default: `{}`):** It provides the simplest way to run Pod on particular Node(s) based on labels on the node.
+- **affinity (default: `{}`):** It allows you to constrain which nodes your pod is eligible to be scheduled on.
 - **priorityClassName (default: `""`):** The priority class name for Pod priority. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
-- **tolerations:** Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
+- **tolerations (default: `[]`):** Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
 
-**Tolerations Example:**
+---
+
+**Tolerations Example**
+
 ```bash
 $ helm upgrade --reuse-values \
   --set tolerations[0].key="key1" \
