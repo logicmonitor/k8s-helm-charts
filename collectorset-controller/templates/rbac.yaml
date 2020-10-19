@@ -71,6 +71,13 @@ rules:
   - list
   - get
 - apiGroups:
+    - "autoscaling"
+  resources:
+    - horizontalpodautoscalers
+  verbs:
+    - list
+    - get
+- apiGroups:
   - ""
   resources:
   - nodes/stats

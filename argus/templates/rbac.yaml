@@ -29,6 +29,15 @@ rules:
     - get
     - watch
     - update
+- apiGroups:
+    - "autoscaling"
+  resources:
+    - horizontalpodautoscalers
+  verbs:
+    - list
+    - get
+    - watch
+    - update
 - nonResourceURLs:
     - /
     - /healthz
