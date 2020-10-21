@@ -4,7 +4,7 @@ imageRepository: logicmonitor/collectorset-controller
 imageTag: v2
 # The image pull policy of the Collectorset-controller container.
 imagePullPolicy: Always
-# Enable debug logging.
+# To enable verbose logging at debug level.
 debug: false
 # Enable RBAC.
 enableRBAC: true

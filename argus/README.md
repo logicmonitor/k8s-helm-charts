@@ -2,27 +2,9 @@
 
 This Helm chart installs [Argus](https://github.com/logicmonitor/k8s-argus). A [LogicMonitor](https://www.logicmonitor.com) account is required.
 
-```bash
-$ helm upgrade \
-  --install \
-  --debug \
-  --wait \
-  --namespace="$NAMESPACE" \
-  --set accessID="$ACCESS_ID" \
-  --set accessKey="$ACCESS_KEY" \
-  --set account="$ACCOUNT" \
-  --set clusterGroupID="$CLUSTER_GROUP_ID" \
-  --set clusterName="$CLUSTER_NAME" \
-  --set imageTag="$IMAGE_TAG" \
-  --set collector.replicas="$COLLECTOR_REPLICAS" \
-  --set collector.size="$COLLECTOR_SIZE" \
-  --set collector.groupID="$COLLECTOR_GROUP_ID" \
-  argus logicmonitor/argus
-```
+**Install Argus:**
 
-> **_NOTE:_** For Helm v2 use `--tiller-namespace="$NAMESPACE"` in the helm command.
-
-**Install Argus with custom values yaml file:**
+Create *[argus-configuration.yaml](https://github.com/logicmonitor/k8s-helm-charts/blob/master/config-templates/Configuration.md#argus)* file and add required values in it then pass the file path in the helm command.
 
 ```bash
 $ helm upgrade \
@@ -34,6 +16,8 @@ $ helm upgrade \
   argus logicmonitor/argus
 ```
 
+> **_NOTE:_** For Helm v2 use `--tiller-namespace="$NAMESPACE"` in the helm command.
+
 ---
 
 **Required Values:**
@@ -42,9 +26,9 @@ $ helm upgrade \
 - **accessKey (default: `""`):** The LogicMonitor API key.
 - **account (default: `""`):** The LogicMonitor account name.
 - **clusterName (default: `""`):** A unique name given to the cluster's device group.
-- **debug (default: `false`):** Enable debug logging.
-- **deleteDevices (default: `true`):** On a delete event, either delete from LogicMonitor or move the device to the `_delted` device group.
-- **disableAlerting (default: `false`):** Disable alerting for all devices added.
+- **debug (default: `false`):** To enable verbose logging at debug level.
+- **deleteDevices (default: `true`):** On a delete event, either delete from LogicMonitor or move the device to the `_deleted` device group.
+- **disableAlerting (default: `false`):** Disables LogicMonitor alerting for all the cluster resources.
 - **collector.replicas (default: `1`):** The number of collectors to create and use with Argus.
 - **collector.size (default: `""`):** The collector size to install. Can be nano, small, medium, or large.
 - **collector.imageRepository (default: `logicmonitor/collector`):** The image repository of the [Collector](https://hub.docker.com/r/logicmonitor/collector) container.

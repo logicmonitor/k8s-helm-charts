@@ -4,11 +4,11 @@ imageRepository: logicmonitor/argus
 imageTag: v4
 # The image pull policy of the Argus container.
 imagePullPolicy: Always
-# Disable alerting for all devices added.
+# Disables LogicMonitor alerting for all the cluster resources.
 disableAlerting: false
 # On a delete event, either delete from LogicMonitor or move the device to the `_delted` device group.
 deleteDevices: true
-# Enable debug logging.
+# To enable verbose logging at debug level.
 debug: false
 # Enable RBAC.
 enableRBAC: true

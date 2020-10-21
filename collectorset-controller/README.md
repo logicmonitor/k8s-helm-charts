@@ -2,23 +2,9 @@
 
 This Helm chart installs [collectorset-controller](https://github.com/logicmonitor/k8s-collectorset-controller). A [LogicMonitor](https://www.logicmonitor.com) account is required.
 
-```bash
-$ helm upgrade \
-  --install \
-  --debug \
-  --wait \
-  --namespace="$NAMESPACE" \
-  --set accessID="$ACCESS_ID" \
-  --set accessKey="$ACCESS_KEY" \
-  --set account="$ACCOUNT" \
-  --set clusterName="$CLUSTER_NAME" \
-  --set imageTag="$IMAGE_TAG" \
-  collectorset-controller logicmonitor/collectorset-controller
-```
+**Install Collectorset-controller:**
 
-> **_NOTE:_** For Helm v2 use `--tiller-namespace="$NAMESPACE"` in the helm command.
-
-**Install Collectorset-controller with custom values yaml file**
+Create *[collectorset-controller-configuration.yaml](https://github.com/logicmonitor/k8s-helm-charts/blob/master/config-templates/Configuration.md#collectorset-controller)* file and add required values in it then pass the file path in the helm command.
 
 ```bash
 $ helm upgrade \
@@ -30,6 +16,8 @@ $ helm upgrade \
   collectorset-controller logicmonitor/collectorset-controller
 ```
 
+> **_NOTE:_** For Helm v2 use `--tiller-namespace="$NAMESPACE"` in the helm command.
+
 ---
 
 Required Values:
@@ -37,7 +25,7 @@ Required Values:
 - **accessID (default: `""`):** The LogicMonitor API key ID.
 - **accessKey (default: `""`):** The LogicMonitor API key.
 - **account (default: `""`):** The LogicMonitor account name.
-- **debug (default: `false`):** Enable debug logging.
+- **debug (default: `false`):** To enable verbose logging at debug level.
 
 Optional Values:
 
