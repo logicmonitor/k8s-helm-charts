@@ -18,6 +18,7 @@ nodeSelector: {}
 affinity: {}
 priorityClassName: ""
 tolerations: []
+annotations: {}
 filters:
   pod: ""
   service: ""

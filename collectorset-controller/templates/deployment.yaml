@@ -24,11 +24,11 @@ spec:
 {{ toYaml .Values.nodeSelector | indent 8 }}
     {{- end }}
     {{- if .Values.priorityClassName }}
-      priorityClassName: {{ .Values.priorityClassName }}
+      priorityClassName: {{ .Values.priorityClassName | quote }}
     {{- end }}
-    {{- if .Values.tolerations }}
+    {{- with .Values.tolerations }}
       tolerations:
-      {{- template "csc.tolerations" . }}
+{{ toYaml . | indent 8 }}
     {{- end }}
       containers:
       - name: collectorset-controller
