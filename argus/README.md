@@ -4,19 +4,22 @@ This Helm chart installs [Argus](https://github.com/logicmonitor/k8s-argus). A [
 
 **Install Argus:**
 
-Create *[argus-configuration.yaml](https://github.com/logicmonitor/k8s-helm-charts/blob/master/config-templates/Configuration.md#argus)* file and add required values in it then pass the file path in the helm command.
+Get the configuration file downloaded from the LogicMonitor UI or you can create from the template [here](https://github.com/logicmonitor/k8s-helm-charts/blob/master/config-templates/Configuration.md#argus).
+
+Update configuration parameters in configuration file.
 
 ```bash
+# Export the configuration file path & use it in the helm command.
+$ export ARGUS_CONF_FILE=<argus-configuration-file-path>
+
 $ helm upgrade \
   --install \
   --debug \
   --wait \
   --namespace="$NAMESPACE" \
-  -f argus-configuration.yaml \
+  -f "$ARGUS_CONF_FILE" \
   argus logicmonitor/argus
 ```
-
-> **_NOTE:_** For Helm v2 use `--tiller-namespace="$NAMESPACE"` in the helm command.
 
 ---
 
