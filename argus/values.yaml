@@ -10,7 +10,7 @@ disableAlerting: false
 deleteDevices: true
 # To enable verbose logging at debug level.
 debug: false
-# Enable RBAC.
+# Enable RBAC. If your cluster does not have RBAC enabled, this value should be set to false.
 enableRBAC: true
 # A unique name given to the cluster's device group.
 clusterName: ""

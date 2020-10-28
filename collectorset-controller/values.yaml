@@ -6,7 +6,7 @@ imageTag: v2
 imagePullPolicy: Always
 # To enable verbose logging at debug level.
 debug: false
-# Enable RBAC.
+# Enable RBAC. If your cluster does not have RBAC enabled, this value should be set to false.
 enableRBAC: true
 # The LogicMonitor API key ID.
 accessID: ""

@@ -32,7 +32,7 @@ Required Values:
 
 Optional Values:
 
-- **enableRBAC (default: `true`):** Enable RBAC.
+- **enableRBAC (default: `true`):** Enable RBAC. If your cluster does not have RBAC enabled, this value should be set to false.
 - **etcdDiscoveryToken (default: `""`):** The public etcd discovery token used to add etcd hosts to the cluster device group.
 - **imagePullPolicy (default: `"Always"`):** The image pull policy of the Collectorset-controller container.
 - **imageRepository (default: `"logicmonitor/collectorset-controller"`):** The image repository of the [Collectorset-controller](https://hub.docker.com/r/logicmonitor/collectorset-controller) container.

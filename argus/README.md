@@ -23,7 +23,7 @@ $ helm upgrade \
 
 ---
 
-**Required Values:**
+Required Values:
 
 - **accessID (default: `""`):** The LogicMonitor API key ID.
 - **accessKey (default: `""`):** The LogicMonitor API key.
@@ -39,10 +39,10 @@ $ helm upgrade \
 - **collector.imagePullPolicy (default: `Always`):** The image pull policy of the Collector container.
 - **collector.secretName (default: `"collector"`):** The Secret resource name of the collectors.
 
-**Optional Values:**
+Optional Values:
 
-- **enableRBAC (default: `true`):** Enable RBAC.
-- **clusterGroupID (default `0`):** A parent group id of the cluster's device group.
+- **enableRBAC (default: `true`):** Enable RBAC. If your cluster does not have RBAC enabled, this value should be set to false.
+- **clusterGroupID (default: `0`):** A parent group id of the cluster's device group.
 - **etcdDiscoveryToken (default: `""`):** The public etcd discovery token used to add etcd hosts to the cluster device group.
 - **imagePullPolicy (default: `"Always"`):** The image pull policy of the Argus container.
 - **imageRepository (default: `"logicmonitor/argus"`):** The image respository of the [Argus](https://hub.docker.com/r/logicmonitor/argus) container.
@@ -58,9 +58,9 @@ $ helm upgrade \
 - **filters.service (default: `""`):** The filtered expression for Service device type. Based on this parameter, Services would be added/deleted for discovery on LM.
 - **filters.node (default: `""`):** The filtered expression for Node device type. Based on this parameter, Nodes would be added/deleted for discovery on LM.
 - **filters.deployment (default: `""`):** The filtered expression for Deployment device type. Based on this parameter, Deployments would be added/deleted for discovery on LM.
-- **collector.groupID (default `0`):** The ID of the group of the collectors.
-- **collector.escalationChainID (default `0`):** The ID of the escalation chain of the collectors.
-- **collector.collectorVersion (default `0`):** The version of the collectors.
+- **collector.groupID (default: `0`):** The ID of the group of the collectors.
+- **collector.escalationChainID (default: `0`):** The ID of the escalation chain of the collectors.
+- **collector.collectorVersion (default: `0`):** The version of the collectors.
 - **collector.useEA (default: `false`):** On a collector downloading event, either download the latest EA version or the latest GD version.
 - **collector.proxyURL (default: `""`):** The Http/s proxy url of the collectors.
 - **collector.proxyUser (default: `""`):** The Http/s proxy username of the collectors.
