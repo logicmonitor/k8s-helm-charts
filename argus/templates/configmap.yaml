@@ -54,3 +54,4 @@ data:
       services: {{ .Values.filters.service }}
       deployments: {{ .Values.filters.deployment }}
       nodes: {{ .Values.filters.node }}
+      horizontalpodautoscalers: {{ .Values.filters.hpa}}
