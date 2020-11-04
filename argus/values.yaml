@@ -1,35 +1,40 @@
-# The image respository of the [Argus](https://hub.docker.com/r/logicmonitor/argus) container.
-imageRepository: logicmonitor/argus
-# The image tag of the [Argus](https://hub.docker.com/r/logicmonitor/argus/tags) container.
-imageTag: v4
-# The image pull policy of the Argus container.
-imagePullPolicy: Always
-# Disables LogicMonitor alerting for all the cluster resources.
-disableAlerting: false
-# On a delete event, either delete from LogicMonitor or move the device to the `_delted` device group.
-deleteDevices: true
-# To enable verbose logging at debug level.
-debug: false
-# Enable RBAC. If your cluster does not have RBAC enabled, this value should be set to false.
-enableRBAC: true
-# A unique name given to the cluster's device group.
-clusterName: ""
+## REQUIRED VALUES
+
 # The LogicMonitor API key ID.
 accessID: ""
 # The LogicMonitor API key.
 accessKey: ""
 # The LogicMonitor account name.
 account: ""
+# A unique name given to the cluster's device group.
+clusterName: ""
+# To enable verbose logging at debug level.
+debug: false
+# On a delete event, either delete from LogicMonitor or move the device to the `_delted` device group.
+deleteDevices: true
+# Disables LogicMonitor alerting for all the cluster resources.
+disableAlerting: false
+
+## OPTIONAL VALUES
+
+# Enable RBAC. If your cluster does not have RBAC enabled, this value should be set to false.
+enableRBAC: true
+# A parent group id of the cluster's device group.
+clusterGroupID: 0
 # The public etcd discovery token used to add etcd hosts to the cluster device group.
 etcdDiscoveryToken: ""
+# The image respository of the [Argus](https://hub.docker.com/r/logicmonitor/argus) container.
+imageRepository: logicmonitor/argus
+# The image tag of the [Argus](https://hub.docker.com/r/logicmonitor/argus/tags) container.
+imageTag: v4
+# The image pull policy of the Argus container.
+imagePullPolicy: Always
+# The Http/s proxy url.
+proxyURL: ""
 # The Http/s proxy username.
 proxyUser: ""
 # The Http/s proxy password.
 proxyPass: ""
-# The Http/s proxy url.
-proxyURL: ""
-# A parent group id of the cluster's device group.
-clusterGroupID: 0
 # It provides the simplest way to run Pod on particular Node(s) based on labels on the node.
 nodeSelector: {}
 # It allows you to constrain which nodes your pod is eligible to be scheduled on.
@@ -47,7 +52,14 @@ filters:
   node: ""
   # The filtered expression for Deployment device type. Based on this parameter, Deployments would be added/deleted for discovery on LM.
   deployment: ""
+
 collector:
+  ## REQUIRED VALUES
+  
+  # The number of collectors to create and use with Argus.
+  replicas: 1
+  # The collector size to install. Can be nano, small, medium, or large.
+  size: ""
   # The image repository of the [Collector](https://hub.docker.com/r/logicmonitor/collector) container.
   imageRepository: logicmonitor/collector
   # The image tag of the [Collector](https://hub.docker.com/r/logicmonitor/collector/tags) container.
@@ -56,10 +68,9 @@ collector:
   imagePullPolicy: Always
   # The Secret resource name of the collectors.
   secretName: collector
-  # The number of collectors to create and use with Argus.
-  replicas: 1
-  # The collector size to install. Can be nano, small, medium, or large.
-  size: ""
+  
+  ## OPTIONAL VALUES
+
   # The ID of the group of the collectors.
   groupID: 0
   # The ID of the escalation chain of the collectors.
