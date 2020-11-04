@@ -52,6 +52,8 @@ filters:
   node: ""
   # The filtered expression for Deployment device type. Based on this parameter, Deployments would be added/deleted for discovery on LM.
   deployment: ""
+  # The filtered expression for HorizontalPodAutoscaler device type. Based on this parameter, Deployments would be added/deleted for discovery on LM.
+  hpa: ""
 
 collector:
   ## REQUIRED VALUES
