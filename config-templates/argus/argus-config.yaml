@@ -24,6 +24,7 @@ filters:
   service: ""
   node: ""
   deployment: ""
+  hpa: ""
 collector:
   imageRepository: logicmonitor/collector
   imageTag: latest
