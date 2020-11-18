@@ -18,6 +18,8 @@ nodeSelector: {}
 affinity: {}
 priorityClassName: ""
 tolerations: []
+fullDisplayNameIncludeNamespace: false
+fullDisplayNameIncludeClusterName: false
 filters:
   pod: ""
   service: ""
