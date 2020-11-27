@@ -33,6 +33,7 @@ data:
       resource_mapping {"kubernetes.pod_name": "auto.name"}
       access_id {{ .Values.lm_access_id }}
       access_key {{ .Values.lm_access_key }}
+      compression gzip
       debug false
       <buffer>
         @type memory
