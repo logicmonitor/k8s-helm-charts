@@ -34,6 +34,7 @@ data:
       access_id {{ .Values.lm_access_id }}
       access_key {{ .Values.lm_access_key }}
       debug false
+      compression gzip
       <buffer>
         @type memory
         flush_interval 1s
