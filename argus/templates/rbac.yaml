@@ -4,6 +4,14 @@ kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: {{ .Release.Name }}
+  labels:
+{{- if .Values.labels}}
+{{ toYaml .Values.labels| indent 4 }}
+{{- end }}
+  annotations:
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations | indent 4 }}
+{{- end }}
 rules:
 - apiGroups:
     - ""
@@ -49,6 +57,14 @@ apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
   name: {{ .Release.Name }}
+  labels:
+{{- if .Values.labels}}
+{{ toYaml .Values.labels| indent 4 }}
+{{- end }}
+  annotations:
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations | indent 4 }}
+{{- end }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

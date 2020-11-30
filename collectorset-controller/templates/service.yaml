@@ -2,6 +2,14 @@ kind: Service
 apiVersion: v1
 metadata:
   name: collectorset-controller
+  labels:
+{{- if .Values.labels}}
+{{ toYaml .Values.labels| indent 4 }}
+{{- end }}
+  annotations:
+{{- if .Values.annotations }}
+{{ toYaml .Values.annotations | indent 4 }}
+{{- end }}
 spec:
   selector:
     app: collectorset-controller
