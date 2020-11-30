@@ -14,3 +14,4 @@ nodeSelector: {}
 affinity: {}
 priorityClassName: ""
 tolerations: []
+annotations: {}
