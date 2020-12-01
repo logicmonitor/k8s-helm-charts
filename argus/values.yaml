@@ -43,7 +43,9 @@ affinity: {}
 priorityClassName: ""
 # Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
 tolerations: []
+# This parameter is used to specify if displayName should include namespace or not.
 fullDisplayNameIncludeNamespace: false
+# This parameter is used to specify if displayName should include both namespace and clusterName or not.
 fullDisplayNameIncludeClusterName: false
 filters:
   # The filtered expression for Pod device type. Based on this parameter, Pods would be added/deleted for discovery on LM.
