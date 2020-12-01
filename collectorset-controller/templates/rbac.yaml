@@ -4,12 +4,12 @@ kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: collectorset-controller
-  labels:
 {{- if .Values.labels}}
+  labels:
 {{ toYaml .Values.labels| indent 4 }}
 {{- end }}
-  annotations:
 {{- if .Values.annotations }}
+  annotations:
 {{ toYaml .Values.annotations | indent 4 }}
 {{- end }}
 rules:
@@ -42,12 +42,12 @@ apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
   name: collectorset-controller
-  labels:
 {{- if .Values.labels}}
+  labels:
 {{ toYaml .Values.labels| indent 4 }}
 {{- end }}
-  annotations:
 {{- if .Values.annotations }}
+  annotations:
 {{ toYaml .Values.annotations | indent 4 }}
 {{- end }}
 roleRef:
@@ -63,12 +63,12 @@ kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: collector
-  labels:
 {{- if .Values.labels}}
+  labels:
 {{ toYaml .Values.labels| indent 4 }}
 {{- end }}
-  annotations:
 {{- if .Values.annotations }}
+  annotations:
 {{ toYaml .Values.annotations | indent 4 }}
 {{- end }}
 rules:
@@ -125,12 +125,12 @@ apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
   name: collector
-  labels:
 {{- if .Values.labels}}
+  labels:
 {{ toYaml .Values.labels| indent 4 }}
 {{- end }}
-  annotations:
 {{- if .Values.annotations }}
+  annotations:
 {{ toYaml .Values.annotations | indent 4 }}
 {{- end }}
 roleRef:

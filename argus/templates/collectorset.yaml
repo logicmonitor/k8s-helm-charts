@@ -3,12 +3,13 @@ kind: CollectorSet
 metadata:
   name: {{ lower .Values.clusterName }}
   namespace: {{ .Release.Namespace }}
-  labels:
 {{- if .Values.labels}}
+  labels:
 {{ toYaml .Values.labels| indent 4 }}
 {{- end }}
-  annotations:
+
 {{- if .Values.annotations }}
+  annotations:
 {{ toYaml .Values.annotations | indent 4 }}
 {{- end }}
 spec:
