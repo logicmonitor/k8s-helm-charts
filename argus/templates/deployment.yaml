@@ -4,6 +4,13 @@ metadata:
   name: {{ .Release.Name }}
   labels:
     chart: "argus"
+{{- if .Values.labels}}
+{{ toYaml .Values.labels| indent 4 }}
+{{- end }}
+{{- if .Values.annotations }}
+  annotations:
+{{ toYaml .Values.annotations | indent 4 }}
+{{- end }}
 spec:
   replicas: 1
   selector:
@@ -24,11 +31,11 @@ spec:
 {{ toYaml .Values.nodeSelector | indent 8 }}
     {{- end }}
     {{- if .Values.priorityClassName }}
-      priorityClassName: {{ .Values.priorityClassName }}
+      priorityClassName: {{ .Values.priorityClassName | quote }}
     {{- end }}
-    {{- if .Values.tolerations }}
+    {{- with .Values.tolerations }}
       tolerations:
-      {{- template "argus.tolerations" . }}
+{{ toYaml . | indent 8 }}
     {{- end }}
       containers:
       - name: argus

@@ -43,6 +43,10 @@ affinity: {}
 priorityClassName: ""
 # Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
 tolerations: []
+# Labels to apply on all objects created by Argus
+labels: {}
+# Annotations to apply on all objects created by Argus
+annotations: {}
 filters:
   # The filtered expression for Pod device type. Based on this parameter, Pods would be added/deleted for discovery on LM.
   pod: ""
