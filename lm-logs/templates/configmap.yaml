@@ -8,6 +8,10 @@ data:
   fluent.conf: |
     @include kubernetes.conf
 
+    <system>
+      log_level warn
+    </system>
+
     <label @FLUENT_LOG>
       <match fluent.**>
         @type null
