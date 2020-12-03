@@ -17,7 +17,12 @@ charts:
 
 index:
 	helm repo index ./ --url https://logicmonitor.github.com/k8s-helm-charts
+ifeq ($(shell uname -s), Linux)
+	sed -i 's/\/docs//' index.yaml
+endif
+ifeq ($(shell uname -s), Darwin)
 	sed -i '' 's/\/docs//' index.yaml
+endif
 	mv index.yaml ./docs
 
 lint: 
@@ -31,5 +36,4 @@ lint:
 	--set accessKey=dummy \
 	--set account=dummy 
 	@helm lint --strict releasemanager --set backend.path=dummy
-	
 	
