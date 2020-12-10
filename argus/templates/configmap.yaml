@@ -27,6 +27,8 @@ data:
     {{- if .Values.proxyURL }}
     proxy_url: {{ .Values.proxyURL }}
     {{- end }}
+    displayName_include_namespace: {{ .Values.fullDisplayNameIncludeNamespace }}
+    displayName_include_clustername: {{ .Values.fullDisplayNameIncludeClusterName }}
   rl-policy.yaml: |
     device:
       get:
