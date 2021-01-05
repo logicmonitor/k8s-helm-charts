@@ -3,6 +3,15 @@ kind: CollectorSet
 metadata:
   name: {{ lower .Values.clusterName }}
   namespace: {{ .Release.Namespace }}
+{{- if .Values.labels}}
+  labels:
+{{ toYaml .Values.labels| indent 4 }}
+{{- end }}
+
+{{- if .Values.annotations }}
+  annotations:
+{{ toYaml .Values.annotations | indent 4 }}
+{{- end }}
 spec:
   imageRepository: {{ required "A valid .Values.collector.imageRepository entry is required!" .Values.collector.imageRepository }}
   imageTag: {{ required "A valid .Values.collector.imageTag entry is required!" .Values.collector.imageTag }}
