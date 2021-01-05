@@ -118,6 +118,7 @@ rules:
   - /
   - /healthz
   - /healthz/*
+  - /metrics
   verbs:
   - get
 ---
