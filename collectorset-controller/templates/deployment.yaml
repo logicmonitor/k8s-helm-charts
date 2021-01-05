@@ -20,6 +20,13 @@ spec:
     metadata:
       labels:
         app: collectorset-controller
+{{- if .Values.labels}}
+{{ toYaml .Values.labels| indent 8 }}
+{{- end }}
+{{- if .Values.annotations }}
+      annotations:
+{{ toYaml .Values.annotations | indent 8 }}
+{{- end }}
     spec:
       serviceAccountName: collectorset-controller
     {{- if .Values.affinity }}
