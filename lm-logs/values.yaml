@@ -16,6 +16,7 @@ resources:
     cpu: 100m
     memory: 200Mi
 
-tolerations:
-  - operator: Exists
+nodeSelector: []
+affinity: []
+tolerations: []
 

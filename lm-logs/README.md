@@ -20,19 +20,21 @@ lm-logs logicmonitor/lm-logs
 The following tables lists the configurable parameters of the lm-logs chart and their default values.
 | Parameter                   | Description                                     | Default                                                 |
 |-----------------------------|-------------------------------------------------|---------------------------------------------------------|
-| `global.imagePullSecrets`   | Global registry secret names as an array        | `[]` (does not add image pull secrets to deployed pods) |
+| `global.imagePullSecrets`   | List of global registry secret names            | `[]` (does not add image pull secrets to deployed pods) |
 | `global.nameOverride`       | Global storage class for dynamic provisioning   | `""`                                                    |
 | `global.fullnameOverride`   | Global storage class for dynamic provisioning   | `""`                                                    |
 | `global.lm_company_name`    | LogicMonitor account name                       | `nil`                                                   |
-| `global.lm_access_id`       | LogicMonitor api token accesss id               | `nil`                                                   |
-| `global.lm_access_key`      | LogicMonitor api token accesss key              | `nil`                                                   |
-| `image.repository`          | Contianer image repository                      | `logicmonitor/lm-logs-k8s-fluentd`                      |
-| `image.pullPolicy`          | Contianer image pull policy                     | `IfNotPresent`                                          |
-| `image.tag`                 | Contianer image tag                             | `""`                                                    |
+| `global.lm_access_id`       | LogicMonitor API Token Access ID                | `nil`                                                   |
+| `global.lm_access_key`      | LogicMonitor API Token Access Key               | `nil`                                                   |
+| `image.repository`          | Container image repository                      | `logicmonitor/lm-logs-k8s-fluentd`                      |
+| `image.pullPolicy`          | Container image pull policy                     | `IfNotPresent`                                          |
+| `image.tag`                 | Container image tag                             | `""`                                                    |
 | `resources.limits.memory`   | Container memory resource limit                 | `300Mi`                                                 |
 | `resources.requests.cpu.`   | Container cpu resource requests                 | `100m`                                                  |
 | `resources.requests.memory` | Container memory resource requests              | `100Mi`                                                 |
-| `tolerations.operator`      | Tolerations for pod assignment	                | `exists`                                                |
+| `tolerations`               | Tolerations for pod assignment	                | `{}`  (evaluated as a template)                         |
+| `nodeSelectors`             | Node labels for pod assignment		            | `{}`  (evaluated as a template)                         |
+| `affinity`                  | Affinity for pod assignment		                | `{}`  (evaluated as a template)                         |
 | `env`                       | Map to add extra environment variables	        | {}                                                      |
 
 ### Avaialble Environment variables
