@@ -9,14 +9,8 @@ data:
     @include kubernetes.conf
 
     <system>
-      log_level warn
+      log_level "#{ENV['FLUENT_LOG_LEVEL'] || 'warn'}"
     </system>
-
-    <label @FLUENT_LOG>
-      <match fluent.**>
-        @type null
-      </match>
-    </label>
 
     <filter kubernetes.**>
       @type record_transformer
@@ -26,10 +20,6 @@ data:
         timestamp ${record["time"]}
       </record>
     </filter>
-
-    <match kubernetes.var.log.containers.{{ include "fluentd.fullname" . }}**>
-     @type null
-    </match>
 
     <match kubernetes.**>
       @type lm
@@ -52,14 +42,13 @@ data:
       path /var/log/containers/*.log
       pos_file /var/log/fluentd-containers.log.pos
       tag "#{ENV['FLUENT_CONTAINER_TAIL_TAG'] || 'kubernetes.*'}"
-      exclude_path "#{ENV['FLUENT_CONTAINER_TAIL_EXCLUDE_PATH'] || use_default}"
+      exclude_path "#{ENV['FLUENT_CONTAINER_TAIL_EXCLUDE_PATH'] || '/var/log/containers/{{ .Chart.Name }}*.log' }"
       <parse>
         @type "#{ENV['FLUENT_CONTAINER_TAIL_PARSER_TYPE'] || 'json'}"
         keep_time_key true
         time_format %Y-%m-%dT%H:%M:%S.%NZ
       </parse>
     </source>
-  
     
     <filter kubernetes.**>
       @type kubernetes_metadata
