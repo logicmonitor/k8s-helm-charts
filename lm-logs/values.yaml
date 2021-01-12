@@ -7,6 +7,8 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+env: {}
+
 resources:
   limits:
     memory: 300Mi
@@ -14,6 +16,7 @@ resources:
     cpu: 100m
     memory: 200Mi
 
-tolerations:
-  - operator: Exists
+nodeSelector: []
+affinity: []
+tolerations: []
 
