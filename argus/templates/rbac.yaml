@@ -4,6 +4,14 @@ kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: {{ .Release.Name }}
+{{- if .Values.labels}}
+  labels:
+{{ toYaml .Values.labels| indent 4 }}
+{{- end }}
+{{- if .Values.annotations }}
+  annotations:
+{{ toYaml .Values.annotations | indent 4 }}
+{{- end }}
 rules:
 - apiGroups:
     - ""
@@ -29,6 +37,15 @@ rules:
     - get
     - watch
     - update
+- apiGroups:
+    - "autoscaling"
+  resources:
+    - horizontalpodautoscalers
+  verbs:
+    - list
+    - get
+    - watch
+    - update
 - nonResourceURLs:
     - /
     - /healthz
@@ -40,6 +57,14 @@ apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
   name: {{ .Release.Name }}
+{{- if .Values.labels}}
+  labels:
+{{ toYaml .Values.labels| indent 4 }}
+{{- end }}
+{{- if .Values.annotations }}
+  annotations:
+{{ toYaml .Values.annotations | indent 4 }}
+{{- end }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
