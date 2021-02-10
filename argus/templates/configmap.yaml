@@ -30,32 +30,9 @@ data:
     displayName_include_namespace: {{ .Values.fullDisplayNameIncludeNamespace }}
     displayName_include_clustername: {{ .Values.fullDisplayNameIncludeClusterName }}
   rl-policy.yaml: |
-    device:
-      get:
-        pod: 70
-        dep: 10
-        svc: 10
-        node: 10
-      post:
-        pod: 70
-        dep: 10
-        svc: 10
-        node: 10
-      put:
-        pod: 70
-        dep: 10
-        svc: 10
-        node: 10
-      patch:
-        pod: 70
-        dep: 10
-        svc: 10
-        node: 10
-      delete:
-        pod: 70
-        dep: 10
-        svc: 10
-        node: 10
+{{- if .Values.rlpolicy }}
+{{ toYaml .Values.rlpolicy | indent 4}}
+{{- end }}
   filters-config.yaml: |
     filter:
       pods: {{ .Values.filters.pod }}

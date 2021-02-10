@@ -99,3 +99,37 @@ collector:
   priorityClassName: ""
   # Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
   tolerations: []
+
+# rlpolicy defines the rate at which argus will send requests to Logicmonitor portal in order to avoid rate limit thresholds
+rlpolicy:
+  device:
+    get:
+      pod: 60
+      dep: 10
+      svc: 10
+      node: 10
+      hpa: 10
+    post:
+      pod: 60
+      dep: 10
+      svc: 10
+      node: 10
+      hpa: 10
+    put:
+      pod: 60
+      dep: 10
+      svc: 10
+      node: 10
+      hpa: 10
+    patch:
+      pod: 60
+      dep: 10
+      svc: 10
+      node: 10
+      hpa: 10
+    delete:
+      pod: 60
+      dep: 10
+      svc: 10
+      node: 10
+      hpa: 10
