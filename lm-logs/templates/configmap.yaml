@@ -16,7 +16,7 @@ data:
       @type record_transformer
       enable_ruby
       <record>
-        message ${record["log"]}
+        message ${record["log"]} ${record["message"]}
         timestamp ${record["time"]}
       </record>
     </filter>
@@ -44,9 +44,18 @@ data:
       tag "#{ENV['FLUENT_CONTAINER_TAIL_TAG'] || 'kubernetes.*'}"
       exclude_path "#{ENV['FLUENT_CONTAINER_TAIL_EXCLUDE_PATH'] || '/var/log/containers/{{ .Chart.Name }}*.log' }"
       <parse>
-        @type "#{ENV['FLUENT_CONTAINER_TAIL_PARSER_TYPE'] || 'json'}"
-        keep_time_key true
-        time_format %Y-%m-%dT%H:%M:%S.%NZ
+        @type "#{ENV['FLUENT_CONTAINER_TAIL_PARSER_TYPE'] || 'multi_format'}"
+        <pattern>
+          format json
+          keep_time_key true
+          time_format %Y-%m-%dT%H:%M:%S.%NZ
+        </pattern>
+        <pattern>
+          format syslog
+        </pattern>
+        <pattern>
+          format none
+        </pattern>
       </parse>
     </source>
     
