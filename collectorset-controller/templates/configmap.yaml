@@ -21,3 +21,4 @@ data:
     {{- if .Values.proxyURL }}
     proxy_url: {{ .Values.proxyURL }}
     {{- end }}
+    ignore_ssl: {{ .Values.ignore_ssl }}

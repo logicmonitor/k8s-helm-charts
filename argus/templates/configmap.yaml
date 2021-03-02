@@ -29,6 +29,7 @@ data:
     {{- end }}
     displayName_include_namespace: {{ .Values.fullDisplayNameIncludeNamespace }}
     displayName_include_clustername: {{ .Values.fullDisplayNameIncludeClusterName }}
+    ignore_ssl: {{ .Values.ignore_ssl }}
   rl-policy.yaml: |
 {{- if .Values.rlpolicy }}
 {{ toYaml .Values.rlpolicy | indent 4}}
