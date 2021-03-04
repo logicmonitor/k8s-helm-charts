@@ -51,6 +51,8 @@ fullDisplayNameIncludeClusterName: false
 labels: {}
 # Annotations to apply on all objects created by Argus
 annotations: {}
+# Set flag to ignore ssl/tls validation
+ignore_ssl: false
 filters:
   # The filtered expression for Pod device type. Based on this parameter, Pods would be added/deleted for discovery on LM.
   pod: ""
