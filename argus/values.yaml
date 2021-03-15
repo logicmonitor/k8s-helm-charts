@@ -53,6 +53,26 @@ labels: {}
 annotations: {}
 # Set flag to ignore ssl/tls validation
 ignore_ssl: false
+# Device group properties
+device_group_props:
+  cluster:
+    # To enable events collection
+    - name: "lmlogs.k8sevents.enable"
+      value: "false"
+    # To delete resources from the portal after specified time
+    - name: "kubernetes.resourcedeleteafterduration"
+      value: "P1DT0H0M0S"
+      override: false
+  pods:
+    # To enable log collection for all pods
+    - name: "lmlogs.k8spodlog.enable"
+      value: "false"
+  services: []
+  deployments: []
+  nodes: []
+  etcd: []
+  hpas: []
+    
 filters:
   # The filtered expression for Pod device type. Based on this parameter, Pods would be added/deleted for discovery on LM.
   pod: ""
