@@ -117,10 +117,20 @@ collector:
   proxyUser: ""
   # The Http/s proxy password of the collectors.
   proxyPass: ""
-  # The priority class name for Pod priority of the collector. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
-  priorityClassName: ""
-  # Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
-  tolerations: []
+  
+  # annotations to add on collector statefulset
+  annotations: {}
+  # labels to add on collector statefulset
+  labels: {}
+  # Collector statefulset template
+  statefulsetspec:
+    template:
+      spec:
+        nodeSelector: {}
+        # Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
+        tolerations: []
+        # The priority class name for Pod priority of the collector. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
+        priorityClassName: ""
 
 # rlpolicy defines the rate at which argus will send requests to Logicmonitor portal in order to avoid rate limit thresholds
 rlpolicy:
