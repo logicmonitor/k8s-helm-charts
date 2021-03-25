@@ -53,6 +53,11 @@ labels: {}
 annotations: {}
 # Set flag to ignore ssl/tls validation
 ignore_ssl: false
+# appIntervals defines time intervals for periodic sync, periodic delete and in memory cache resync operations.
+app_intervals:
+  periodic_sync_interval: "30m"
+  periodic_delete_interval: "30m"
+  cache_sync_interval: "5m"
 # Device group properties
 device_group_props:
   cluster:
@@ -117,7 +122,7 @@ collector:
   proxyUser: ""
   # The Http/s proxy password of the collectors.
   proxyPass: ""
-  
+    
   # annotations to add on collector statefulset
   annotations: {}
   # labels to add on collector statefulset
@@ -131,7 +136,7 @@ collector:
         tolerations: []
         # The priority class name for Pod priority of the collector. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
         priorityClassName: ""
-
+        
 # rlpolicy defines the rate at which argus will send requests to Logicmonitor portal in order to avoid rate limit thresholds
 rlpolicy:
   device:
