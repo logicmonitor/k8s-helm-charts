@@ -40,10 +40,17 @@ spec:
   {{- if .Values.collector.proxyUser }}
   secretName: {{ required "A valid .Values.collector.secretName entry is required!" .Values.collector.secretName }}
   {{- end }}
-  {{- if .Values.collector.priorityClassName }}
-  priorityClassName: {{ .Values.collector.priorityClassName }}
-  {{- end }}
-  {{- if .Values.collector.tolerations }}
-  tolerations:
-  {{- template "collectorset.tolerations" . }}
-  {{- end }}
+{{- if .Values.collector.labels }}
+  labels:
+{{ toYaml .Values.collector.labels | indent 4 }}
+{{- end }}
+
+{{- if .Values.collector.annotations}}
+  annotations:
+{{ toYaml .Values.collector.annotations| indent 4 }}
+{{- end }}
+
+{{- if .Values.collector.statefulsetspec }}
+  statefulsetspec:
+{{ toYaml .Values.collector.statefulsetspec | indent 4 }}
+{{- end }}

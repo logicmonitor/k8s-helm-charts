@@ -30,6 +30,13 @@ data:
     displayName_include_namespace: {{ .Values.fullDisplayNameIncludeNamespace }}
     displayName_include_clustername: {{ .Values.fullDisplayNameIncludeClusterName }}
     ignore_ssl: {{ .Values.ignore_ssl }}
+    app_intervals:
+{{ toYaml .Values.app_intervals | indent 6}}
+      periodic_sync_min_interval: 10m
+      periodic_delete_min_interval: 10m
+      cache_sync_min_interval: 5m
+    device_group_props:
+{{ toYaml .Values.device_group_props | indent 6}}
   rl-policy.yaml: |
 {{- if .Values.rlpolicy }}
 {{ toYaml .Values.rlpolicy | indent 4}}
