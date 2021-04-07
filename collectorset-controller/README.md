@@ -44,6 +44,9 @@ Optional Values:
 - **affinity (default: `{}`):** It allows you to constrain which nodes your pod is eligible to be scheduled on.
 - **priorityClassName (default: `""`):** The priority class name for Pod priority. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
 - **tolerations (default: `[]`):** Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
+- **labels (default: `""`):** Labels to apply on all objects created by Collectorset controller.
+- **annotations (default: `{}`):** Annotations to apply on all objects created by Collectorset controller.
+- **ignore_ssl (default: `false`):** Set flag to ignore ssl/tls validation
 
 ---
 
