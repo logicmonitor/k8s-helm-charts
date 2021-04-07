@@ -65,8 +65,7 @@ Optional Values:
 - **collector.proxyURL (default: `""`):** The Http/s proxy url of the collectors.
 - **collector.proxyUser (default: `""`):** The Http/s proxy username of the collectors.
 - **collector.proxyPass (default: `""`):** The Http/s proxy password of the collectors.
-- **collector.priorityClassName (default: `""`):** The priority class name for Pod priority of the collector. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
-- **collector.tolerations (default: `[]`):** Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
+- **collector.statefulsetspec:** Holds the Collector pod's Statefulfulset specification as per the Kubernetes statefulset object's spec format. Refer [statefulset basics](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/) for more info
 
 ---
 
@@ -78,10 +77,16 @@ $ helm upgrade --reuse-values \
   --set tolerations[0].operator="Equal" \
   --set tolerations[0].value="value1" \
   --set tolerations[0].effect="NoSchedule" \
-  --set collector.tolerations[0].key="key2" \
-  --set collector.tolerations[0].operator="Equal" \
-  --set collector.tolerations[0].value="value2" \
-  --set collector.tolerations[0].effect="NoExecute" \
+  argus logicmonitor/argus
+```
+
+**Discovery Filter Example:**
+
+```bash
+helm upgrade --reuse-values \
+  --set filters.deployment="app =~ 'QA' || app =~ 'Dev'"
+  --set filters.pod="app =~ 'node-app'" \
+  --set filters.service=\"*\"
   argus logicmonitor/argus
 ```
 
