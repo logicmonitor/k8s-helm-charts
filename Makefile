@@ -4,19 +4,19 @@ all: charts index lint
 charts:
 	
 	@helm package argus --destination docs
-	@helm repo index docs --url=https://logicmonitor.github.com/k8s-helm-charts
+	@helm repo index docs --url=https://logicmonitor.github.io/k8s-helm-charts
 	
 	@helm package releasemanager --destination docs
-	@helm repo index docs --url=https://logicmonitor.github.com/k8s-release-manager
+	@helm repo index docs --url=https://logicmonitor.github.io/k8s-release-manager
 
 	@helm package collectorset-controller --destination docs
-	@helm repo index docs --url=https://logicmonitor.github.com/k8s-helm-charts
+	@helm repo index docs --url=https://logicmonitor.github.io/k8s-helm-charts
 
 	@helm package lm-logs --destination docs
-	@helm repo index docs --url=https://logicmonitor.github.com/k8s-helm-charts
+	@helm repo index docs --url=https://logicmonitor.github.io/k8s-helm-charts
 
 index:
-	helm repo index ./ --url https://logicmonitor.github.com/k8s-helm-charts
+	helm repo index ./ --url https://logicmonitor.github.io/k8s-helm-charts
 ifeq ($(shell uname -s), Linux)
 	sed -i 's/\/docs//' index.yaml
 endif

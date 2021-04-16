@@ -6,4 +6,4 @@ kubeVersion: ">= 1.14.0-0"
 maintainers:
 - name: LogicMonitor
   email: argus@logicmonitor.com
-icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
