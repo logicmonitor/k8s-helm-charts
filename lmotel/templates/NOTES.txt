@@ -1,0 +1,6 @@
+1. View the logs for lmotel collector by running this command:
+kubectl logs -f $(kubectl get pods --namespace={{ .Release.Namespace }} -l app={{ .Release.Name }} -o name) -c {{ .Chart.Name }} -n {{ .Release.Namespace }}
+2. For sending traces from application, configure as below:
+For example:
+- name: OTLP_ENDPOINT
+  value: "{{ .Values.service.name }}:<port>"
