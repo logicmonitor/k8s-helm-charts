@@ -22,11 +22,10 @@ spec:
     {{- end }}
       labels:
         app: {{ .Release.Name }}
+{{- if .Values.labels}}
+{{ toYaml .Values.labels| indent 4 }}
+{{- end }}
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -42,22 +41,22 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: {{ .Release.Name }}
-                  key: logicmonitor_account
+                  key: lm_account
             - name: LOGICMONITOR_BEARER_TOKEN
               valueFrom:
                 secretKeyRef:
                   name: {{ .Release.Name }}
-                  key: logicmonitor_bearer_token
-            - name: LMOTEL_NAME
+                  key: lm_bearer_token
+            - name: LOGICMONITOR_OTEL_NAME
               valueFrom:
                 configMapKeyRef:
                   name: {{ .Release.Name }}
-                  key: lmotel_name
-            - name: LMOTEL_COLLECTOR_ID
+                  key: lm_otel_name
+            - name: LOGICMONITOR_OTEL_ID
               valueFrom:
                 configMapKeyRef:
                   name: {{ .Release.Name }}
-                  key: lm_collector_id
+                  key: lm_otel_id
                   optional: true
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

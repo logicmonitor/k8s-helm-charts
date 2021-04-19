@@ -15,19 +15,19 @@ helm repo update
 2. Install the lmotel chart, filling in the below values.
 ``` console
 helm install -n <namespace> \
---set lm.lm_account=<lm_company_name> \
---set lm.lm_bearer_token=<lm_bearer_token> \
---set lm.lm_otel_name=<lmotel_collector_name> \ 
---set lm.lm_collector_id=<lm_collector_id>
+--set lm.account=<lm_company_name> \
+--set lm.bearer_token=<lm_bearer_token> \
+--set lm.otel_name=<lmotel_collector_name> \ 
+--set lm.otel_id=<lm_collector_id>
 --set replicaCount=<number_of_replicas>
 lmotel logicmonitor/lmotel
 ```
 ---
 Required Values:
-- **lm_account (default: `""`):** The LogicMonitor account name.
-- **lm_bearer_token (default: `""`):** Bearer token of user having Data Ingestion permissions.
-- **lm_otel_name (default: `""`):** The LogicMonitor Otel Collector name.
+- **account (default: `""`):** The LogicMonitor account name.
+- **bearer_token (default: `""`):** Bearer token of user having Data Ingestion permissions.
+- **otel_name (default: `""`):** The LogicMonitor Otel Collector name.
 ---
 Optional Values:
-- **lm_collector_id (default: `0`):** The LogicMonitor Otel Collector ID.
+- **otel_id (default: `0`):** The LogicMonitor Otel Collector ID.
 - **replicaCount (default: `1`):** Number of replicas of lmotel kubernetes pod.

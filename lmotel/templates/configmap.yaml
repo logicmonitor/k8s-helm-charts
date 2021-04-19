@@ -8,9 +8,9 @@ metadata:
 {{ toYaml .Values.labels| indent 4 }}
 {{- end }}
 data:
-  logicmonitor_account: {{ required "A valid .Values.lm.lm_account entry is required!" .Values.lm.lm_account }}
-  lmotel_name: {{ required "A valid .Values.lm.lm_otel_name entry is required!" .Values.lm.lm_otel_name }}
-  {{- if .Values.lm.lm_collector_id }}
-  lm_collector_id: {{ .Values.lm.lm_collector_id | quote}}
+  lm_account: {{ required "A valid .Values.lm.account entry is required!" .Values.lm.account }}
+  lm_otel_name: {{ required "A valid .Values.lm.otel_name entry is required!" .Values.lm.otel_name }}
+  {{- if .Values.lm.otel_id }}
+  lm_otel_id: {{ .Values.lm.otel_id | quote}}
   {{ end }}
 

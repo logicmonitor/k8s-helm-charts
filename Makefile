@@ -39,5 +39,8 @@ lint:
 	--set accessKey=dummy \
 	--set account=dummy 
 	@helm lint --strict releasemanager --set backend.path=dummy
-	@helm lint --strict lmotel
+	@helm lint --strict lmotel \
+	--set lm.bearer_token=dummy \
+	--set lm.account=dummy \
+	--set lm.otel_name=dummy
 	
