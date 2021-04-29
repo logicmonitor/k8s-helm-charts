@@ -8,7 +8,6 @@ lm:
   account: ""
   bearer_token: ""
   otel_name: ""
-  otel_id: 0
 
 image:
   # TODO: Change the repo from docker-registry to dockerhub once it is pushed to dockerhub

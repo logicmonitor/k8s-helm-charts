@@ -52,12 +52,6 @@ spec:
                 configMapKeyRef:
                   name: {{ .Release.Name }}
                   key: lm_otel_name
-            - name: LOGICMONITOR_OTEL_ID
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ .Release.Name }}
-                  key: lm_otel_id
-                  optional: true
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

@@ -18,7 +18,6 @@ helm install -n <namespace> \
 --set lm.account=<lm_company_name> \
 --set lm.bearer_token=<lm_bearer_token> \
 --set lm.otel_name=<lmotel_collector_name> \ 
---set lm.otel_id=<lm_collector_id>
 --set replicaCount=<number_of_replicas>
 lmotel logicmonitor/lmotel
 ```
@@ -29,5 +28,4 @@ Required Values:
 - **otel_name (default: `""`):** The LogicMonitor Otel Collector name.
 ---
 Optional Values:
-- **otel_id (default: `0`):** The LogicMonitor Otel Collector ID.
 - **replicaCount (default: `1`):** Number of replicas of lmotel kubernetes pod.
