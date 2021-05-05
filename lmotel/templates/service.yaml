@@ -16,4 +16,4 @@ spec:
       targetPort: {{ $val }}
 {{- end }}
   selector:
-    {{- include "lmotel.selectorLabels" . | nindent 4 }}
+    app: {{ .Release.Name }}
