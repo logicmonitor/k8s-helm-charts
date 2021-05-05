@@ -10,8 +10,8 @@ lm:
   otel_name: ""
 
 image:
-  # TODO: Change the repo from docker-registry to dockerhub once it is pushed to dockerhub
-  repository: docker-registry.logicmonitor.net/development/lm-otel
+  # The image respository of the [lmotel](https://hub.docker.com/r/logicmonitor/lmotel) container.
+  repository: logicmonitor/lmotel
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
