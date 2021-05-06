@@ -37,6 +37,10 @@ data:
       cache_sync_min_interval: 5m
     device_group_props:
 {{ toYaml .Values.device_group_props | indent 6}}
+{{- if .Values.openmetrics }}
+    openmetrics:
+{{ toYaml .Values.openmetrics | indent 6}}
+{{- end }}
   rl-policy.yaml: |
 {{- if .Values.rlpolicy }}
 {{ toYaml .Values.rlpolicy | indent 4}}

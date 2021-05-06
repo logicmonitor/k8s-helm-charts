@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+{{- if .Values.labels}}
+{{ toYaml .Values.labels| indent 4 }}
+{{- end }}
+data:
+  lm_account: {{ required "A valid .Values.lm.account entry is required!" .Values.lm.account }}
+  lm_otel_name: {{ required "A valid .Values.lm.otel_name entry is required!" .Values.lm.otel_name }}
+

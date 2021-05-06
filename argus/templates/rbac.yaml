@@ -1,7 +1,7 @@
 {{- if .Values.enableRBAC -}}
 ---
 kind: ClusterRole
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: {{ template "rbac.apiVersion" . }}
 metadata:
   name: {{ .Release.Name }}
 {{- if .Values.labels}}
@@ -53,7 +53,7 @@ rules:
   verbs:
     - get
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: {{ template "rbac.apiVersion" . }}
 kind: ClusterRoleBinding
 metadata:
   name: {{ .Release.Name }}

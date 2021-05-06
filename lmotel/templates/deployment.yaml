@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "lmotel.fullname" . }}
+  labels:
+    app: {{ .Release.Name }}
+{{- if .Values.labels}}
+{{ toYaml .Values.labels| indent 4 }}
+{{- end }}
+spec:
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        app: {{ .Release.Name }}
+{{- if .Values.labels}}
+{{ toYaml .Values.labels| indent 4 }}
+{{- end }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          env:
+            - name: LOGICMONITOR_ACCOUNT
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Release.Name }}
+                  key: lm_account
+            - name: LOGICMONITOR_BEARER_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}
+                  key: lm_bearer_token
+            - name: LOGICMONITOR_OTEL_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Release.Name }}
+                  key: lm_otel_name
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

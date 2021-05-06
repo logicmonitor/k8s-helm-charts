@@ -62,7 +62,7 @@ app_intervals:
 device_group_props:
   cluster:
     # To enable events collection
-    - name: "lmlogs.k8sevents.enable"
+    - name: "lmlogs.k8sevent.enable"
       value: "false"
     # To delete resources from the portal after specified time
     - name: "kubernetes.resourcedeleteafterduration"
@@ -89,6 +89,9 @@ filters:
   deployment: ""
   # The filtered expression for HorizontalPodAutoscaler device type. Based on this parameter, HorizontalPodAutoscalers would be added/deleted for discovery on LM.
   hpa: ""
+# openmetrics config for Argus metrics collection
+openmetrics:
+  port: 2112
 
 collector:
   ## REQUIRED VALUES
