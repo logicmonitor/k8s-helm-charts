@@ -16,7 +16,7 @@ charts:
 	@helm repo index docs --url=https://logicmonitor.github.io/k8s-helm-charts
 
 	@helm package lmotel --destination docs
-    @helm repo index docs --url=https://logicmonitor.github.io/k8s-helm-charts
+        @helm repo index docs --url=https://logicmonitor.github.io/k8s-helm-charts
 
 index:
 	helm repo index ./ --url https://logicmonitor.github.io/k8s-helm-charts
@@ -38,7 +38,7 @@ lint:
 	@helm lint --strict collectorset-controller --set accessID=dummy \
 	--set accessKey=dummy \
 	--set account=dummy 
-	@helm lint --strict releasemanager --set backend.path=dummy
+
 	@helm lint --strict lmotel \
 	--set lm.bearer_token=dummy \
 	--set lm.account=dummy \
