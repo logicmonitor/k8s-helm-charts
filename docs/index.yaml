@@ -57,7 +57,7 @@ entries:
     created: "2021-05-12T18:09:02.527684+05:30"
     description: Automated Kubernetes monitoring
     digest: 99a59307a6d3b0ebbacd082b68c112d1a018d1a190ae00be7c04f9f30e8e7ea8
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -70,7 +70,7 @@ entries:
     created: "2021-05-12T18:09:02.526814+05:30"
     description: Automated Kubernetes monitoring
     digest: e56ded699419a0a9782a2ae9e8244e7f62a84615e0c18367abfd1437ba3b2548
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -83,7 +83,7 @@ entries:
     created: "2021-05-12T18:09:02.526053+05:30"
     description: Automated Kubernetes monitoring
     digest: fb51a8830261b60de282139951913992711c18888ea09e30432653dd06a62598
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -96,7 +96,7 @@ entries:
     created: "2021-05-12T18:09:02.525331+05:30"
     description: Automated Kubernetes monitoring
     digest: 78a0e2428753f6848f5ff167f438c63311a923966fbb22e5c5ce5522798039f7
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -109,7 +109,7 @@ entries:
     created: "2021-05-12T18:09:02.524652+05:30"
     description: Automated Kubernetes monitoring
     digest: e5085e1181a866af0d9ecf51c3b6eac2e8b3d2a8bae41225e62bee4d876fd79a
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -122,7 +122,7 @@ entries:
     created: "2021-05-12T18:09:02.524011+05:30"
     description: Automated Kubernetes monitoring
     digest: 288daa5e7b709076084fc07b432d17da3546e6f6990d54a0631531979bfb67c7
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -135,7 +135,7 @@ entries:
     created: "2021-05-12T18:09:02.523343+05:30"
     description: Automated Kubernetes monitoring
     digest: 18bd77c531dc0a429a77d8e1e163ae4ebf41d34353b909982aa2e2e56c9d2c19
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -148,7 +148,7 @@ entries:
     created: "2021-05-12T18:09:02.521859+05:30"
     description: Automated Kubernetes monitoring
     digest: 759e3363f941037d9c74931b10040211b2717c25660da94ed5c501443364fadf
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -161,7 +161,7 @@ entries:
     created: "2021-05-12T18:09:02.521132+05:30"
     description: Automated Kubernetes monitoring
     digest: caf718845ae4214f73210ae377fff9f63627e713e96f244940bf6537aea16c03
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -174,7 +174,7 @@ entries:
     created: "2021-05-12T18:09:02.520411+05:30"
     description: Automated Kubernetes monitoring
     digest: 6fc798e92c6123d869fbe48e10a4961183188c04b10fcf95ab6a3b7233191006
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -337,7 +337,7 @@ entries:
     created: "2021-05-12T18:09:02.538802+05:30"
     description: Automated collector management
     digest: 277e422c60d790ef16d28f5e3b0e591d9fafe4630fe6a5254312d29b4026f768
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -350,7 +350,7 @@ entries:
     created: "2021-05-12T18:09:02.538229+05:30"
     description: Automated collector management
     digest: 84883bf507cfbefb84e91f8d1e2ea2e14ed315e8eaf1f72da02082efbb0d0613
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -363,7 +363,7 @@ entries:
     created: "2021-05-12T18:09:02.537718+05:30"
     description: Automated collector management
     digest: 16918ccf8de9bce8f7707c79c83cec0df5155225d85bfd06dec31d60de8f3613
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -376,7 +376,7 @@ entries:
     created: "2021-05-12T18:09:02.543977+05:30"
     description: Automated collector management
     digest: d0352f6934ecd8867a5c9354c2a018b7c6ea95c7d0ac16b258b0aeb35b111917
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -389,7 +389,7 @@ entries:
     created: "2021-05-12T18:09:02.543299+05:30"
     description: Automated collector management
     digest: f87fb95fcacc39bc99d07e83f8c07f25745bcbd086b12a34550d6e84ba9b1eeb
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -402,7 +402,7 @@ entries:
     created: "2021-05-12T18:09:02.542458+05:30"
     description: Automated collector management
     digest: 9ced5c4abb5ed6061177ea2fd16926c68c19f6c368fc4867f9cc1a63c3fbc177
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
@@ -415,7 +415,7 @@ entries:
     created: "2021-05-12T18:09:02.542004+05:30"
     description: Automated collector management
     digest: 777f3d429b894c7f57acd174345f89eccb640ef1a1d1c38452492139991a0220
-    icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
+    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
     - email: argus@logicmonitor.com
