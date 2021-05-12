@@ -1,7 +1,7 @@
 apiVersion: v2
 description: Automated Kubernetes monitoring
 name: argus
-version: 0.18.0-devel
+version: 0.19.0-devel
 kubeVersion: ">= 1.14.0-0"
 maintainers:
 - name: LogicMonitor
