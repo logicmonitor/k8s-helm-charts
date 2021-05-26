@@ -4,6 +4,7 @@ metadata:
   name: {{ .Release.Name }}
   labels:
     chart: "argus"
+    logicmonitor.com/version: v2
 {{- if .Values.labels}}
 {{ toYaml .Values.labels| indent 4 }}
 {{- end }}
@@ -19,11 +20,12 @@ data:
   config.yaml: |
     address: collectorset-controller:50000
     cluster_name: {{ required "A valid .Values.clusterName entry is required!" .Values.clusterName }}
-    debug: {{ required "A valid .Values.debug entry is required!" .Values.debug }}
+    log_level: {{ .Values.logLevel }}
     delete_devices: {{ required "A valid .Values.deleteDevices entry is required!" .Values.deleteDevices }}
     disable_alerting: {{ required "A valid .Values.disableAlerting entry is required!" .Values.disableAlerting }}
     etcd_discovery_token: {{ .Values.etcdDiscoveryToken }}
     cluster_group_id: {{ .Values.clusterGroupID }}
+    resource_group_id: {{ .Values.resourceGroupID }}
     {{- if .Values.proxyURL }}
     proxy_url: {{ .Values.proxyURL }}
     {{- end }}
@@ -41,14 +43,16 @@ data:
     openmetrics:
 {{ toYaml .Values.openmetrics | indent 6}}
 {{- end }}
+    disable_resource_monitoring:
+{{- if .Values.disable_resource_monitoring}}
+{{ toYaml .Values.disable_resource_monitoring | indent 4}}
+{{- end }}
   rl-policy.yaml: |
 {{- if .Values.rlpolicy }}
 {{ toYaml .Values.rlpolicy | indent 4}}
 {{- end }}
   filters-config.yaml: |
-    filter:
-      pods: {{ .Values.filters.pod }}
-      services: {{ .Values.filters.service }}
-      deployments: {{ .Values.filters.deployment }}
-      nodes: {{ .Values.filters.node }}
-      horizontalpodautoscalers: {{ .Values.filters.hpa}}
+    filters:
+{{- if .Values.filters }}
+{{ toYaml .Values.filters | indent 6}}
+{{- end }}
