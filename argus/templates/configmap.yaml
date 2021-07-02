@@ -21,11 +21,29 @@ data:
     address: collectorset-controller:50000
     cluster_name: {{ required "A valid .Values.clusterName entry is required!" .Values.clusterName }}
     log_level: {{ .Values.logLevel }}
-    delete_devices: {{ required "A valid .Values.deleteDevices entry is required!" .Values.deleteDevices }}
+    delete_resources: {{ required "A valid .Values.deleteDevices entry is required!" .Values.deleteDevices }}
     disable_alerting: {{ required "A valid .Values.disableAlerting entry is required!" .Values.disableAlerting }}
     etcd_discovery_token: {{ .Values.etcdDiscoveryToken }}
     cluster_group_id: {{ .Values.clusterGroupID }}
     resource_group_id: {{ .Values.resourceGroupID }}
+    {{- if .Values.telemetryCronString}}
+    telemetry_cron_string: {{ .Values.telemetryCronString}}
+    {{- end }}
+    {{- if .Values.enableNewResourceTree }}
+    enable_new_resource_tree: {{ .Values.enableNewResourceTree }}
+    {{- end }}
+    {{- if .Values.telemetryCronString}}
+    telemetry_cron_string: {{ .Values.telemetryCronString}}
+    {{- end }}
+    {{- if .Values.registerGenericFilter}}
+    register_generic_filter: {{ .Values.registerGenericFilter}}
+    {{- end }}
+    {{- if .Values.enableNamespacesDeletedGroups}}
+    enable_namespaces_deleted_groups: {{ .Values.enableNamespacesDeletedGroups}}
+    {{- end }}
+    {{- if .Values.numberOfWorkers}}
+    number_of_workers: {{ .Values.numberOfWorkers}}
+    {{- end }}
     {{- if .Values.proxyURL }}
     proxy_url: {{ .Values.proxyURL }}
     {{- end }}
@@ -37,7 +55,7 @@ data:
       periodic_sync_min_interval: 10m
       periodic_delete_min_interval: 10m
       cache_sync_min_interval: 5m
-    device_group_props:
+    resource_group_props:
 {{ toYaml .Values.device_group_props | indent 6}}
 {{- if .Values.openmetrics }}
     openmetrics:
@@ -46,10 +64,6 @@ data:
     disable_resource_monitoring:
 {{- if .Values.disable_resource_monitoring}}
 {{ toYaml .Values.disable_resource_monitoring | indent 4}}
-{{- end }}
-  rl-policy.yaml: |
-{{- if .Values.rlpolicy }}
-{{ toYaml .Values.rlpolicy | indent 4}}
 {{- end }}
   filters-config.yaml: |
     filters:
