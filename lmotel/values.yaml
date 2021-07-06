@@ -2,7 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-annotations: {}
 replicaCount: 1
 
 lm:
@@ -18,8 +17,10 @@ image:
   tag: latest
 
 ingress:
-  enabled: true
+  annotations: {}
+  enabled: false
   host: ""
+  customLabels: {}
   
 service:
   type: ClusterIP
