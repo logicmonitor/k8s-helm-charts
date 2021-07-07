@@ -44,6 +44,12 @@ data:
     {{- if .Values.numberOfWorkers}}
     number_of_workers: {{ .Values.numberOfWorkers}}
     {{- end }}
+    {{- if .Values.numberOfParallelRunners}}
+    number_of_parallel_runners: {{ .Values.numberOfParallelRunners}}
+    {{- end }}
+    {{- if .Values.parallelRunnerQueueSize}}
+    parallel_runner_queue_size: {{ .Values.parallelRunnerQueueSize}}
+    {{- end }}
     {{- if .Values.proxyURL }}
     proxy_url: {{ .Values.proxyURL }}
     {{- end }}
