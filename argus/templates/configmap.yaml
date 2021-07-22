@@ -26,9 +26,6 @@ data:
     etcd_discovery_token: {{ .Values.etcdDiscoveryToken }}
     cluster_group_id: {{ .Values.clusterGroupID }}
     resource_group_id: {{ .Values.resourceGroupID }}
-    {{- if .Values.telemetryCronString}}
-    telemetry_cron_string: {{ .Values.telemetryCronString}}
-    {{- end }}
     {{- if .Values.enableNewResourceTree }}
     enable_new_resource_tree: {{ .Values.enableNewResourceTree }}
     {{- end }}
