@@ -28,9 +28,9 @@ Required Values:
 - **accessID (default: `""`):** The LogicMonitor API key ID.
 - **accessKey (default: `""`):** The LogicMonitor API key.
 - **account (default: `""`):** The LogicMonitor account name.
-- **clusterName (default: `""`):** A unique name given to the cluster's device group.
+- **clusterName (default: `""`):** A unique name given to the cluster's resource group.
 - **debug (default: `false`):** To enable verbose logging at debug level.
-- **deleteDevices (default: `true`):** On a delete event, either delete from LogicMonitor or move the device to the `_deleted` device group.
+- **deleteDevices (default: `true`):** On a delete event, either delete from LogicMonitor or move the resource to the `_deleted` resource group.
 - **disableAlerting (default: `false`):** Disables LogicMonitor alerting for all the cluster resources.
 - **collector.replicas (default: `1`):** The number of collectors to create and use with Argus.
 - **collector.size (default: `""`):** The collector size to install. Can be nano, small, medium, or large.
@@ -42,8 +42,8 @@ Required Values:
 Optional Values:
 
 - **enableRBAC (default: `true`):** Enable RBAC. If your cluster does not have RBAC enabled, this value should be set to false.
-- **clusterGroupID (default: `0`):** A parent group id of the cluster's device group.
-- **etcdDiscoveryToken (default: `""`):** The public etcd discovery token used to add etcd hosts to the cluster device group.
+- **clusterGroupID (default: `0`):** A parent group id of the cluster's resource group.
+- **etcdDiscoveryToken (default: `""`):** The public etcd discovery token used to add etcd hosts to the cluster resource group.
 - **imagePullPolicy (default: `"Always"`):** The image pull policy of the Argus container.
 - **imageRepository (default: `"logicmonitor/argus"`):** The image respository of the [Argus](https://hub.docker.com/r/logicmonitor/argus) container.
 - **imageTag:** The image tag of the [Argus](https://hub.docker.com/r/logicmonitor/argus/tags) container.
@@ -54,10 +54,10 @@ Optional Values:
 - **affinity (default: `{}`):** It allows you to constrain which nodes your pod is eligible to be scheduled on.
 - **priorityClassName (default: `""`):** The priority class name for Pod priority. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
 - **tolerations (default: `[]`):** Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
-- **filters.pod (default: `""`):** The filtered expression for Pod device type. Based on this parameter, Pods would be added/deleted for discovery on LM.
-- **filters.service (default: `""`):** The filtered expression for Service device type. Based on this parameter, Services would be added/deleted for discovery on LM.
-- **filters.node (default: `""`):** The filtered expression for Node device type. Based on this parameter, Nodes would be added/deleted for discovery on LM.
-- **filters.deployment (default: `""`):** The filtered expression for Deployment device type. Based on this parameter, Deployments would be added/deleted for discovery on LM.
+- **filters.pod (default: `""`):** The filtered expression for Pod resource type. Based on this parameter, Pods would be added/deleted for discovery on LM.
+- **filters.service (default: `""`):** The filtered expression for Service resource type. Based on this parameter, Services would be added/deleted for discovery on LM.
+- **filters.node (default: `""`):** The filtered expression for Node resource type. Based on this parameter, Nodes would be added/deleted for discovery on LM.
+- **filters.deployment (default: `""`):** The filtered expression for Deployment resource type. Based on this parameter, Deployments would be added/deleted for discovery on LM.
 - **collector.groupID (default: `0`):** The ID of the group of the collectors.
 - **collector.escalationChainID (default: `0`):** The ID of the escalation chain of the collectors.
 - **collector.collectorVersion (default: `0`):** The version of the collectors.

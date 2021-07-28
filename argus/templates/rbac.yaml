@@ -22,12 +22,22 @@ rules:
     - services
     - namespaces
     - componentstatuses
+  verbs:
+    - list
+    - get
+    - watch
+    - update
+- apiGroups:
+    - ""
+  resources:
     - configmaps
   verbs:
     - list
     - get
     - watch
     - update
+    - create
+    - deletecollection
 - apiGroups:
     - "apps"
   resources:

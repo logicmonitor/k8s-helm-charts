@@ -16,6 +16,12 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
+ingress:
+  annotations: {}
+  enabled: false
+  host: ""
+  customLabels: {}
+  
 service:
   type: ClusterIP
   name: lmotel-svc
