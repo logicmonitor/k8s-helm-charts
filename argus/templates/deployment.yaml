@@ -12,7 +12,7 @@ metadata:
 {{ toYaml .Values.annotations | indent 4 }}
 {{- end }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}
@@ -89,21 +89,3 @@ spec:
               name: {{ .Release.Name }}
               key: proxyPass
         {{- end }}
-        volumeMounts:
-        - name: etc-argus
-          mountPath: "/etc/argus"
-          readOnly: true
-      volumes:
-      - name: etc-argus
-        projected:
-          sources:
-          - configMap:
-              name: {{ .Release.Name }}
-              items:
-                - key: config.yaml
-                  path: config.yaml
-                - key: rl-policy.yaml
-                  path: rl-policy.yaml
-                - key: filters-config.yaml
-                  path: filters-config.yaml
-

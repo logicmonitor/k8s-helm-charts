@@ -1,0 +1,42 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: {{ include "lmotel.fullname" . }}
+  labels:
+    app: {{ .Values.service.name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  {{- if .Values.ingress.customLabels }}
+  {{- with .Values.ingress.customLabels }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- end }}
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+    nginx.ingress.kubernetes.io/grpc-backend: "true"
+  {{- if .Values.ingress.annotations }}
+  {{- range $key,$value := .Values.ingress.annotations }}  
+    {{ $key }}: "{{ $value }}"
+  {{- end }}     
+  {{- end }}
+spec:
+  rules:
+    - host: {{.Values.ingress.host}}
+      {{- with .Values.service }}
+      http:
+        paths:
+          - path: /rest/ingest
+            backend:
+              serviceName: {{.name}}
+              servicePort: {{.ports.http}}
+          - path: /
+            backend:
+              serviceName: {{.name}}
+              servicePort: {{.ports.grpc}}
+      {{- end }}
+  tls:
+    - hosts:
+        - {{.Values.ingress.host}}
+{{- end }}

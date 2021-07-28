@@ -14,7 +14,12 @@ metadata:
 {{- end }}
 spec:
   ports:
-  - port: {{ .Values.openmetrics.port }}
-    targetPort: {{ .Values.openmetrics.port }}
+  {{- if .Values.openmetrics }}
+    - port: {{ .Values.openmetrics.port }}
+      targetPort: {{ .Values.openmetrics.port }}
+  {{- else }}
+    - port: 2112
+      targetPort: 2112
+  {{- end }}
   selector:
     app: {{ .Release.Name }}

@@ -6,11 +6,11 @@ accessID: ""
 accessKey: ""
 # The LogicMonitor account name.
 account: ""
-# A unique name given to the cluster's device group.
+# A unique name given to the cluster's resource group.
 clusterName: ""
-# To enable verbose logging at debug level.
-debug: false
-# On a delete event, either delete from LogicMonitor or move the device to the `_delted` device group.
+# Set Argus Log Level
+logLevel: "info"
+# On a delete event, either delete from LogicMonitor or move the resource to the `_deleted` resource group.
 deleteDevices: true
 # Disables LogicMonitor alerting for all the cluster resources.
 disableAlerting: false
@@ -19,9 +19,11 @@ disableAlerting: false
 
 # Enable RBAC. If your cluster does not have RBAC enabled, this value should be set to false.
 enableRBAC: true
-# A parent group id of the cluster's device group.
+# A parent group id of the cluster's resource group.
 clusterGroupID: 0
-# The public etcd discovery token used to add etcd hosts to the cluster device group.
+# A parent group id that will hold all cluster resources under it. This is useful when Argus is installed with non-admin user's token.
+resourceGroupID: 1
+# The public etcd discovery token used to add etcd hosts to the cluster resource group.
 etcdDiscoveryToken: ""
 # The image respository of the [Argus](https://hub.docker.com/r/logicmonitor/argus) container.
 imageRepository: logicmonitor/argus
@@ -43,21 +45,34 @@ affinity: {}
 priorityClassName: ""
 # Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
 tolerations: []
-# This parameter is used to specify if displayName should include namespace or not.
-fullDisplayNameIncludeNamespace: false
-# This parameter is used to specify if displayName should include both namespace and clusterName or not.
-fullDisplayNameIncludeClusterName: false
 # Labels to apply on all objects created by Argus
 labels: {}
 # Annotations to apply on all objects created by Argus
 annotations: {}
 # Set flag to ignore ssl/tls validation
 ignore_ssl: false
+
+# Flag to enable new resource tree to put all resources of a namespace in a single resource group
+enableNewResourceTree: false
+
+# Flag is used when #enableNewResourceTree is true - to create _deleted group in its individual namespace groups when scheduled delete is enabled
+enableNamespacesDeletedGroups: false
+
+# Flag to register generic filter based on resource label => "logicmonitor/monitoring": "disable"
+registerGenericFilter: false
+
+# To disable resource monitoring
+# for ex:
+# disableResourceMonitoring:
+#   - deployments
+#   - services
+disableResourceMonitoring: []
+
 # appIntervals defines time intervals for periodic sync, periodic delete and in memory cache resync operations.
 app_intervals:
   periodic_sync_interval: "30m"
-  periodic_delete_interval: "30m"
-  cache_sync_interval: "5m"
+  periodic_delete_interval: "10m"
+  cache_sync_interval: "1h"
 # Device group properties
 device_group_props:
   cluster:
@@ -79,16 +94,17 @@ device_group_props:
   hpas: []
     
 filters:
-  # The filtered expression for Pod device type. Based on this parameter, Pods would be added/deleted for discovery on LM.
-  pod: ""
-  # The filtered expression for Service device type. Based on this parameter, Services would be added/deleted for discovery on LM.
-  service: ""
-  # The filtered expression for Node device type. Based on this parameter, Nodes would be added/deleted for discovery on LM.
-  node: ""
-  # The filtered expression for Deployment device type. Based on this parameter, Deployments would be added/deleted for discovery on LM.
-  deployment: ""
-  # The filtered expression for HorizontalPodAutoscaler device type. Based on this parameter, HorizontalPodAutoscalers would be added/deleted for discovery on LM.
-  hpa: ""
+  # The filtered expression for Pod resource type. Based on this parameter, Pods would be added/deleted for discovery on LM.
+  pod: []
+  # The filtered expression for Service resource resource type. Based on this parameter, Services would be added/deleted for discovery on LM.
+  service: []
+  # The filtered expression for Node resource type. Based on this parameter, Nodes would be added/deleted for discovery on LM.
+  node: []
+  # The filtered expression for Deployment resource type. Based on this parameter, Deployments would be added/deleted for discovery on LM.
+  deployment: []
+  # The filtered expression for HorizontalPodAutoscaler resource type. Based on this parameter, HorizontalPodAutoscalers would be added/deleted for discovery on LM.
+  hpa: []
+
 # openmetrics config for Argus metrics collection
 openmetrics:
   port: 2112
@@ -140,36 +156,12 @@ collector:
         # The priority class name for Pod priority of the collector. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
         priorityClassName: ""
         
-# rlpolicy defines the rate at which argus will send requests to Logicmonitor portal in order to avoid rate limit thresholds
-rlpolicy:
-  device:
-    get:
-      pod: 60
-      dep: 10
-      svc: 10
-      node: 10
-      hpa: 10
-    post:
-      pod: 60
-      dep: 10
-      svc: 10
-      node: 10
-      hpa: 10
-    put:
-      pod: 60
-      dep: 10
-      svc: 10
-      node: 10
-      hpa: 10
-    patch:
-      pod: 60
-      dep: 10
-      svc: 10
-      node: 10
-      hpa: 10
-    delete:
-      pod: 60
-      dep: 10
-      svc: 10
-      node: 10
-      hpa: 10
+# List of resources to disable monitoring
+# for ex:
+# disable_resource_monitoring:
+#   - deployments
+#   - horizontalpodautoscalers
+disable_resource_monitoring: []
+
+# Replicas - defaults to 1, param is just for development purpose, do not increase more than one replicas in production
+replicas: 1
