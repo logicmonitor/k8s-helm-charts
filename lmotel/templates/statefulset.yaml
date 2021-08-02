@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "lmotel.fullname" . }}
   labels:
@@ -8,6 +8,8 @@ metadata:
 {{ toYaml .Values.labels| indent 4 }}
 {{- end }}
 spec:
+# servicename used only in case of statefulset
+  serviceName: {{ .Release.Name }}
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
 {{- end }}
@@ -52,6 +54,8 @@ spec:
                 configMapKeyRef:
                   name: {{ .Release.Name }}
                   key: lm_otel_name
+            - name: LOGICMONITOR_OTEL_NAMESPACE
+              value: {{ .Release.Namespace }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
