@@ -11,10 +11,16 @@ env: {}
 
 resources:
   limits:
-    memory: 300Mi
+    memory: 1000Mi
   requests:
-    cpu: 100m
-    memory: 200Mi
+    cpu: 300m
+    memory: 700Mi
+fluent:
+  buffer:
+    memory:
+      flush_interval: 1s
+      chunk_limit_size: 8m
+      flush_thread_count: 8
 
 nodeSelector: []
 affinity: []

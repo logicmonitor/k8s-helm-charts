@@ -31,8 +31,9 @@ data:
       compression gzip
       <buffer>
         @type memory
-        flush_interval 1s
-        chunk_limit_size 5m
+        flush_interval {{ .Values.fluent.buffer.memory.flush_interval | default "1s" }}
+        chunk_limit_size {{ .Values.fluent.buffer.memory.chunk_limit_size | default "8m" }}
+        flush_thread_count {{ .Values.fluent.buffer.memory.flush_thread_count | default "8"}}
       </buffer> 
     </match>
   kubernetes.conf: |
