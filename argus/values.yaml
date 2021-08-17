@@ -163,5 +163,13 @@ collector:
 #   - horizontalpodautoscalers
 disable_resource_monitoring: []
 
+# List of resources to disable alerting
+# for ex:
+# disable_resource_alerting:
+#   - deployments
+#   - horizontalpodautoscalers
+disable_resource_alerting:
+  - deployments
+
 # Replicas - defaults to 1, param is just for development purpose, do not increase more than one replicas in production
 replicas: 1

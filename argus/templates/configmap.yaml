@@ -68,6 +68,10 @@ data:
 {{- if .Values.disable_resource_monitoring}}
 {{ toYaml .Values.disable_resource_monitoring | indent 4}}
 {{- end }}
+    disable_resource_alerting:
+{{- if .Values.disable_resource_alerting}}
+{{ toYaml .Values.disable_resource_alerting| indent 4}}
+{{- end }}
   filters-config.yaml: |
     filters:
 {{- if .Values.filters }}
