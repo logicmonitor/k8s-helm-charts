@@ -30,7 +30,7 @@ data:
     enable_new_resource_tree: {{ .Values.enableNewResourceTree }}
     {{- end }}
     {{- if .Values.telemetryCronString}}
-    telemetry_cron_string: {{ .Values.telemetryCronString}}
+    telemetry_cron_string: {{ .Values.telemetryCronString | quote}}
     {{- end }}
     {{- if .Values.registerGenericFilter}}
     register_generic_filter: {{ .Values.registerGenericFilter}}
