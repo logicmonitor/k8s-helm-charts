@@ -34,6 +34,13 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.arguments}}
+          args:  
+            {{ range .Values.arguments }}
+              - {{ . }}
+            {{ end }}
+          {{- end }}
+
           ports:
             - name: http
               containerPort: 80
@@ -56,8 +63,23 @@ spec:
                   key: lm_otel_name
             - name: LOGICMONITOR_OTEL_NAMESPACE
               value: {{ .Release.Namespace }}
+          {{- if .Values.external_config.lmconfig}}
+          volumeMounts:
+            - name: {{ .Release.Name }}
+              mountPath: lmconfig.yaml
+              subPath: lmconfig.yaml
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.external_config.lmconfig}}
+      volumes:
+        - name: {{ .Release.Name }}
+          configMap:
+            name: {{ .Release.Name }}
+            items:
+              - key: lmconfig.yaml
+                path: lmconfig.yaml
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

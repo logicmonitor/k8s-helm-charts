@@ -16,6 +16,10 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
+external_config:
+  lmconfig: {}
+arguments: []
+
 ingress:
   annotations: {}
   enabled: false
