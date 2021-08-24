@@ -30,7 +30,7 @@ data:
     enable_new_resource_tree: {{ .Values.enableNewResourceTree }}
     {{- end }}
     {{- if .Values.telemetryCronString}}
-    telemetry_cron_string: {{ .Values.telemetryCronString}}
+    telemetry_cron_string: {{ .Values.telemetryCronString | quote}}
     {{- end }}
     {{- if .Values.registerGenericFilter}}
     register_generic_filter: {{ .Values.registerGenericFilter}}
@@ -67,6 +67,10 @@ data:
     disable_resource_monitoring:
 {{- if .Values.disable_resource_monitoring}}
 {{ toYaml .Values.disable_resource_monitoring | indent 4}}
+{{- end }}
+    disable_resource_alerting:
+{{- if .Values.disable_resource_alerting}}
+{{ toYaml .Values.disable_resource_alerting| indent 4}}
 {{- end }}
   filters-config.yaml: |
     filters:

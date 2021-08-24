@@ -8,6 +8,7 @@ lm:
   account: ""
   bearer_token: ""
   otel_name: ""
+  otel_version: ""
 
 image:
   # The image respository of the [lmotel](https://hub.docker.com/r/logicmonitor/lmotel) container.
@@ -15,6 +16,10 @@ image:
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
+
+external_config:
+  lmconfig: {}
+arguments: []
 
 ingress:
   annotations: {}
