@@ -17,7 +17,8 @@ helm repo update
 helm install -n <namespace> \
 --set lm.account=<lm_company_name> \
 --set lm.bearer_token=<lm_bearer_token> \
---set lm.otel_name=<lmotel_collector_name> \ 
+--set lm.otel_name=<lmotel_collector_name> \
+--set lm.otel_version=<lmotel_collector_version> \
 --set replicaCount=<number_of_replicas> \
 lmotel logicmonitor/lmotel
 ```
@@ -28,6 +29,7 @@ helm install -n <namespace> \
 --set lm.account=<lm_company_name> \
 --set lm.bearer_token=<lm_bearer_token> \
 --set lm.otel_name=<lmotel_collector_name> \
+--set lm.otel_version=<lmotel_collector_version> \
 --set replicaCount=<number_of_replicas> \
 --set arguments="{--config, lmconfig.yaml}" \
 --set-file=external_config.lmconfig=<custom_configuration_path> \
@@ -41,6 +43,7 @@ Required Values:
 ---
 Optional Values:
 - **replicaCount (default: `1`):** Number of replicas of lmotel kubernetes pod.
+- **otel_version (default: `""`):** Lmotel collector version.
 ---
 
 For using external lmotel configuration
@@ -54,3 +57,4 @@ Required Values:
 ---
 Optional Values:
 - **replicaCount (default: `1`):** Number of replicas of lmotel kubernetes pod.
+- **otel_version (default: `""`):** Lmotel collector version.

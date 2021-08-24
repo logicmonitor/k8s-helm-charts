@@ -61,6 +61,11 @@ spec:
                 configMapKeyRef:
                   name: {{ .Release.Name }}
                   key: lm_otel_name
+            - name: LOGICMONITOR_OTEL_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Release.Name }}
+                  key: lm_version
             - name: LOGICMONITOR_OTEL_NAMESPACE
               value: {{ .Release.Namespace }}
           {{- if .Values.external_config.lmconfig}}
