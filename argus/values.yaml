@@ -161,7 +161,10 @@ collector:
 # disable_resource_monitoring:
 #   - deployments
 #   - horizontalpodautoscalers
-disable_resource_monitoring: []
+disable_resource_monitoring:
+  - statefulsets
+  - replicasets
+  - daemonsets
 
 # List of resources to disable alerting
 # for ex:
