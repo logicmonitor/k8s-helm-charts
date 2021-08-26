@@ -1,5 +1,5 @@
 {{- if .Values.ingress.enabled }}
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: {{ template "ingress.apiVersion" . }}
 kind: Ingress
 metadata:
   name: {{ include "lmotel.fullname" . }}-grpc
@@ -28,9 +28,12 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: {{.name}}
-              servicePort: {{.ports.grpc}}
+              service:
+                name: {{.name}}
+                port:
+                  number: {{.ports.grpc}}
       {{- end }}
   tls:
     - hosts:
