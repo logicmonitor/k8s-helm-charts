@@ -61,13 +61,6 @@ enableNamespacesDeletedGroups: false
 # Flag to register generic filter based on resource label => "logicmonitor/monitoring": "disable"
 registerGenericFilter: false
 
-# To disable resource monitoring
-# for ex:
-# disableResourceMonitoring:
-#   - deployments
-#   - services
-disableResourceMonitoring: []
-
 # appIntervals defines time intervals for periodic sync, periodic delete and in memory cache resync operations.
 app_intervals:
   periodic_sync_interval: "30m"
@@ -158,20 +151,20 @@ collector:
         
 # List of resources to disable monitoring
 # for ex:
-# disable_resource_monitoring:
+# disableResourceMonitoring:
 #   - deployments
 #   - horizontalpodautoscalers
-disable_resource_monitoring:
+disableResourceMonitoring:
   - statefulsets
   - replicasets
   - daemonsets
 
 # List of resources to disable alerting
 # for ex:
-# disable_resource_alerting:
+# disableResourceAlerting:
 #   - deployments
 #   - horizontalpodautoscalers
-disable_resource_alerting:
+disableResourceAlerting:
   - deployments
 
 # Replicas - defaults to 1, param is just for development purpose, do not increase more than one replicas in production

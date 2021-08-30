@@ -65,12 +65,12 @@ data:
 {{ toYaml .Values.openmetrics | indent 6}}
 {{- end }}
     disable_resource_monitoring:
-{{- if .Values.disable_resource_monitoring}}
-{{ toYaml .Values.disable_resource_monitoring | indent 4}}
+{{- if .Values.disableResourceMonitoring}}
+{{ toYaml .Values.disableResourceMonitoring | indent 4}}
 {{- end }}
     disable_resource_alerting:
-{{- if .Values.disable_resource_alerting}}
-{{ toYaml .Values.disable_resource_alerting| indent 4}}
+{{- if .Values.disableResourceAlerting}}
+{{ toYaml .Values.disableResourceAlerting| indent 4}}
 {{- end }}
   filters-config.yaml: |
     filters:
