@@ -24,7 +24,7 @@ ifeq ($(shell uname -s), Linux)
 	sed -i 's/\/docs//' index.yaml
 endif
 ifeq ($(shell uname -s), Darwin)
-	sed -i '' 's/\/docs//' index.yaml
+	sed -i '' "s/\/docs//" index.yaml
 endif
 	mv index.yaml ./docs
 
