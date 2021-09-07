@@ -89,3 +89,13 @@ helm upgrade --reuse-values \
   --set filters.service=\"*\"
   argus logicmonitor/argus
 ```
+
+**Discovery Filter Example:**
+
+```bash
+helm upgrade --reuse-values \
+  --set filters.deployment="app =~ 'QA' || app =~ 'Dev'"
+  --set filters.pod="app =~ 'node-app'" \
+  --set filters.service=\"*\"
+  argus logicmonitor/argus
+```
