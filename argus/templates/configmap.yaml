@@ -72,6 +72,10 @@ data:
 {{- if .Values.disableResourceAlerting}}
 {{ toYaml .Values.disableResourceAlerting| indent 4}}
 {{- end }}
+    enable_profiling:
+{{- if .Values.enableProfiling}}
+{{ toYaml .Values.enableProfiling| indent 4}}
+{{- end }}
   filters-config.yaml: |
     filters:
 {{- if .Values.filters }}
