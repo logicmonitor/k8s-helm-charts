@@ -17,9 +17,16 @@ spec:
   {{- if .Values.openmetrics }}
     - port: {{ .Values.openmetrics.port }}
       targetPort: {{ .Values.openmetrics.port }}
+      name: openmetrics
   {{- else }}
     - port: 2112
       targetPort: 2112
+      name: openmetrics
+  {{- end }}
+  {{- if .Values.enableProfiling }}
+    - port: 8081
+      targetPort: 8081
+      name: profiling
   {{- end }}
   selector:
     app: {{ .Release.Name }}
