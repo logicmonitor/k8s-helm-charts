@@ -28,7 +28,7 @@ etcdDiscoveryToken: ""
 # The image respository of the [Argus](https://hub.docker.com/r/logicmonitor/argus) container.
 imageRepository: logicmonitor/argus
 # The image tag of the [Argus](https://hub.docker.com/r/logicmonitor/argus/tags) container.
-imageTag: v5
+imageTag: v6
 # The image pull policy of the Argus container.
 imagePullPolicy: Always
 # The Http/s proxy url.
