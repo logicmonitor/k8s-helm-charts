@@ -2,9 +2,9 @@ apiVersion: v1
 entries:
   argus:
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.644854+05:30"
+    created: "2021-09-29T14:30:16.53201+05:30"
     description: Automated Kubernetes monitoring
-    digest: 9525324e9feaf550a59b0b49d10198238ec3dec7d32f85f85359e9e524a19f7c
+    digest: c724c719172e9a390662b587da7900b59cb4494f43d688fd191f47f7e3a3fc82
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
@@ -15,7 +15,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-1.1.0-devel.tgz
     version: 1.1.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.644067+05:30"
+    created: "2021-09-29T14:30:16.531287+05:30"
     description: Automated Kubernetes monitoring
     digest: 88814be8c5d02aa35da3150be9c4c1ad0b0f13d955883b58980fb4fdbb8f8b18
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -28,7 +28,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-1.0.0.tgz
     version: 1.0.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.640094+05:30"
+    created: "2021-09-29T14:30:16.527366+05:30"
     description: Automated Kubernetes monitoring
     digest: 367f48a0d3b10c4d4d1997bdb906ce8fc325993f80c2206397ed0bc3ce42dc6a
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -41,7 +41,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.19.0-devel2.tgz
     version: 0.19.0-devel2
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.639328+05:30"
+    created: "2021-09-29T14:30:16.526745+05:30"
     description: Automated Kubernetes monitoring
     digest: 652ef8c8596847783e0fd920608c7eab631e08657c0d63c47cc34daf9e6d8bde
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -54,7 +54,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.19.0-devel.tgz
     version: 0.19.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.638521+05:30"
+    created: "2021-09-29T14:30:16.526094+05:30"
     description: Automated Kubernetes monitoring
     digest: ecc2990a7a01530445c00a1fbc19fca3e634a512b482c3e9751a8eb19fdc80f0
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -67,7 +67,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.19.0-beta3.tgz
     version: 0.19.0-beta3
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.637676+05:30"
+    created: "2021-09-29T14:30:16.525451+05:30"
     description: Automated Kubernetes monitoring
     digest: 32679a36e9d2cae0d94d816b2fb8b42455348727e48f03f61456fcfca811f418
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -80,7 +80,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.19.0-beta2.tgz
     version: 0.19.0-beta2
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.636863+05:30"
+    created: "2021-09-29T14:30:16.524806+05:30"
     description: Automated Kubernetes monitoring
     digest: b63fd567b0b7550fd5e45d471c9b50798809f14f06a8b39e09768eca5ca3ba37
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -93,7 +93,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.19.0-beta.tgz
     version: 0.19.0-beta
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.636081+05:30"
+    created: "2021-09-29T14:30:16.524155+05:30"
     description: Automated Kubernetes monitoring
     digest: 63e90db27a5ca081904219b3d81661cef3f8cd62e9d4d1c99f4baef4edb6522d
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -106,7 +106,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.18.0.tgz
     version: 0.18.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.635261+05:30"
+    created: "2021-09-29T14:30:16.523482+05:30"
     description: Automated Kubernetes monitoring
     digest: f926cde690728d9c424403cdcd34c2d1fd92ecb4d60f4da6e2436f88972f2770
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -119,7 +119,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.18.0-devel.tgz
     version: 0.18.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.633464+05:30"
+    created: "2021-09-29T14:30:16.522725+05:30"
     description: Automated Kubernetes monitoring
     digest: c6cff98e9672770a715f60e072aaa2ba5e78e54de04521dc0434474192b095d0
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -132,7 +132,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.17.0.tgz
     version: 0.17.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.632539+05:30"
+    created: "2021-09-29T14:30:16.522008+05:30"
     description: Automated Kubernetes monitoring
     digest: 99a59307a6d3b0ebbacd082b68c112d1a018d1a190ae00be7c04f9f30e8e7ea8
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -145,7 +145,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.17.0-devel.tgz
     version: 0.17.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.631672+05:30"
+    created: "2021-09-29T14:30:16.520537+05:30"
     description: Automated Kubernetes monitoring
     digest: e56ded699419a0a9782a2ae9e8244e7f62a84615e0c18367abfd1437ba3b2548
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -158,7 +158,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.16.1.tgz
     version: 0.16.1
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.630933+05:30"
+    created: "2021-09-29T14:30:16.519832+05:30"
     description: Automated Kubernetes monitoring
     digest: fb51a8830261b60de282139951913992711c18888ea09e30432653dd06a62598
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -171,7 +171,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.16.0.tgz
     version: 0.16.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.630283+05:30"
+    created: "2021-09-29T14:30:16.51927+05:30"
     description: Automated Kubernetes monitoring
     digest: 78a0e2428753f6848f5ff167f438c63311a923966fbb22e5c5ce5522798039f7
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -184,7 +184,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.16.0-devel.tgz
     version: 0.16.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.629655+05:30"
+    created: "2021-09-29T14:30:16.518677+05:30"
     description: Automated Kubernetes monitoring
     digest: e5085e1181a866af0d9ecf51c3b6eac2e8b3d2a8bae41225e62bee4d876fd79a
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -197,7 +197,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.15.0.tgz
     version: 0.15.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.629014+05:30"
+    created: "2021-09-29T14:30:16.518121+05:30"
     description: Automated Kubernetes monitoring
     digest: 288daa5e7b709076084fc07b432d17da3546e6f6990d54a0631531979bfb67c7
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -210,7 +210,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.15.0-devel.tgz
     version: 0.15.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.628388+05:30"
+    created: "2021-09-29T14:30:16.517584+05:30"
     description: Automated Kubernetes monitoring
     digest: 18bd77c531dc0a429a77d8e1e163ae4ebf41d34353b909982aa2e2e56c9d2c19
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -223,7 +223,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.14.0.tgz
     version: 0.14.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.6278+05:30"
+    created: "2021-09-29T14:30:16.517074+05:30"
     description: Automated Kubernetes monitoring
     digest: 759e3363f941037d9c74931b10040211b2717c25660da94ed5c501443364fadf
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -236,7 +236,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.14.0-devel.tgz
     version: 0.14.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.627209+05:30"
+    created: "2021-09-29T14:30:16.516538+05:30"
     description: Automated Kubernetes monitoring
     digest: caf718845ae4214f73210ae377fff9f63627e713e96f244940bf6537aea16c03
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -249,7 +249,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.13.0.tgz
     version: 0.13.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.626684+05:30"
+    created: "2021-09-29T14:30:16.515972+05:30"
     description: Automated Kubernetes monitoring
     digest: 6fc798e92c6123d869fbe48e10a4961183188c04b10fcf95ab6a3b7233191006
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -262,7 +262,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.12.0.tgz
     version: 0.12.0
   - apiVersion: v3
-    created: "2021-09-28T10:51:28.626194+05:30"
+    created: "2021-09-29T14:30:16.515457+05:30"
     description: Automated Kubernetes monitoring
     digest: 31767c41016ec9b67a8dc5fe1fa42db1f908b59a97cd7565410385425c036951
     kubeVersion: '>= 1.14.0-0'
@@ -274,7 +274,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.11.0.tgz
     version: 0.11.0
   - apiVersion: v3
-    created: "2021-09-28T10:51:28.625769+05:30"
+    created: "2021-09-29T14:30:16.515041+05:30"
     description: Automated Kubernetes monitoring
     digest: 2076904bb28cf1be4d01adf4ece12fa87ccae30d057aadc4460b586a15bf0326
     kubeVersion: '>= 1.14.0-0'
@@ -286,7 +286,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.10.0.tgz
     version: 0.10.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.643311+05:30"
+    created: "2021-09-29T14:30:16.530303+05:30"
     description: Automated Kubernetes monitoring
     digest: e776eb48d576f2425918397fa292a25402962556cdc3422d33105d2204d644d1
     maintainers:
@@ -297,7 +297,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.9.0.tgz
     version: 0.9.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.642933+05:30"
+    created: "2021-09-29T14:30:16.529664+05:30"
     description: Automated Kubernetes monitoring
     digest: 8a4a410afa317710c283d95c85020338859ae0a2075779edb7b473144683c6d9
     maintainers:
@@ -308,7 +308,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.8.0.tgz
     version: 0.8.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.642563+05:30"
+    created: "2021-09-29T14:30:16.529338+05:30"
     description: Automated Kubernetes monitoring
     digest: a08c828e6adf6531cc1c19fdeaef8c931892254fecb3ed690ba7e1a71ed592cd
     maintainers:
@@ -319,7 +319,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.7.0.tgz
     version: 0.7.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.642186+05:30"
+    created: "2021-09-29T14:30:16.529031+05:30"
     description: Automated Kubernetes monitoring
     digest: 5f0b9bf61fce9f0c29f228cc96a80e288e91564e83c558a53435194338162054
     maintainers:
@@ -330,7 +330,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.6.0.tgz
     version: 0.6.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.641749+05:30"
+    created: "2021-09-29T14:30:16.528735+05:30"
     description: Automated Kubernetes monitoring
     digest: 651cd27e9174432dccdfa6c1ba6f976af8617407080c7d815dd16cd1643f683e
     maintainers:
@@ -341,7 +341,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.5.0.tgz
     version: 0.5.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.641391+05:30"
+    created: "2021-09-29T14:30:16.528427+05:30"
     description: Automated Kubernetes monitoring
     digest: 1b69a545be0e7eb20930c0850f54ba5259a730eabf40e186970295730bbad598
     maintainers:
@@ -352,7 +352,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.640987+05:30"
+    created: "2021-09-29T14:30:16.528111+05:30"
     description: Automated Kubernetes monitoring
     digest: f6a794f1222ab9aac475538765a8694e74f7caa81b78541533503db26ad5221f
     maintainers:
@@ -363,7 +363,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.64061+05:30"
+    created: "2021-09-29T14:30:16.527797+05:30"
     description: Automated Kubernetes monitoring
     digest: 316c7c7d17085a65027667ef4a053062c3b2304b12f2f7e178b1f633baef73b0
     maintainers:
@@ -374,7 +374,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.625343+05:30"
+    created: "2021-09-29T14:30:16.514577+05:30"
     description: Automated Kubernetes monitoring
     digest: b5e475acc633064f72e56d604bceb181920e194372807ed7e7384b4b75a8a8eb
     maintainers:
@@ -386,9 +386,9 @@ entries:
     version: 0.1.0
   collectorset-controller:
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.648023+05:30"
+    created: "2021-09-29T14:30:16.534267+05:30"
     description: Automated collector management
-    digest: 75bf35e58281cd57356c45bbc41e8e903f27e9763bb09ddd56c59319fcc912c0
+    digest: 08597bf4f376d8c46ba96f3e9195a8920920dd387c4e9760e3a19c9f0cfd39cb
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
@@ -399,7 +399,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.12.0-devel.tgz
     version: 0.12.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.647585+05:30"
+    created: "2021-09-29T14:30:16.533894+05:30"
     description: Automated collector management
     digest: 737accb171477adbe9fb37fbc47946ae0a45a05f654faeed2b0beaf5ce17715e
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -412,7 +412,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.11.0.tgz
     version: 0.11.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.647157+05:30"
+    created: "2021-09-29T14:30:16.533524+05:30"
     description: Automated collector management
     digest: 277e422c60d790ef16d28f5e3b0e591d9fafe4630fe6a5254312d29b4026f768
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -425,7 +425,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.11.0-devel.tgz
     version: 0.11.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.64671+05:30"
+    created: "2021-09-29T14:30:16.533112+05:30"
     description: Automated collector management
     digest: 84883bf507cfbefb84e91f8d1e2ea2e14ed315e8eaf1f72da02082efbb0d0613
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -438,7 +438,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.10.0.tgz
     version: 0.10.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.646284+05:30"
+    created: "2021-09-29T14:30:16.532736+05:30"
     description: Automated collector management
     digest: 16918ccf8de9bce8f7707c79c83cec0df5155225d85bfd06dec31d60de8f3613
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -451,7 +451,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.10.0-devel.tgz
     version: 0.10.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.651025+05:30"
+    created: "2021-09-29T14:30:16.536942+05:30"
     description: Automated collector management
     digest: d0352f6934ecd8867a5c9354c2a018b7c6ea95c7d0ac16b258b0aeb35b111917
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -464,7 +464,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.9.0.tgz
     version: 0.9.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.650655+05:30"
+    created: "2021-09-29T14:30:16.536622+05:30"
     description: Automated collector management
     digest: f87fb95fcacc39bc99d07e83f8c07f25745bcbd086b12a34550d6e84ba9b1eeb
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -477,7 +477,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.9.0-devel.tgz
     version: 0.9.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.650301+05:30"
+    created: "2021-09-29T14:30:16.536293+05:30"
     description: Automated collector management
     digest: 9ced5c4abb5ed6061177ea2fd16926c68c19f6c368fc4867f9cc1a63c3fbc177
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -490,7 +490,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.8.0.tgz
     version: 0.8.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.649953+05:30"
+    created: "2021-09-29T14:30:16.535971+05:30"
     description: Automated collector management
     digest: 777f3d429b894c7f57acd174345f89eccb640ef1a1d1c38452492139991a0220
     icon: https://logicmonitor.github.com/k8s-helm-charts/lm_logo.png
@@ -503,7 +503,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.7.0.tgz
     version: 0.7.0
   - apiVersion: v3
-    created: "2021-09-28T10:51:28.649593+05:30"
+    created: "2021-09-29T14:30:16.535666+05:30"
     description: Automated collector management
     digest: 7227705f9288235c0a8fc6a12c0f1fc3a4ab52b5ef690b4ab9b9e3a3e0ac133a
     kubeVersion: '>= 1.14.0-0'
@@ -515,7 +515,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.6.0.tgz
     version: 0.6.0
   - apiVersion: v3
-    created: "2021-09-28T10:51:28.649291+05:30"
+    created: "2021-09-29T14:30:16.535386+05:30"
     description: Automated collector management
     digest: 02776cbf28588a1789fb74a8281a932735f20bb49a5f8fa40d1f888712688845
     kubeVersion: '>= 1.14.0-0'
@@ -527,7 +527,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.5.0.tgz
     version: 0.5.0
   - apiVersion: v3
-    created: "2021-09-28T10:51:28.648991+05:30"
+    created: "2021-09-29T14:30:16.53511+05:30"
     description: Automated collector management
     digest: 077d1aa7e185c12b7eae362a92e75cbf7cee34c085e45a6cca1f577573c6dbf3
     kubeVersion: '>= 1.14.0-0'
@@ -539,7 +539,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.648668+05:30"
+    created: "2021-09-29T14:30:16.534819+05:30"
     description: Automated collector management
     digest: 0f2bac595c0d506685d66b8018fa769c66f7197794f17f8f08a394b71db5abc9
     maintainers:
@@ -550,7 +550,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.648349+05:30"
+    created: "2021-09-29T14:30:16.534544+05:30"
     description: Automated collector management
     digest: 46f1e1eaa4cc60d24074e6bcc01479f089aec4dbdef20850343afc495c653eba
     maintainers:
@@ -561,7 +561,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.645834+05:30"
+    created: "2021-09-29T14:30:16.532324+05:30"
     description: Automated collector management
     digest: f73f02ba9a2eccdc4e2d1f52ec2e6c986ecf9375d103a5103f2e46a827949d82
     maintainers:
@@ -573,15 +573,15 @@ entries:
     version: 0.1.0
   lm-logs:
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.654778+05:30"
+    created: "2021-09-29T14:30:16.540712+05:30"
     description: A Helm chart for sending k8s logs to Logic Monitor
-    digest: 8dfc086c046c6680b812e1e0a1655424db77f7926a141cbdf21332fb1e70372b
+    digest: 0184e5b81a472897d507670e3d04652749fd75756eac0605bead9391a9a348bb
     name: lm-logs
     urls:
     - https://logicmonitor.github.io/k8s-helm-charts/lm-logs-0.2.0-devel.tgz
     version: 0.2.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.651614+05:30"
+    created: "2021-09-29T14:30:16.537526+05:30"
     description: A Helm chart for sending k8s logs to Logic Monitor
     digest: 0298bf937b6725a4c91f2f96fe77340ba4693665066afa2a307791d98363f019
     name: lm-logs
@@ -589,7 +589,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lm-logs-0.1.10.tgz
     version: 0.1.10
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.654433+05:30"
+    created: "2021-09-29T14:30:16.54038+05:30"
     description: A Helm chart for sending k8s logs to Logic Monitor
     digest: 5f1b6120e906e226809908f257930708649ecdd38c04d6080c0a6c00cd5443ea
     name: lm-logs
@@ -597,7 +597,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lm-logs-0.1.9.tgz
     version: 0.1.9
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.653575+05:30"
+    created: "2021-09-29T14:30:16.540066+05:30"
     description: A Helm chart for sending k8s logs to Logic Monitor
     digest: ed95eb33d3ed0d12304d7966f3abf1d85cfac0213c7511e5b832d8e5bdcbdc7f
     name: lm-logs
@@ -605,7 +605,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lm-logs-0.1.8.tgz
     version: 0.1.8
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.653285+05:30"
+    created: "2021-09-29T14:30:16.539752+05:30"
     description: A Helm chart for sending k8s logs to Logic Monitor
     digest: 880e9e48b41d12abf28464a5e14500d2a400d885899b422e45cca9896195393d
     name: lm-logs
@@ -613,7 +613,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lm-logs-0.1.7.tgz
     version: 0.1.7
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.653012+05:30"
+    created: "2021-09-29T14:30:16.539444+05:30"
     description: A Helm chart for sending k8s logs to Logic Monitor
     digest: e6940e49e8716e4ae92dbae2ea1e17c8e9faabdfabce3cec6334d95e8b188e55
     name: lm-logs
@@ -621,7 +621,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lm-logs-0.1.6.tgz
     version: 0.1.6
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.652727+05:30"
+    created: "2021-09-29T14:30:16.538751+05:30"
     description: A Helm chart for sending k8s logs to Logic Monitor
     digest: 256ad8845b7e9c901224af22fb7b4c57d451639e85fc26247e044d8e279441c0
     name: lm-logs
@@ -629,7 +629,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lm-logs-0.1.5.tgz
     version: 0.1.5
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.652456+05:30"
+    created: "2021-09-29T14:30:16.538343+05:30"
     description: A Helm chart for sending k8s logs to Logic Monitor
     digest: e693e1c9ce17c81aa69ef480e04eb509e2a08edec38f49ca7d8d97af4832b504
     name: lm-logs
@@ -637,7 +637,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lm-logs-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.652189+05:30"
+    created: "2021-09-29T14:30:16.538077+05:30"
     description: A Helm chart for sending k8s logs to Logic Monitor
     digest: cd45a484b54b707456885c345475fecdbe2f5a077c49f8c2f4116bf302eade79
     name: lm-logs
@@ -645,7 +645,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lm-logs-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.651896+05:30"
+    created: "2021-09-29T14:30:16.537796+05:30"
     description: A Helm chart for sending k8s logs to Logic Monitor
     digest: a6ee1dfbcf0f0762b4b321dc6fad7bb3c1a8747d909b515e99208341e07cd78c
     name: lm-logs
@@ -653,7 +653,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lm-logs-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.651296+05:30"
+    created: "2021-09-29T14:30:16.537215+05:30"
     description: A Helm chart for sending k8s logs to Logic Monitor
     digest: 63c23d5b9f997639aa5a2323e9c2b3337b7851c8d2aaac6c6fab1c3ac42d4e4a
     name: lm-logs
@@ -662,9 +662,9 @@ entries:
     version: 0.1.1
   lmotel:
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.657748+05:30"
+    created: "2021-09-29T14:30:16.543595+05:30"
     description: Automated Kubernetes lmotel deployement
-    digest: cda4cf3714a0f43633e9e948a3bde78dc02a1b8a8fd7a01b5483914480280e91
+    digest: 027882b64a1e83823e757544ddbe752040494717dc7294e1c90c41fe4eed5fa9
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
@@ -675,7 +675,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lmotel-1.3.0-devel.tgz
     version: 1.3.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.657322+05:30"
+    created: "2021-09-29T14:30:16.543182+05:30"
     description: Automated Kubernetes lmotel deployement
     digest: bc372bbeb255bb6073149c4d4e2d389a8a3f0c7345a1f5bc3eba1a804fdfa9d6
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -688,9 +688,9 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lmotel-1.2.0.tgz
     version: 1.2.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.656882+05:30"
+    created: "2021-09-29T14:30:16.542765+05:30"
     description: Automated Kubernetes lmotel deployement
-    digest: 281c05ede00ec574779a42e1180f68e8b82d49e9012791162a0b207baad4b96b
+    digest: 03c14a1891a777e175f18ebb8a6987bfc7d3973ee9fd0653a909ffc4c47708b3
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     kubeVersion: '>= 1.14.0-0'
     maintainers:
@@ -701,7 +701,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lmotel-1.2.0-devel.tgz
     version: 1.2.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.656439+05:30"
+    created: "2021-09-29T14:30:16.542346+05:30"
     description: Automated Kubernetes lmotel deployement
     digest: 177ab7214b0b59a21521315a8e563dccfe8adde2a80933d4f2dae9ec1330e96f
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -714,7 +714,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lmotel-1.1.0.tgz
     version: 1.1.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.65605+05:30"
+    created: "2021-09-29T14:30:16.541953+05:30"
     description: Automated Kubernetes lmotel deployement
     digest: dd3d3ba7afc87acda4a93492890841d7268f3f18b5ba8c0025e261e5b7cce906
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -727,7 +727,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lmotel-1.1.0-devel.tgz
     version: 1.1.0-devel
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.655583+05:30"
+    created: "2021-09-29T14:30:16.541551+05:30"
     description: Automated Kubernetes lmotel deployement
     digest: e86302fea47b9664018c7f54664da3849c3c8ba5d81cb0e3b4c5f9cff7ae08e3
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -740,7 +740,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/lmotel-1.0.0.tgz
     version: 1.0.0
   - apiVersion: v2
-    created: "2021-09-28T10:51:28.65518+05:30"
+    created: "2021-09-29T14:30:16.54111+05:30"
     description: Automated Kubernetes lmotel deployement
     digest: 8e40c76ca6256e29330b070440e76298a277d71abaf552d50748f649b321f8c0
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
@@ -754,10 +754,10 @@ entries:
     version: 1.0.0-devel
   releasemanager:
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.658448+05:30"
+    created: "2021-09-29T14:30:16.544284+05:30"
     description: Release Manager provides a long-running application that will periodically
       poll for releases in your cluster.
-    digest: da3e9fccb32ea6c16ddf6391aa16aa406210b929d6681e082d346d7533aa5f41
+    digest: 3cb28532af8b59da97bab51ee0484e75c1cb2ad11ec5b08a4dafc7e03fca220b
     icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
     maintainers:
     - email: techops@logicmonitor.com
@@ -767,7 +767,7 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/releasemanager-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v1
-    created: "2021-09-28T10:51:28.658079+05:30"
+    created: "2021-09-29T14:30:16.543927+05:30"
     description: Release Manager provides a long-running application that will periodically
       poll the Tiller server installed in your cluster.
     digest: a22275d1372c9352a3e1902eef56c4725c60cdb29f7044f992fd29ff70756a70
@@ -775,4 +775,4 @@ entries:
     urls:
     - https://logicmonitor.github.io/k8s-helm-charts/releasemanager-0.1.0.tgz
     version: 0.1.0
-generated: "2021-09-28T10:51:28.624743+05:30"
+generated: "2021-09-29T14:30:16.514015+05:30"
