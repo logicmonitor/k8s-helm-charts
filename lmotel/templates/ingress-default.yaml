@@ -1,5 +1,13 @@
 {{- if .Values.ingress.enabled }}
-apiVersion: {{ template "ingress.apiVersion" . }}
+{{- $apiV1 := false -}}
+{{- if .Capabilities.APIVersions.Has "networking.k8s.io/v1" }}
+{{- $apiV1 = true -}}
+apiVersion: networking.k8s.io/v1
+{{ else if .Capabilities.APIVersions.Has "networking.k8s.io/v1beta1" }}
+apiVersion: networking.k8s.io/v1beta1
+{{ else }}
+apiVersion: extensions/v1beta1
+{{ end -}}
 kind: Ingress
 metadata:
   name: {{ include "lmotel.fullname" . }}-http
@@ -25,6 +33,7 @@ spec:
       {{- with .Values.service }}
       http:
         paths:
+          {{- if $apiV1 }}
           - path: /rest/ingest
             pathType: Prefix
             backend:
@@ -39,6 +48,16 @@ spec:
                 name: {{.name}}
                 port:
                   number: {{.ports.healthcheck}}
+          {{- else }}
+          - path: /rest/ingest
+            backend:
+              serviceName: {{.name}}
+              servicePort: {{.ports.http}}
+          - path: /health
+            backend:
+              serviceName: {{.name}}
+              servicePort: {{.ports.healthcheck}}
+          {{- end }}
       {{- end }}
   tls:
     - hosts:
