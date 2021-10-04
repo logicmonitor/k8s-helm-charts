@@ -69,6 +69,14 @@ spec:
             - name: LOGICMONITOR_OTEL_NAMESPACE
               value: {{ .Release.Namespace }}
           {{- if .Values.external_config.lmconfig}}
+          args: 
+              - --config
+              - lmconfig.yaml
+              {{- if .Values.arguments}}  
+              {{ range .Values.arguments }}
+              - {{ . }}
+              {{ end }}
+              {{- end }}
           volumeMounts:
             - name: {{ .Release.Name }}
               mountPath: lmconfig.yaml

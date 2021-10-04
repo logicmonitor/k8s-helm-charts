@@ -1,4 +1,4 @@
-apiVersion: logicmonitor.com/v1alpha1
+apiVersion: logicmonitor.com/v1alpha2
 kind: CollectorSet
 metadata:
   name: {{ lower .Values.clusterName }}

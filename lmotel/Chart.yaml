@@ -1,7 +1,7 @@
 apiVersion: v2
 description: Automated Kubernetes lmotel deployement 
 name: lmotel
-version: 1.2.0-devel
+version: 1.4.0-devel
 kubeVersion: ">= 1.14.0-0"
 maintainers:
 - name: LogicMonitor
