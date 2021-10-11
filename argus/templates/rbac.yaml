@@ -22,6 +22,10 @@ rules:
     - services
     - namespaces
     - componentstatuses
+    - persistentvolumes
+    - persistentvolumeclaims
+    - secrets
+    - endpoints
   verbs:
     - list
     - get
@@ -42,6 +46,9 @@ rules:
     - "apps"
   resources:
     - deployments
+    - daemonsets
+    - replicasets
+    - statefulsets
   verbs:
     - list
     - get
@@ -51,6 +58,26 @@ rules:
     - "autoscaling"
   resources:
     - horizontalpodautoscalers
+  verbs:
+    - list
+    - get
+    - watch
+    - update
+- apiGroups:
+    - "batch"
+  resources:
+    - cronjobs
+    - jobs
+  verbs:
+    - list
+    - get
+    - watch
+    - update
+- apiGroups:
+    - "networking.k8s.io"
+  resources:
+    - ingresses
+    - networkpolicies
   verbs:
     - list
     - get
