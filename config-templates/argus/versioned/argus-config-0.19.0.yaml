@@ -1,0 +1,175 @@
+## REQUIRED VALUES
+
+# The LogicMonitor API key ID.
+accessID: ""
+# The LogicMonitor API key.
+accessKey: ""
+# The LogicMonitor account name.
+account: ""
+# A unique name given to the cluster's device group.
+clusterName: ""
+# To enable verbose logging at debug level.
+debug: false
+# On a delete event, either delete from LogicMonitor or move the device to the `_delted` device group.
+deleteDevices: true
+# Disables LogicMonitor alerting for all the cluster resources.
+disableAlerting: false
+
+## OPTIONAL VALUES
+
+# Enable RBAC. If your cluster does not have RBAC enabled, this value should be set to false.
+enableRBAC: true
+# A parent group id of the cluster's device group.
+clusterGroupID: 0
+# The public etcd discovery token used to add etcd hosts to the cluster device group.
+etcdDiscoveryToken: ""
+# The image respository of the [Argus](https://hub.docker.com/r/logicmonitor/argus) container.
+imageRepository: logicmonitor/argus
+# The image tag of the [Argus](https://hub.docker.com/r/logicmonitor/argus/tags) container.
+imageTag: v5
+# The image pull policy of the Argus container.
+imagePullPolicy: Always
+# The Http/s proxy url.
+proxyURL: ""
+# The Http/s proxy username.
+proxyUser: ""
+# The Http/s proxy password.
+proxyPass: ""
+# It provides the simplest way to run Pod on particular Node(s) based on labels on the node.
+nodeSelector: {}
+# It allows you to constrain which nodes your pod is eligible to be scheduled on.
+affinity: {}
+# The priority class name for Pod priority. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
+priorityClassName: ""
+# Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
+tolerations: []
+# This parameter is used to specify if displayName should include namespace or not.
+fullDisplayNameIncludeNamespace: false
+# This parameter is used to specify if displayName should include both namespace and clusterName or not.
+fullDisplayNameIncludeClusterName: false
+# Labels to apply on all objects created by Argus
+labels: {}
+# Annotations to apply on all objects created by Argus
+annotations: {}
+# Set flag to ignore ssl/tls validation
+ignore_ssl: false
+# appIntervals defines time intervals for periodic sync, periodic delete and in memory cache resync operations.
+app_intervals:
+  periodic_sync_interval: "30m"
+  periodic_delete_interval: "30m"
+  cache_sync_interval: "5m"
+# Device group properties
+device_group_props:
+  cluster:
+    # To enable events collection
+    - name: "lmlogs.k8sevent.enable"
+      value: "false"
+    # To delete resources from the portal after specified time
+    - name: "kubernetes.resourcedeleteafterduration"
+      value: "P1DT0H0M0S"
+      override: false
+  pods:
+    # To enable log collection for all pods
+    - name: "lmlogs.k8spodlog.enable"
+      value: "false"
+  services: []
+  deployments: []
+  nodes: []
+  etcd: []
+  hpas: []
+    
+filters:
+  # The filtered expression for Pod device type. Based on this parameter, Pods would be added/deleted for discovery on LM.
+  pod: ""
+  # The filtered expression for Service device type. Based on this parameter, Services would be added/deleted for discovery on LM.
+  service: ""
+  # The filtered expression for Node device type. Based on this parameter, Nodes would be added/deleted for discovery on LM.
+  node: ""
+  # The filtered expression for Deployment device type. Based on this parameter, Deployments would be added/deleted for discovery on LM.
+  deployment: ""
+  # The filtered expression for HorizontalPodAutoscaler device type. Based on this parameter, HorizontalPodAutoscalers would be added/deleted for discovery on LM.
+  hpa: ""
+# openmetrics config for Argus metrics collection
+openmetrics:
+  port: 2112
+
+collector:
+  ## REQUIRED VALUES
+  
+  # The number of collectors to create and use with Argus.
+  replicas: 1
+  # The collector size to install. Can be nano, small, medium, or large.
+  size: ""
+  # The image repository of the [Collector](https://hub.docker.com/r/logicmonitor/collector) container.
+  imageRepository: logicmonitor/collector
+  # The image tag of the [Collector](https://hub.docker.com/r/logicmonitor/collector/tags) container.
+  imageTag: latest
+  # The image pull policy of the Collector container.
+  imagePullPolicy: Always
+  # The Secret resource name of the collectors.
+  secretName: collector
+  
+  ## OPTIONAL VALUES
+
+  # The ID of the group of the collectors.
+  groupID: 0
+  # The ID of the escalation chain of the collectors.
+  escalationChainID: 0
+  # The version of the collectors.
+  collectorVersion: 0
+  # On a collector downloading event, either download the latest EA version or the latest GD version.
+  useEA: false
+  # The Http/s proxy url of the collectors.
+  proxyURL: ""
+  # The Http/s proxy username of the collectors.
+  proxyUser: ""
+  # The Http/s proxy password of the collectors.
+  proxyPass: ""
+    
+  # annotations to add on collector statefulset
+  annotations: {}
+  # labels to add on collector statefulset
+  labels: {}
+  # Collector statefulset template
+  statefulsetspec:
+    template:
+      spec:
+        nodeSelector: {}
+        # Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
+        tolerations: []
+        # The priority class name for Pod priority of the collector. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
+        priorityClassName: ""
+        
+# rlpolicy defines the rate at which argus will send requests to Logicmonitor portal in order to avoid rate limit thresholds
+rlpolicy:
+  device:
+    get:
+      pod: 60
+      dep: 10
+      svc: 10
+      node: 10
+      hpa: 10
+    post:
+      pod: 60
+      dep: 10
+      svc: 10
+      node: 10
+      hpa: 10
+    put:
+      pod: 60
+      dep: 10
+      svc: 10
+      node: 10
+      hpa: 10
+    patch:
+      pod: 60
+      dep: 10
+      svc: 10
+      node: 10
+      hpa: 10
+    delete:
+      pod: 60
+      dep: 10
+      svc: 10
+      node: 10
+      hpa: 10
