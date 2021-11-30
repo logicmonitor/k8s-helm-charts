@@ -158,15 +158,6 @@ disableResourceMonitoring:
   - statefulsets
   - replicasets
   - daemonsets
-  - cronjobs
-  - configmaps
-  - persistentvolumes
-  - persistentvolumeclaims
-  - ingresses
-  - networkpolicies
-  - secrets
-  - jobs
-  - endpoints
 
 # List of resources to disable alerting
 # for ex:

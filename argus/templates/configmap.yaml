@@ -4,6 +4,7 @@ metadata:
   name: {{ .Release.Name }}
   labels:
     chart: "argus"
+    logicmonitor.com/version: v2
 {{- if .Values.labels}}
 {{ toYaml .Values.labels| indent 4 }}
 {{- end }}
@@ -19,11 +20,36 @@ data:
   config.yaml: |
     address: collectorset-controller:50000
     cluster_name: {{ required "A valid .Values.clusterName entry is required!" .Values.clusterName }}
-    debug: {{ required "A valid .Values.debug entry is required!" .Values.debug }}
-    delete_devices: {{ required "A valid .Values.deleteDevices entry is required!" .Values.deleteDevices }}
+    log_level: {{ .Values.logLevel }}
+    delete_resources: {{ required "A valid .Values.deleteDevices entry is required!" .Values.deleteDevices }}
     disable_alerting: {{ required "A valid .Values.disableAlerting entry is required!" .Values.disableAlerting }}
     etcd_discovery_token: {{ .Values.etcdDiscoveryToken }}
     cluster_group_id: {{ .Values.clusterGroupID }}
+    resource_group_id: {{ .Values.resourceGroupID }}
+    {{- if .Values.enableNewResourceTree }}
+    enable_new_resource_tree: {{ .Values.enableNewResourceTree }}
+    {{- end }}
+    {{- if .Values.telemetryCronString}}
+    telemetry_cron_string: {{ .Values.telemetryCronString | quote}}
+    {{- end }}
+    {{- if .Values.registerGenericFilter}}
+    register_generic_filter: {{ .Values.registerGenericFilter}}
+    {{- end }}
+    {{- if .Values.deleteInfraPodsAfter}}
+    delete_infra_pods_after: {{ .Values.deleteInfraPodsAfter}}
+    {{- end }}
+    {{- if .Values.enableNamespacesDeletedGroups}}
+    enable_namespaces_deleted_groups: {{ .Values.enableNamespacesDeletedGroups}}
+    {{- end }}
+    {{- if .Values.numberOfWorkers}}
+    number_of_workers: {{ .Values.numberOfWorkers}}
+    {{- end }}
+    {{- if .Values.numberOfParallelRunners}}
+    number_of_parallel_runners: {{ .Values.numberOfParallelRunners}}
+    {{- end }}
+    {{- if .Values.parallelRunnerQueueSize}}
+    parallel_runner_queue_size: {{ .Values.parallelRunnerQueueSize}}
+    {{- end }}
     {{- if .Values.proxyURL }}
     proxy_url: {{ .Values.proxyURL }}
     {{- end }}
@@ -35,20 +61,25 @@ data:
       periodic_sync_min_interval: 10m
       periodic_delete_min_interval: 10m
       cache_sync_min_interval: 5m
-    device_group_props:
+    resource_group_props:
 {{ toYaml .Values.device_group_props | indent 6}}
 {{- if .Values.openmetrics }}
     openmetrics:
 {{ toYaml .Values.openmetrics | indent 6}}
 {{- end }}
-  rl-policy.yaml: |
-{{- if .Values.rlpolicy }}
-{{ toYaml .Values.rlpolicy | indent 4}}
+    disable_resource_monitoring:
+{{- if .Values.disableResourceMonitoring}}
+{{ toYaml .Values.disableResourceMonitoring | indent 4}}
+{{- end }}
+    disable_resource_alerting:
+{{- if .Values.disableResourceAlerting}}
+{{ toYaml .Values.disableResourceAlerting| indent 4}}
+{{- end }}
+{{- if .Values.enableProfiling}}
+    enable_profiling: {{ .Values.enableProfiling }}
 {{- end }}
   filters-config.yaml: |
-    filter:
-      pods: {{ .Values.filters.pod }}
-      services: {{ .Values.filters.service }}
-      deployments: {{ .Values.filters.deployment }}
-      nodes: {{ .Values.filters.node }}
-      horizontalpodautoscalers: {{ .Values.filters.hpa}}
+    filters:
+{{- if .Values.filters }}
+{{ toYaml .Values.filters | indent 6}}
+{{- end }}

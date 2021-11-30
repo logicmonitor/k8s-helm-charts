@@ -8,6 +8,7 @@ lm:
   account: ""
   bearer_token: ""
   otel_name: ""
+  otel_version: ""
 
 image:
   # The image respository of the [lmotel](https://hub.docker.com/r/logicmonitor/lmotel) container.
@@ -16,12 +17,22 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
+external_config:
+  lmconfig: {}
+arguments: []
+
+ingress:
+  annotations: {}
+  enabled: false
+  host: ""
+  customLabels: {}
+  
 service:
   type: ClusterIP
   name: lmotel-svc
   ports:
-    http: 55681
-    grpc: 55680
+    http: 4318
+    grpc: 4317
     pprof: 1777
     healthcheck: 13133
 

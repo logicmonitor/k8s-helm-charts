@@ -22,16 +22,33 @@ rules:
     - services
     - namespaces
     - componentstatuses
-    - configmaps
+    # - persistentvolumes
+    # - persistentvolumeclaims
+    # - secrets
+    # - endpoints
   verbs:
     - list
     - get
     - watch
     - update
 - apiGroups:
+    - ""
+  resources:
+    - configmaps
+  verbs:
+    - list
+    - get
+    - watch
+    - update
+    - create
+    - deletecollection
+- apiGroups:
     - "apps"
   resources:
     - deployments
+    # - daemonsets
+    # - replicasets
+    # - statefulsets
   verbs:
     - list
     - get
@@ -46,6 +63,26 @@ rules:
     - get
     - watch
     - update
+# - apiGroups:
+#     - "batch"
+#   resources:
+#     - cronjobs
+#     - jobs
+#   verbs:
+#     - list
+#     - get
+#     - watch
+#     - update
+# - apiGroups:
+#     - "networking.k8s.io"
+#   resources:
+#     - ingresses
+#     - networkpolicies
+#   verbs:
+#     - list
+#     - get
+#     - watch
+#     - update
 - nonResourceURLs:
     - /
     - /healthz
