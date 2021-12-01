@@ -12,6 +12,7 @@ Latest [collectorset-controller-config.yaml](https://raw.githubusercontent.com/l
 | Chart 0.9.0 | Collectorset controller 2.2.0  | [collectorset-controller-config-0.9.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/collectorset-controller/versioned/collectorset-controller-config-0.9.0.yaml) |
 | Chart 0.10.0 | Collectorset controller 2.2.0  | [collectorset-controller-config-0.10.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/collectorset-controller/versioned/collectorset-controller-config-0.10.0.yaml) |
 | Chart 0.11.0 | Collectorset controller 2.2.0  | [collectorset-controller-config-0.11.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/collectorset-controller/versioned/collectorset-controller-config-0.11.0.yaml) |
+| Chart 0.12.0 | Collectorset controller 2  | [collectorset-controller-config-0.12.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/collectorset-controller/versioned/collectorset-controller-config-0.12.0.yaml) |
 
 ## Argus  
 Latest [argus-config.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/argus/argus-config.yaml)
@@ -27,3 +28,4 @@ Latest [argus-config.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-he
 | Chart 0.17.0 | Argus 5.1.0 | [argus-config-0.17.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/argus/versioned/argus-config-0.17.0.yaml) |
 | Chart 0.18.0 | Argus 5.1.1 | [argus-config-0.18.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/argus/versioned/argus-config-0.18.0.yaml) |
 | Chart 1.0.0 | Argus 6.0.0 | [argus-config-1.0.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/argus/versioned/argus-config-1.0.0.yaml) |
+| Chart 1.1.0 | Argus 6.1.0 | [argus-config-1.1.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/argus/versioned/argus-config-1.1.0.yaml) |
