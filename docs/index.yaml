@@ -15,19 +15,6 @@ entries:
     - https://logicmonitor.github.io/k8s-helm-charts/argus-1.2.0-devel.tgz
     version: 1.2.0-devel
   - apiVersion: v2
-    created: "2021-11-30T14:51:40.503865+05:30"
-    description: Automated Kubernetes monitoring
-    digest: 1a04ef947268228c2701ad1ca1a903b26347180fe9395b1695ff05ab18eacda0
-    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
-    kubeVersion: '>= 1.14.0-0'
-    maintainers:
-    - email: argus@logicmonitor.com
-      name: LogicMonitor
-    name: argus
-    urls:
-    - https://logicmonitor.github.io/k8s-helm-charts/argus-1.1.0.tgz
-    version: 1.1.0
-  - apiVersion: v2
     created: "2021-11-30T14:51:40.50284+05:30"
     description: Automated Kubernetes monitoring
     digest: 00339f7565733089bc18337240abb975a1a5f6dbd4b19f4968af99da2958ecaa
@@ -437,19 +424,6 @@ entries:
     urls:
     - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.13.0-devel.tgz
     version: 0.13.0-devel
-  - apiVersion: v2
-    created: "2021-11-30T14:51:40.510069+05:30"
-    description: Automated collector management
-    digest: 472361b5b4eff98b1b5b0bff1cb8ab7eba0de6d1f45ea78525d9c48731b6315a
-    icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
-    kubeVersion: '>= 1.14.0-0'
-    maintainers:
-    - email: argus@logicmonitor.com
-      name: LogicMonitor
-    name: collectorset-controller
-    urls:
-    - https://logicmonitor.github.io/k8s-helm-charts/collectorset-controller-0.12.0.tgz
-    version: 0.12.0
   - apiVersion: v2
     created: "2021-11-30T14:51:40.509431+05:30"
     description: Automated collector management
