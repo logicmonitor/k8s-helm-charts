@@ -17,12 +17,13 @@ rules:
     - ""
   resources:
     - pods
+    - pods/log
     - containers
     - nodes
     - services
     - namespaces
     - componentstatuses
-    # - persistentvolumes
+    - persistentvolumes
     # - persistentvolumeclaims
     # - secrets
     # - endpoints
@@ -46,9 +47,9 @@ rules:
     - "apps"
   resources:
     - deployments
-    # - daemonsets
-    # - replicasets
-    # - statefulsets
+    - daemonsets
+    - replicasets
+    - statefulsets
   verbs:
     - list
     - get

@@ -155,9 +155,6 @@ collector:
 #   - deployments
 #   - horizontalpodautoscalers
 disableResourceMonitoring:
-  - statefulsets
-  - replicasets
-  - daemonsets
 
 # List of resources to disable alerting
 # for ex:
@@ -165,7 +162,19 @@ disableResourceMonitoring:
 #   - deployments
 #   - horizontalpodautoscalers
 disableResourceAlerting:
-  - deployments
 
 # Replicas - defaults to 1, param is just for development purpose, do not increase more than one replicas in production
 replicas: 1
+
+# Kube state metrics configuration
+# For further customizing KSM configuration, pls refer https://artifacthub.io/packages/helm/prometheus-community/kube-state-metrics/?modal=values
+kube-state-metrics:
+  # Set enabled to false in case you want to use a custom configured KSM
+  enabled: true
+  # No. of KSM Replicas to be configured
+  replicas: 1
+  collectors:
+    - daemonsets
+    - replicasets
+    - statefulsets
+    - persistentvolumes
