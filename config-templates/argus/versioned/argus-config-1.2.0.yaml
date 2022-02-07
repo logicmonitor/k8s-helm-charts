@@ -85,7 +85,7 @@ device_group_props:
   nodes: []
   etcd: []
   hpas: []
-
+    
 filters:
   # The filtered expression for Pod resource type. Based on this parameter, Pods would be added/deleted for discovery on LM.
   pod: ""
@@ -105,10 +105,6 @@ filters:
   statefulset: ""
   # The filtered expression for persistentvolume resource type. Based on this parameter, Persistentvolumes would be added/deleted for discovery on LM.
   persistentvolume: ""
-
-# openmetrics config for Argus metrics collection
-openmetrics:
-  port: 2112
 
 # openmetrics config for Argus metrics collection
 openmetrics:
