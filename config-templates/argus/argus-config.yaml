@@ -110,6 +110,10 @@ filters:
 openmetrics:
   port: 2112
 
+# openmetrics config for Argus metrics collection
+openmetrics:
+  port: 2112
+
 collector:
   ## REQUIRED VALUES
   
