@@ -88,23 +88,23 @@ device_group_props:
     
 filters:
   # The filtered expression for Pod resource type. Based on this parameter, Pods would be added/deleted for discovery on LM.
-  pod: ""
+  pod: []
   # The filtered expression for Service resource resource type. Based on this parameter, Services would be added/deleted for discovery on LM.
-  service: ""
+  service: []
   # The filtered expression for Node resource type. Based on this parameter, Nodes would be added/deleted for discovery on LM.
-  node: ""
+  node: []
   # The filtered expression for Deployment resource type. Based on this parameter, Deployments would be added/deleted for discovery on LM.
-  deployment: ""
+  deployment: []
   # The filtered expression for HorizontalPodAutoscaler resource type. Based on this parameter, HorizontalPodAutoscalers would be added/deleted for discovery on LM.
-  hpa: ""
+  hpa: []
   # The filtered expression for daemonset resource type. Based on this parameter, Daemonsets would be added/deleted for discovery on LM.
-  daemonset: ""
+  daemonset: []
   # The filtered expression for replicaset resource type. Based on this parameter, Replicasets would be added/deleted for discovery on LM.
-  replicaset: ""
+  replicaset: []
   # The filtered expression for statefulset resource type. Based on this parameter, Statefulsets would be added/deleted for discovery on LM.
-  statefulset: ""
+  statefulset: []
   # The filtered expression for persistentvolume resource type. Based on this parameter, Persistentvolumes would be added/deleted for discovery on LM.
-  persistentvolume: ""
+  persistentvolume: []
 
 # openmetrics config for Argus metrics collection
 openmetrics:
