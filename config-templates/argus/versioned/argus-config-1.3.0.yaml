@@ -52,8 +52,6 @@ annotations: {}
 # Set flag to ignore ssl/tls validation
 ignore_ssl: false
 
-# Flag to enable new resource tree to put all resources of a namespace in a single resource group
-enableNewResourceTree: true
 
 # Flag is used when #enableNewResourceTree is true - to create _deleted group in its individual namespace groups when scheduled delete is enabled
 enableNamespacesDeletedGroups: false
