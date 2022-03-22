@@ -40,11 +40,6 @@ spec:
               - {{ . }}
             {{ end }}
           {{- end }}
-
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
           env:
             - name: LOGICMONITOR_ACCOUNT
               valueFrom:
@@ -84,8 +79,8 @@ spec:
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      {{- if .Values.external_config.lmconfig}}
       volumes:
+      {{- if .Values.external_config.lmconfig}}
         - name: {{ .Release.Name }}
           configMap:
             name: {{ .Release.Name }}
