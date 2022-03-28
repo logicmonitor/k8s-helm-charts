@@ -21,13 +21,13 @@ metadata:
     nginx.ingress.kubernetes.io/grpc-backend: "true"
   {{- if .Values.ingress.annotations }}
   {{- range $key,$value := .Values.ingress.annotations }}  
-    {{ $key }}: "{{ $value }}"
+    {{ $key }}: {{ $value | quote }} 
   {{- end }}     
   {{- end }}
 
   {{- if .Values.ingress.grpc.annotations }}
   {{- range $key,$value := .Values.ingress.grpc.annotations }}  
-    {{ $key }}: "{{ $value }}"
+    {{ $key }}: {{ $value | quote }} 
   {{- end }}     
   {{- end }}
 
