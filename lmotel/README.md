@@ -72,7 +72,7 @@ Required Values:
 Optional Values:
 - **replicaCount (default: `1`):** Number of replicas of lmotel kubernetes pod.
 - **otel_version (default: `""`):** Lmotel collector version.
-- **ingress.ingressClassName (default: `""`):** (Added in Kubernetes 1.18) It is a reference to an IngressClass resource that contains additional Ingress configuration, including the name of the Ingress controller.
+- **ingress.ingressClassName (default: `""`):** (Introduced in Kubernetes 1.18) It is a reference to an IngressClass resource that contains additional Ingress configuration, including the name of the Ingress controller.
 - **ingress.tls.secretName (default: `""`):** Name of the TLS secret containing the TLS certificates for the hostname.
 - **ingress.annotations (default: `{}`):** Annotations common to all the ingress resource definitions.
 - **ingress.http.annotations (default: `{}`):** Annotations specific to the ingress-http resource
