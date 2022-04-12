@@ -14,6 +14,7 @@ helm repo update
 ```
 2. Install the lmotel chart, filling in the below values.
 ``` console
+Using Bearer token
 helm install -n <namespace> \
 --set lm.account=<lm_company_name> \
 --set lm.bearer_token=<lm_bearer_token> \
@@ -22,12 +23,36 @@ helm install -n <namespace> \
 --set replicaCount=<number_of_replicas> \
 lmotel logicmonitor/lmotel
 ```
+With LM_V1 token 
+``` console
+helm install -n <namespace> \
+--set lm.account=<lm_company_name> \
+--set lm.access_id=<lm_access_id> \
+--set lm.access_key=<lm_access_key> \
+--set lm.otel_name=<lmotel_collector_name> \
+--set lm.otel_version=<lmotel_collector_version> \
+--set replicaCount=<number_of_replicas> \
+lmotel logicmonitor/lmotel
+```
 
 Installing lmotel chart with external config
-```
+``` console
+Using Bearer token
 helm install -n <namespace> \
 --set lm.account=<lm_company_name> \
 --set lm.bearer_token=<lm_bearer_token> \
+--set lm.otel_name=<lmotel_collector_name> \
+--set lm.otel_version=<lmotel_collector_version> \
+--set replicaCount=<number_of_replicas> \
+--set-file=external_config.lmconfig=<custom_configuration_path> \
+lmotel logicmonitor/lmotel
+```
+With LM_V1 token
+``` console
+helm install -n <namespace> \
+--set lm.account=<lm_company_name> \
+--set lm.access_id=<lm_access_id> \
+--set lm.access_key=<lm_access_key> \
 --set lm.otel_name=<lmotel_collector_name> \
 --set lm.otel_version=<lmotel_collector_version> \
 --set replicaCount=<number_of_replicas> \
@@ -38,6 +63,13 @@ lmotel logicmonitor/lmotel
 Required Values:
 - **account (default: `""`):** The LogicMonitor account name.
 - **bearer_token (default: `""`):** Bearer token of user having Data Ingestion permissions.
+
+or 
+
+- **access_id (default: `""`):** The LogicMonitor access key.
+- **access_key (default: `""`):** Access key for logicmonitor account
+
+
 - **otel_name (default: `""`):** The LogicMonitor Otel Collector name.
 ---
 Optional Values:

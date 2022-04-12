@@ -56,16 +56,30 @@ spec:
                 secretKeyRef:
                   name: {{ .Release.Name }}
                   key: lm_bearer_token
+                  optional: true
+            - name: LOGICMONITOR_ACCESS_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Release.Name }}
+                  key: lm_access_id
+                  optional: true
+            - name: LOGICMONITOR_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}
+                  key: lm_access_key
+                  optional: true                
             - name: LOGICMONITOR_OTEL_NAME
               valueFrom:
                 configMapKeyRef:
                   name: {{ .Release.Name }}
-                  key: lm_otel_name
+                  key: lm_otel_name                  
             - name: LOGICMONITOR_OTEL_VERSION
               valueFrom:
                 configMapKeyRef:
                   name: {{ .Release.Name }}
                   key: lm_version
+                  optional: true
             - name: LOGICMONITOR_OTEL_NAMESPACE
               value: {{ .Release.Namespace }}
           {{- if .Values.external_config.lmconfig}}

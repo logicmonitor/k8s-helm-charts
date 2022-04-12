@@ -1,7 +1,7 @@
 image:
   repository: logicmonitor/lm-logs-k8s-fluentd
-  pullPolicy: IfNotPresent
-  tag: "0.0.12"
+  pullPolicy: Always
+  tag: "1.0.3"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -16,6 +16,8 @@ resources:
     cpu: 300m
     memory: 700Mi
 fluent:
+  device_less_logs: false
+  include_metadata: true
   buffer:
     memory:
       flush_interval: 1s
