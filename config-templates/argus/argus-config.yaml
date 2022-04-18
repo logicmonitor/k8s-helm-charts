@@ -180,3 +180,5 @@ kube-state-metrics:
     - replicasets
     - statefulsets
     - persistentvolumes
+    - endpoint
+    - persistentvolumeclaims
