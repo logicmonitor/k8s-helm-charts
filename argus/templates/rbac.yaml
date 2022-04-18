@@ -24,9 +24,9 @@ rules:
     - namespaces
     - componentstatuses
     - persistentvolumes
-    # - persistentvolumeclaims
+    - persistentvolumeclaims
     # - secrets
-    # - endpoints
+    - endpoints
   verbs:
     - list
     - get
