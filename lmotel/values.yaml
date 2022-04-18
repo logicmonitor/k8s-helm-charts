@@ -7,6 +7,8 @@ replicaCount: 1
 lm:
   account: ""
   bearer_token: ""
+  access_id: ""
+  access_key: ""
   otel_name: ""
   otel_version: ""
 

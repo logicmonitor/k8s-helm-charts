@@ -10,7 +10,12 @@ metadata:
 data:
   lm_account: {{ required "A valid .Values.lm.account entry is required!" .Values.lm.account }}
   lm_otel_name: {{ required "A valid .Values.lm.otel_name entry is required!" .Values.lm.otel_name }}
+  {{- if .Values.lm.access_id}}
+  lm_access_id: {{ .Values.lm.access_id }}
+  {{ end }}
+  {{- if .Values.lm.otel_version}}
   lm_version: {{ .Values.lm.otel_version | quote }}
+  {{ end }}
   {{- if .Values.external_config.lmconfig}}
   lmconfig.yaml: {{ toYaml .Values.external_config.lmconfig | indent 4 }}
   {{- end }}
