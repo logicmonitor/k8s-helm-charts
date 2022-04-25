@@ -18,7 +18,7 @@ etcdDiscoveryToken: ""
 # The image repository of the [Collectorset-controller](https://hub.docker.com/r/logicmonitor/collectorset-controller) container.
 imageRepository: logicmonitor/collectorset-controller
 # The image tag of the [Collectorset-controller](https://hub.docker.com/r/logicmonitor/collectorset-controller/tags) container.
-imageTag: v2
+imageTag: v3
 # The image pull policy of the Collectorset-controller container.
 imagePullPolicy: Always
 # The Http/s proxy url.
