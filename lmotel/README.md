@@ -89,3 +89,23 @@ Required Values:
 Optional Values:
 - **replicaCount (default: `1`):** Number of replicas of lmotel kubernetes pod.
 - **otel_version (default: `""`):** Lmotel collector version.
+---
+
+For using ingress configuration
+
+Required Values:
+- **account (default: `""`):** The LogicMonitor account name.
+- **bearer_token (default: `""`):** Bearer token of user having Data Ingestion permissions.
+- **otel_name (default: `""`):** The LogicMonitor Otel Collector name.
+- **ingress.host (default: `""`):** Hostname for the ingress rule
+- **ingress.enabled (default: `false`):** This is required to be set true to use ingress
+
+---
+Optional Values:
+- **replicaCount (default: `1`):** Number of replicas of lmotel kubernetes pod.
+- **otel_version (default: `""`):** Lmotel collector version.
+- **ingress.ingressClassName (default: `""`):** (Introduced in Kubernetes 1.18) It is a reference to an IngressClass resource that contains additional Ingress configuration, including the name of the Ingress controller.
+- **ingress.tls.secretName (default: `""`):** Name of the TLS secret containing the TLS certificates for the hostname.
+- **ingress.annotations (default: `{}`):** Annotations common to all the ingress resource definitions.
+- **ingress.http.annotations (default: `{}`):** Annotations specific to the ingress-http resource
+- **ingress.grpc.annotations (default: `{}`):** Annotations specific to the ingress-grpc resource
