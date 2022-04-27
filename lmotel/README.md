@@ -59,6 +59,14 @@ helm install -n <namespace> \
 --set-file=external_config.lmconfig=<custom_configuration_path> \
 lmotel logicmonitor/lmotel
 ```
+
+To enable logs add the following option
+``` console
+helm install -n <namespace> \
+--set lm.logs_enabled=true \
+--set image.repository="logicmonitor/lmotel-logs" \
+```
+
 ---
 Required Values:
 - **account (default: `""`):** The LogicMonitor account name.
