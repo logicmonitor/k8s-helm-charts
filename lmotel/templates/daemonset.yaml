@@ -35,11 +35,7 @@ spec:
             {{ range .Values.arguments }}
               - {{ . }}
             {{ end }}
-          {{- end }}
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP                               
+          {{- end }}                            
           env:
             - name: LOGICMONITOR_ACCOUNT
               valueFrom:
