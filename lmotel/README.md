@@ -62,7 +62,7 @@ lmotel logicmonitor/lmotel
 
 To enable logs add the following option
 ``` console
---set lm.logs_enabled=true \
+--set logs.enable=true \
 ```
 
 ---
