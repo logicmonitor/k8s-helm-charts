@@ -59,6 +59,12 @@ helm install -n <namespace> \
 --set-file=external_config.lmconfig=<custom_configuration_path> \
 lmotel logicmonitor/lmotel
 ```
+
+To enable logs add the following option
+``` console
+--set logs.enable=true \
+```
+
 ---
 Required Values:
 - **account (default: `""`):** The LogicMonitor account name.
