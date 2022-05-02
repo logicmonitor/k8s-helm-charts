@@ -11,12 +11,18 @@ lm:
   access_key: ""
   otel_name: ""
   otel_version: ""
-  logs_enabled: false
+
+logs:
+  enable: false
+  image:
+    repository: logicmonitor/lmotel-logs
+    pullPolicy: Always
+     # Overrides the image tag whose default is the chart appVersion.
+    tag: "latest"
 
 image:
   # The image respository of the [lmotel](https://hub.docker.com/r/logicmonitor/lmotel) container.
   repository: logicmonitor/lmotel
-  logs_repository: logicmonitor/lmotel-logs
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest

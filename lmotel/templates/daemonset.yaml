@@ -1,4 +1,4 @@
-{{- if eq .Values.lm.logs_enabled true}}
+{{- if eq .Values.logs.enable true}}
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -28,7 +28,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.logs_repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.logs.image.repository }}:{{ .Values.logs.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.arguments}}
           args:  
