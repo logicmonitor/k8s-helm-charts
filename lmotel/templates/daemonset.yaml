@@ -73,7 +73,6 @@ spec:
                   optional: true
             - name: LOGICMONITOR_OTEL_NAMESPACE
               value: {{ .Release.Namespace }}
-              value: {{ .Release.Namespace }}
           {{- if .Values.external_config.lmconfig}}
           args: 
               - --config
