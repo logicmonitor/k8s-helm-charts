@@ -175,6 +175,11 @@ kube-state-metrics:
   enabled: true
   # No. of KSM Replicas to be configured
   replicas: 1
+  # Enable self metrics configuration for service and Service Monitor
+  selfMonitor:
+    enabled: true
+    # Default values for telemetry configuration can be overridden
+    telemetryPort: 8081
   collectors:
     - daemonsets
     - replicasets
