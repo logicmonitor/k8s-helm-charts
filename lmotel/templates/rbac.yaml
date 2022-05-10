@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ include "fluentbit.serviceAccountName" . }}
+  labels:
+    {{- include "lmotel.labels" . | nindent 4 }}
+
+---
+apiVersion: {{ include "rbac.apiVersion" . }}
+kind: ClusterRole
+metadata:
+  name: {{ include "fluentbit.serviceAccountName" . }}
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - namespaces
+  verbs:
+  - get
+  - list
+  - watch
+
+---
+kind: ClusterRoleBinding
+apiVersion: {{ include "rbac.apiVersion" . }}
+metadata:
+  name: {{ include "fluentbit.serviceAccountName" . }}
+roleRef:
+  kind: ClusterRole
+  name: {{ include "fluentbit.serviceAccountName" . }}
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  name: {{ include "fluentbit.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}

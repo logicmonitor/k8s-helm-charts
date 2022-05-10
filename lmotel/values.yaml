@@ -13,7 +13,10 @@ lm:
   otel_version: ""
 
 logs:
+  rbac: true
   enable: false
+  securityContext:
+    runAsGroup: 0
   image:
     repository: logicmonitor/lmotel-logs
     pullPolicy: Always

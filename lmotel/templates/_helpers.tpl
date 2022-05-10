@@ -51,6 +51,13 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
+Create the name of the service account to use
+*/}}
+{{- define "fluentbit.serviceAccountName" -}}
+{{- default (include "lmotel.fullname" .)}}
+{{- end }}
+
+{{/*
 Return the appropriate apiVersion for ingress.
 */}}
 {{- define "ingress.apiVersion" -}}
@@ -61,6 +68,17 @@ Return the appropriate apiVersion for ingress.
   {{- else -}}
     {{- print "extensions/v1beta1" -}}
   {{- end -}}
+{{- end -}}
+
+{{/*
+Return the appropriate apiVersion for rbac.
+*/}}
+{{- define "rbac.apiVersion" -}}
+{{- if .Capabilities.APIVersions.Has "rbac.authorization.k8s.io/v1" }}
+{{- print "rbac.authorization.k8s.io/v1" -}}
+{{- else -}}
+{{- print "rbac.authorization.k8s.io/v1beta1" -}}
+{{- end -}}
 {{- end -}}
 
 {{/* Return if ingress supports pathType. */}}
