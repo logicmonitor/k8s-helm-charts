@@ -183,6 +183,7 @@ kube-state-metrics:
   replicas: 1
   collectors:
     - daemonsets
+    - deployments
     - replicasets
     - statefulsets
     - persistentvolumes
