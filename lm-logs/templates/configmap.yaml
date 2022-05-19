@@ -18,6 +18,10 @@ data:
       <record>
         message ${record["log"]} ${record["message"]}
         timestamp ${record["time"]}
+        {{- if  .Values.fluent.device_less_logs }}
+        service ${record.dig("kubernetes","labels","app") != nil ? record.dig("kubernetes","labels","app") : record.dig("kubernetes","labels","app_kubernetes_io/name") != nil ? record.dig("kubernetes","labels","app_kubernetes_io/name") :  record.dig("kubernetes","container_name") != nil ?  record.dig("kubernetes","container_name") : record.dig("kubernetes","pod_name") != nil ? record.dig("kubernetes","pod_name") :  "unknown" }
+        namespace ${record["kubernetes"]["namespace_name"]}
+        {{- end}}
       </record>
     </filter>
 
@@ -29,6 +33,8 @@ data:
       access_key {{ .Values.lm_access_key }}
       debug false
       compression gzip
+      include_metadata {{ hasKey .Values.fluent "include_metadata" | ternary .Values.fluent.include_metadata true }}
+      device_less_logs {{ .Values.fluent.device_less_logs | default false }}
       <buffer>
         @type memory
         flush_interval {{ .Values.fluent.buffer.memory.flush_interval | default "1s" }}

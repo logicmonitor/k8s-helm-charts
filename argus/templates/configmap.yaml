@@ -35,6 +35,9 @@ data:
     {{- if .Values.registerGenericFilter}}
     register_generic_filter: {{ .Values.registerGenericFilter}}
     {{- end }}
+    {{- if .Values.deleteInfraPodsAfter}}
+    delete_infra_pods_after: {{ .Values.deleteInfraPodsAfter}}
+    {{- end }}
     {{- if .Values.enableNamespacesDeletedGroups}}
     enable_namespaces_deleted_groups: {{ .Values.enableNamespacesDeletedGroups}}
     {{- end }}

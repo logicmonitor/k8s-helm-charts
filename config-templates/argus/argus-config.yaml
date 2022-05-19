@@ -20,7 +20,7 @@ disableAlerting: false
 # Enable RBAC. If your cluster does not have RBAC enabled, this value should be set to false.
 enableRBAC: true
 # A parent group id of the cluster's resource group.
-clusterGroupID: 0
+clusterGroupID: 1
 # A parent group id that will hold all cluster resources under it. This is useful when Argus is installed with non-admin user's token.
 resourceGroupID: 1
 # The public etcd discovery token used to add etcd hosts to the cluster resource group.
@@ -28,7 +28,7 @@ etcdDiscoveryToken: ""
 # The image respository of the [Argus](https://hub.docker.com/r/logicmonitor/argus) container.
 imageRepository: logicmonitor/argus
 # The image tag of the [Argus](https://hub.docker.com/r/logicmonitor/argus/tags) container.
-imageTag: v6
+imageTag: v7
 # The image pull policy of the Argus container.
 imagePullPolicy: Always
 # The Http/s proxy url.
@@ -51,12 +51,6 @@ labels: {}
 annotations: {}
 # Set flag to ignore ssl/tls validation
 ignore_ssl: false
-
-# Flag to enable new resource tree to put all resources of a namespace in a single resource group
-enableNewResourceTree: false
-
-# Flag is used when #enableNewResourceTree is true - to create _deleted group in its individual namespace groups when scheduled delete is enabled
-enableNamespacesDeletedGroups: false
 
 # Flag to register generic filter based on resource label => "logicmonitor/monitoring": "disable"
 registerGenericFilter: false
@@ -97,6 +91,14 @@ filters:
   deployment: ""
   # The filtered expression for HorizontalPodAutoscaler resource type. Based on this parameter, HorizontalPodAutoscalers would be added/deleted for discovery on LM.
   hpa: ""
+  # The filtered expression for daemonset resource type. Based on this parameter, Daemonsets would be added/deleted for discovery on LM.
+  daemonset: ""
+  # The filtered expression for replicaset resource type. Based on this parameter, Replicasets would be added/deleted for discovery on LM.
+  replicaset: ""
+  # The filtered expression for statefulset resource type. Based on this parameter, Statefulsets would be added/deleted for discovery on LM.
+  statefulset: ""
+  # The filtered expression for persistentvolume resource type. Based on this parameter, Persistentvolumes would be added/deleted for discovery on LM.
+  persistentvolume: ""
 
 # openmetrics config for Argus metrics collection
 openmetrics:
@@ -155,9 +157,6 @@ collector:
 #   - deployments
 #   - horizontalpodautoscalers
 disableResourceMonitoring:
-  - statefulsets
-  - replicasets
-  - daemonsets
 
 # List of resources to disable alerting
 # for ex:
@@ -165,7 +164,26 @@ disableResourceMonitoring:
 #   - deployments
 #   - horizontalpodautoscalers
 disableResourceAlerting:
-  - deployments
 
 # Replicas - defaults to 1, param is just for development purpose, do not increase more than one replicas in production
 replicas: 1
+
+# Kube state metrics configuration
+# For further customizing KSM configuration, pls refer https://artifacthub.io/packages/helm/prometheus-community/kube-state-metrics/?modal=values
+kube-state-metrics:
+  # Set enabled to false in case you want to use a custom configured KSM
+  enabled: true
+  # No. of KSM Replicas to be configured
+  replicas: 1
+  # Enable self metrics configuration for service and Service Monitor
+  selfMonitor:
+    enabled: true
+    # Default values for telemetry configuration can be overridden
+    telemetryPort: 8081
+  collectors:
+    - daemonsets
+    - replicasets
+    - statefulsets
+    - persistentvolumes
+    - endpoints
+    - persistentvolumeclaims

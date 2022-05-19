@@ -1,6 +1,6 @@
-{{- if eq .Values.logs.enable false}}
+{{- if eq .Values.logs.enable true}}
 apiVersion: apps/v1
-kind: StatefulSet
+kind: DaemonSet
 metadata:
   name: {{ include "lmotel.fullname" . }}
   labels:
@@ -9,11 +9,6 @@ metadata:
 {{ toYaml .Values.labels| indent 4 }}
 {{- end }}
 spec:
-# servicename used only in case of statefulset
-  serviceName: {{ .Release.Name }}
-{{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-{{- end }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}
@@ -33,14 +28,14 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.logs.image.repository }}:{{ .Values.logs.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.arguments}}
           args:  
             {{ range .Values.arguments }}
               - {{ . }}
             {{ end }}
-          {{- end }}
+          {{- end }}                            
           env:
             - name: LOGICMONITOR_ACCOUNT
               valueFrom:
@@ -87,32 +82,24 @@ spec:
               - {{ . }}
               {{ end }}
               {{- end }}
+            {{- end }}
           volumeMounts:
-            - name: {{ .Release.Name }}
-              mountPath: lmconfig.yaml
-              subPath: lmconfig.yaml
-          {{- end }}
+                 {{- toYaml .Values.volumeMounts | nindent 12 }}
+                 {{- if .Values.external_config.lmconfig}}
+                  - name: {{ .Release.Name }}
+                    mountPath: lmconfig.yaml
+                    subPath: lmconfig.yaml
+                 {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
-      {{- if .Values.external_config.lmconfig}}
-        - name: {{ .Release.Name }}
-          configMap:
-            name: {{ .Release.Name }}
-            items:
-              - key: lmconfig.yaml
-                path: lmconfig.yaml
-      {{- end }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+          {{- toYaml .Values.volumes | nindent 8 }}
+          {{- if .Values.external_config.lmconfig}}
+            - name: {{ .Release.Name }}
+              configMap:
+                name: {{ .Release.Name }}
+                items:
+                  - key: lmconfig.yaml
+                    path: lmconfig.yaml
+          {{- end }}
 {{- end }}
