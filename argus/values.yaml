@@ -182,11 +182,15 @@ kube-state-metrics:
   # No. of KSM Replicas to be configured
   replicas: 1
   collectors:
+    - cronjobs
     - daemonsets
     - deployments
+    - jobs
+    - nodes
     - replicasets
     - statefulsets
     - persistentvolumes
     - endpoints
     - persistentvolumeclaims
+    - pods
 
