@@ -24,10 +24,11 @@ spec:
 {{ toYaml .Values.labels| indent 4 }}
 {{- end }}
     spec:
+      serviceAccountName: {{ include "fluentbit.serviceAccountName" . }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            {{- toYaml .Values.logs.securityContext | nindent 12 }}
           image: "{{ .Values.logs.image.repository }}:{{ .Values.logs.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.arguments}}
@@ -35,7 +36,7 @@ spec:
             {{ range .Values.arguments }}
               - {{ . }}
             {{ end }}
-          {{- end }}                            
+          {{- end }}
           env:
             - name: LOGICMONITOR_ACCOUNT
               valueFrom:

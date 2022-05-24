@@ -13,9 +13,12 @@ lm:
   otel_version: ""
 
 logs:
+  rbac: true
   enable: false
+  securityContext:
+    runAsGroup: 0
   image:
-    repository: logicmonitor/lmotel-logs
+    repository: public.ecr.aws/logicmonitor/lmotel-logs
     pullPolicy: Always
      # Overrides the image tag whose default is the chart appVersion.
     tag: "latest"
