@@ -64,16 +64,16 @@ rules:
     - get
     - watch
     - update
-# - apiGroups:
-#     - "batch"
-#   resources:
-#     - cronjobs
-#     - jobs
-#   verbs:
-#     - list
-#     - get
-#     - watch
-#     - update
+- apiGroups:
+    - "batch"
+  resources:
+    - cronjobs
+    - jobs
+  verbs:
+    - list
+    - get
+    - watch
+    - update
 # - apiGroups:
 #     - "networking.k8s.io"
 #   resources:
