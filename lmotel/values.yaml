@@ -12,6 +12,17 @@ lm:
   otel_name: ""
   otel_version: ""
 
+logs:
+  rbac: true
+  enable: false
+  securityContext:
+    runAsGroup: 0
+  image:
+    repository: public.ecr.aws/logicmonitor/lmotel-logs
+    pullPolicy: Always
+     # Overrides the image tag whose default is the chart appVersion.
+    tag: "latest"
+
 image:
   # The image respository of the [lmotel](https://hub.docker.com/r/logicmonitor/lmotel) container.
   repository: logicmonitor/lmotel
@@ -76,3 +87,25 @@ podAnnotations: {}
 nameOverride: ""
 fullnameOverride: ""
 securityContext: {}
+
+volumes:
+  - name: varlog
+    hostPath:
+      path: /var/log
+  - name: varlibdockercontainers
+    hostPath:
+      path: /var/lib/docker/containers
+  - name: etcmachineid
+    hostPath:
+      path: /etc/machine-id
+      type: File
+
+volumeMounts:
+  - name: varlog
+    mountPath: /var/log
+  - name: varlibdockercontainers
+    mountPath: /var/lib/docker/containers
+    readOnly: true
+  - name: etcmachineid
+    mountPath: /etc/machine-id
+    readOnly: true
