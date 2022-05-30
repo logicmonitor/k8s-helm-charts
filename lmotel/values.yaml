@@ -87,8 +87,6 @@ podAnnotations: {}
 nameOverride: ""
 fullnameOverride: ""
 securityContext: {}
-<<<<<<< HEAD
-=======
 
 volumes:
   - name: varlog
@@ -111,4 +109,3 @@ volumeMounts:
   - name: etcmachineid
     mountPath: /etc/machine-id
     readOnly: true
->>>>>>> stash/develop
