@@ -114,8 +114,4 @@ Optional Values:
 - **ingress.tls.secretName (default: `""`):** Name of the TLS secret containing the TLS certificates for the hostname.
 - **ingress.annotations (default: `{}`):** Annotations common to all the ingress resource definitions.
 - **ingress.http.annotations (default: `{}`):** Annotations specific to the ingress-http resource
-<<<<<<< HEAD
 - **ingress.grpc.annotations (default: `{}`):** Annotations specific to the ingress-grpc resource
-=======
-- **ingress.grpc.annotations (default: `{}`):** Annotations specific to the ingress-grpc resource
->>>>>>> stash/develop
