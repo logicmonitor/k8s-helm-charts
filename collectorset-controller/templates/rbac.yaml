@@ -78,6 +78,8 @@ rules:
   - pods
   - containers
   - nodes
+  - nodes/proxy
+  - nodes/metrics
   - componentstatuses
   - replicasets
   - ingresses
@@ -129,6 +131,7 @@ rules:
   - /healthz
   - /healthz/*
   - /metrics
+  - /proxy
   verbs:
   - get
 ---
