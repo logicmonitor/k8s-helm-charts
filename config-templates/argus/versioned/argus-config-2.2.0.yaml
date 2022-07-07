@@ -79,7 +79,7 @@ device_group_props:
   nodes: []
   etcd: []
   hpas: []
-
+    
 filters:
   # The filtered expression for Pod resource type. Based on this parameter, Pods would be added/deleted for discovery on LM.
   pod: ""
@@ -192,3 +192,4 @@ kube-state-metrics:
     - endpoints
     - persistentvolumeclaims
     - pods
+
