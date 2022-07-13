@@ -78,9 +78,11 @@ rules:
   - pods
   - containers
   - nodes
+  - nodes/proxy
+  - nodes/metrics
   - componentstatuses
   - replicasets
-  - ingress
+  - ingresses
   - services
   - endpoints
   - pods/log
@@ -110,6 +112,14 @@ rules:
   verbs:
   - get
 - apiGroups:
+    - "networking.k8s.io"
+  resources:
+    - ingresses
+    - networkpolicies
+  verbs:
+    - list
+    - get
+- apiGroups:
   - "discovery.k8s.io"
   resources:
   - endpointslices
@@ -121,6 +131,7 @@ rules:
   - /healthz
   - /healthz/*
   - /metrics
+  - /proxy
   verbs:
   - get
 ---
