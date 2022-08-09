@@ -66,14 +66,14 @@ device_group_props:
     # To enable events collection
     - name: "lmlogs.k8sevent.enable"
       value: "false"
-     # To enable log collection for all pods
-    - name: "lmlogs.k8spodlog.enable"
-      value: "false"
     # To delete resources from the portal after specified time
     - name: "kubernetes.resourcedeleteafterduration"
       value: "P1DT0H0M0S"
       override: false
-  pods: []
+  pods:
+    # To enable log collection for all pods
+    - name: "lmlogs.k8spodlog.enable"
+      value: "false"
   services: []
   deployments: []
   nodes: []
