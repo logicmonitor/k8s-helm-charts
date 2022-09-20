@@ -25,8 +25,8 @@ spec:
               fieldRef:
                 fieldPath: spec.nodeName
           {{- range $key, $val := .Values.env }}
-            - name: {{ $key }}
-              value: {{ $val | quote }}
+          - name: {{ $key }}
+            value: {{ $val | quote }}
           {{- end }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           resources:
