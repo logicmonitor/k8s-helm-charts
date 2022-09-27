@@ -16,6 +16,13 @@ metadata:
 {{ toYaml .Values.annotations | indent 4 }}
 {{- end }}
 data:
+  debug-info: |
+    capabilities:
+      {{- toYaml .Capabilities | nindent 6 }}
+    release:
+      {{- toYaml .Release | nindent 6 }}
+    values:
+      {{- toYaml .Values | nindent 6 }}
   config.yaml: |
     debug: {{ required "A valid .Values.debug entry is required!" .Values.debug }}
     {{- if .Values.proxyURL }}
