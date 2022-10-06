@@ -24,7 +24,9 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: spec.nodeName
+            {{ if gt (.Values.env | len) 0 }}
             {{ include "ds-env" . | nindent 12 }}
+            {{ end }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
