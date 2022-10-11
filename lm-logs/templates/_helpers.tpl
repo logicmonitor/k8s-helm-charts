@@ -68,4 +68,13 @@ Return the appropriate apiVersion for rbac.
 {{- end -}}
 {{- end -}}
 
-
+{{- define "ds-env" -}}
+{{- $envList := list  -}}
+{{- range $key, $val := .Values.env -}}
+{{- $envProps := dict -}}
+{{- $_ := set $envProps "name" $key -}}
+{{- $_ = set $envProps "value" ($val) -}}
+{{- $envList = append $envList $envProps -}}
+{{- end -}}
+{{- toYaml $envList | nindent 0 -}}
+{{- end -}}

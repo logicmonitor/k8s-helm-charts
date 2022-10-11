@@ -17,6 +17,13 @@ metadata:
 {{ toYaml .Values.annotations | indent 4 }}
 {{- end }}
 data:
+  debug-info: |
+    capabilities:
+      {{- toYaml .Capabilities | nindent 6 }}
+    release:
+      {{- toYaml .Release | nindent 6 }}
+    values:
+      {{- toYaml .Values | nindent 6 }}
   config.yaml: |
     address: collectorset-controller:50000
     cluster_name: {{ required "A valid .Values.clusterName entry is required!" .Values.clusterName }}
