@@ -45,7 +45,7 @@ spec:
 {{ toYaml .Values.collector.labels | indent 4 }}
 {{- end }}
 {{- if .Values.collector.env }}
-  labels:
+  env:
 {{ toYaml .Values.collector.env | indent 4 }}
 {{- end }}
 
