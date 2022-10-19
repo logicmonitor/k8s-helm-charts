@@ -23,6 +23,7 @@ data:
         resource.service.namespace ${record["kubernetes"]["namespace_name"]}
         {{- end}}
       </record>
+      remove_keys log
     </filter>
 
     <match kubernetes.**>
@@ -40,7 +41,7 @@ data:
         flush_interval {{ .Values.fluent.buffer.memory.flush_interval | default "1s" }}
         chunk_limit_size {{ .Values.fluent.buffer.memory.chunk_limit_size | default "8m" }}
         flush_thread_count {{ .Values.fluent.buffer.memory.flush_thread_count | default "8"}}
-      </buffer> 
+      </buffer>
     </match>
   kubernetes.conf: |
     <source>
@@ -65,7 +66,21 @@ data:
         </pattern>
       </parse>
     </source>
-    
+
+    <filter kubernetes.**>
+      @type concat
+      key log
+      seperator ""
+      multiline_start_regexp {{ .Values.kubernetes.multiline_start_regexp }}
+      timeout_label @NORMAL
+    </filter>
+
+    <label @NORMAL>
+      <match kubernetes.**>
+        @type stdout
+      </match>
+    </label>
+
     <filter kubernetes.**>
       @type kubernetes_metadata
       @id filter_kube_metadata
