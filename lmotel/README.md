@@ -2,7 +2,7 @@
 #### Run logicmonitor otel collector
 This chart deploy a lmotel collector to collect and forward traces, and spans to Logicmonitor
 #### Prerequisite
-- LogicMonitor account with Data Ingestion permission [Logicmonitor account](https://www.logicmonitor.com). 
+- LogicMonitor account with Data Ingestion permission [Logicmonitor account](https://www.logicmonitor.com).
 #### Deploy new collector
 1. Add/Update the logicmonitor repo
 ``` console
@@ -23,7 +23,7 @@ helm install -n <namespace> \
 --set replicaCount=<number_of_replicas> \
 lmotel logicmonitor/lmotel
 ```
-With LM_V1 token 
+With LM_V1 token
 ``` console
 helm install -n <namespace> \
 --set lm.account=<lm_company_name> \
@@ -70,7 +70,7 @@ Required Values:
 - **account (default: `""`):** The LogicMonitor account name.
 - **bearer_token (default: `""`):** Bearer token of user having Data Ingestion permissions.
 
-or 
+or
 
 - **access_id (default: `""`):** The LogicMonitor access key.
 - **access_key (default: `""`):** Access key for logicmonitor account

@@ -20,7 +20,7 @@ logs:
   image:
     repository: public.ecr.aws/logicmonitor/lmotel-logs
     pullPolicy: Always
-     # Overrides the image tag whose default is the chart appVersion.
+    # Overrides the image tag whose default is the chart appVersion.
     tag: "latest"
 
 image:
@@ -46,7 +46,7 @@ ingress:
     annotations: {}
   grpc:
     annotations: {}
-  
+
 service:
   type: ClusterIP
   name: lmotel-svc
@@ -67,14 +67,14 @@ resources: {}
   #   memory: 128Mi
   # requests:
   #   cpu: 100m
-  #   memory: 128Mi
+#   memory: 128Mi
 
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
- # targetMemoryUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 
