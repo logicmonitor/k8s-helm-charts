@@ -70,3 +70,7 @@ Anomaly detection will be done on `namespace` and `service`
     - kubernetets.labels.app_kubernetes_io/name (daemon sets)
     - kubernetets.container_name
     - kubernetets.pod_name
+
+#### Multiline log support for k8s lm logs
+To use regexp to match beginning of multiline set `kubernetes.multiline_start_regexp=<some-regex-pattern>`
+by default the regex is set to `/^\[(\d{4}-)?\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}.*\]/`
