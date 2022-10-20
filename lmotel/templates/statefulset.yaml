@@ -36,7 +36,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.arguments}}
-          args:
+          args:  
             {{ range .Values.arguments }}
               - {{ . }}
             {{ end }}
@@ -64,12 +64,12 @@ spec:
                 secretKeyRef:
                   name: {{ .Release.Name }}
                   key: lm_access_key
-                  optional: true
+                  optional: true                
             - name: LOGICMONITOR_OTEL_NAME
               valueFrom:
                 configMapKeyRef:
                   name: {{ .Release.Name }}
-                  key: lm_otel_name
+                  key: lm_otel_name                  
             - name: LOGICMONITOR_OTEL_VERSION
               valueFrom:
                 configMapKeyRef:
@@ -79,10 +79,10 @@ spec:
             - name: LOGICMONITOR_OTEL_NAMESPACE
               value: {{ .Release.Namespace }}
           {{- if .Values.external_config.lmconfig}}
-          args:
+          args: 
               - --config
               - lmconfig.yaml
-              {{- if .Values.arguments}}
+              {{- if .Values.arguments}}  
               {{ range .Values.arguments }}
               - {{ . }}
               {{ end }}
