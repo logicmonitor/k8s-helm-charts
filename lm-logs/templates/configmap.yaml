@@ -9,8 +9,12 @@ data:
     @include kubernetes.conf
 
     <system>
-      log_level "#{ENV['FLUENT_LOG_LEVEL'] || 'warn'}"
+      log_level "#{ENV['FLUENT_LOG_LEVEL'] || 'debug'}"
     </system>
+
+    <filter kubernetes.**>
+      @type stdout
+    </filter>
 
     <filter kubernetes.**>
       @type record_transformer
@@ -18,6 +22,9 @@ data:
       <record>
         message ${record["log"]} ${record["message"]}
         timestamp ${record["time"]}
+        {{- if .Values.fluent.cluster_name }}
+        cluster.name {{ .Values.fluent.cluster_name }}
+        {{- end}}
         {{- if  .Values.fluent.device_less_logs }}
         resource.service.name ${record.dig("kubernetes","labels","app") != nil ? record.dig("kubernetes","labels","app") : record.dig("kubernetes","labels","app_kubernetes_io/name") != nil ? record.dig("kubernetes","labels","app_kubernetes_io/name") :  record.dig("kubernetes","container_name") != nil ?  record.dig("kubernetes","container_name") : record.dig("kubernetes","pod_name") != nil ? record.dig("kubernetes","pod_name") :  "unknown" }
         resource.service.namespace ${record["kubernetes"]["namespace_name"]}

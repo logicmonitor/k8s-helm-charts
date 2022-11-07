@@ -18,6 +18,7 @@ resources:
 fluent:
   device_less_logs: false
   include_metadata: true
+  cluster_name: ""
   buffer:
     memory:
       flush_interval: 1s

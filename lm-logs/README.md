@@ -39,6 +39,8 @@ The following tables lists the configurable parameters of the lm-logs chart and 
 | `nodeSelectors`             | Node labels for pod assignment		            | `{}`  (evaluated as a template)                         |
 | `affinity`                  | Affinity for pod assignment		                | `{}`  (evaluated as a template)                         |
 | `env`                       | Map to add extra environment variables	        | `{}`                                                    |
+| `kubernetes.multiline_start_regexp` | Regexp to match beginning of multiline	| `/^\[(\d{4}-)?\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}.*\]/` |
+| `fluent.cluster_name`       | ClusterName given while adding k8s cluster  	| `""`                                                    |
 
 ### Avaialble Environment variables
 For descriptions see: https://github.com/fabric8io/fluent-plugin-kubernetes_metadata_filter
