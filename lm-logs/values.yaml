@@ -18,7 +18,6 @@ resources:
 fluent:
   device_less_logs: false
   include_metadata: true
-  cluster_name: ""
   buffer:
     memory:
       flush_interval: 1s
@@ -27,6 +26,7 @@ fluent:
 
 kubernetes:
   multiline_start_regexp: /^\[(\d{4}-)?\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}.*\]/
+  cluster_name: ""
 
 nodeSelector: []
 affinity: []
