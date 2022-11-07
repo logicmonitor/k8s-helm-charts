@@ -9,12 +9,8 @@ data:
     @include kubernetes.conf
 
     <system>
-      log_level "#{ENV['FLUENT_LOG_LEVEL'] || 'debug'}"
+      log_level "#{ENV['FLUENT_LOG_LEVEL'] || 'warn'}"
     </system>
-
-    <filter kubernetes.**>
-      @type stdout
-    </filter>
 
     <filter kubernetes.**>
       @type record_transformer
