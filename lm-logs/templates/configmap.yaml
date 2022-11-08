@@ -18,11 +18,15 @@ data:
       <record>
         message ${record["log"]} ${record["message"]}
         timestamp ${record["time"]}
+        {{- if .Values.kubernetes.cluster_name }}
+        kubernetes.cluster_name {{ .Values.kubernetes.cluster_name }}
+        {{- end}}
         {{- if  .Values.fluent.device_less_logs }}
         resource.service.name ${record.dig("kubernetes","labels","app") != nil ? record.dig("kubernetes","labels","app") : record.dig("kubernetes","labels","app_kubernetes_io/name") != nil ? record.dig("kubernetes","labels","app_kubernetes_io/name") :  record.dig("kubernetes","container_name") != nil ?  record.dig("kubernetes","container_name") : record.dig("kubernetes","pod_name") != nil ? record.dig("kubernetes","pod_name") :  "unknown" }
         resource.service.namespace ${record["kubernetes"]["namespace_name"]}
         {{- end}}
       </record>
+      remove_keys log
     </filter>
 
     <match kubernetes.**>
@@ -40,7 +44,7 @@ data:
         flush_interval {{ .Values.fluent.buffer.memory.flush_interval | default "1s" }}
         chunk_limit_size {{ .Values.fluent.buffer.memory.chunk_limit_size | default "8m" }}
         flush_thread_count {{ .Values.fluent.buffer.memory.flush_thread_count | default "8"}}
-      </buffer> 
+      </buffer>
     </match>
   kubernetes.conf: |
     <source>
@@ -65,7 +69,21 @@ data:
         </pattern>
       </parse>
     </source>
-    
+
+    <filter kubernetes.**>
+      @type concat
+      key log
+      seperator ""
+      multiline_start_regexp {{ .Values.kubernetes.multiline_start_regexp }}
+      timeout_label @NORMAL
+    </filter>
+
+    <label @NORMAL>
+      <match kubernetes.**>
+        @type stdout
+      </match>
+    </label>
+
     <filter kubernetes.**>
       @type kubernetes_metadata
       @id filter_kube_metadata

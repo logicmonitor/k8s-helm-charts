@@ -24,6 +24,10 @@ fluent:
       chunk_limit_size: 8m
       flush_thread_count: 8
 
+kubernetes:
+  multiline_start_regexp: /^\[(\d{4}-)?\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}.*\]/
+  cluster_name: ""
+
 nodeSelector: []
 affinity: []
 tolerations:

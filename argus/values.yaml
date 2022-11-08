@@ -147,6 +147,8 @@ collector:
   annotations: {}
   # labels to add on collector statefulset
   labels: {}
+  # env variable to inject in collector pods
+  env: {}
   # Collector statefulset template
   statefulsetspec:
     template:
