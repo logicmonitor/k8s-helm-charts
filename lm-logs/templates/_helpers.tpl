@@ -24,6 +24,17 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 
 {{/*
+Adding validations for clustername for lm-logs to contain only lower alphanumeric or '-' and start and end with an alphanumeric character
+*/}}
+{{- define "kubernetes.cluster_name" -}}
+{{- if regexMatch "^[a-z0-9][a-z0-9-]*[a-z0-9]$" .Values.kubernetes.cluster_name }}
+kubernetes.cluster_name {{ .Values.kubernetes.cluster_name }}
+{{- else -}}
+{{- fail "cluster_name should contain only lower alphanumeric or '-' and should start and end with an alphanumeric character" }}
+{{- end }}
+{{- end }}
+
+{{/*
 Create chart name and version as used by the chart label.
 */}}
 {{- define "fluentd.chart" -}}
