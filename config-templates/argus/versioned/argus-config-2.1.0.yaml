@@ -192,3 +192,4 @@ kube-state-metrics:
     - endpoints
     - persistentvolumeclaims
     - pods
+
