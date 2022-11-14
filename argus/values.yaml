@@ -52,6 +52,7 @@ annotations: {}
 # Set flag to ignore ssl/tls validation
 ignore_ssl: false
 
+rbacVersionOverride: ""
 # Flag to enable new resource tree to put all resources of a namespace in a single resource group
 enableNewResourceTree: true
 
