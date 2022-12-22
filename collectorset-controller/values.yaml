@@ -42,3 +42,8 @@ annotations: {}
 # Set flag to ignore ssl/tls validation
 ignore_ssl: false
 rbacVersionOverride: ""
+podSecurityContext: {}
+securityContext:
+  capabilities:
+    add: []
+    drop: []

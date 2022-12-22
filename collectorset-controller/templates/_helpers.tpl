@@ -46,3 +46,30 @@ Return the appropriate apiVersion for rbac.
 {{- print "rbac.authorization.k8s.io/v1beta1" -}}
 {{- end -}}
 {{- end -}}
+
+
+{{- define "lmutil.get-platform" }}
+{{- if contains "-gke" .Capabilities.KubeVersion.Version }}
+{{- printf "%s" "gke" }}
+{{- else if contains "-eks" .Capabilities.KubeVersion.Version }}
+{{- printf "%s" "eks" }}
+{{- else if contains "+vmware" .Capabilities.KubeVersion.Version }}
+{{- printf "%s" "vmware" }}
+{{- else if contains "-mirantis" .Capabilities.KubeVersion.Version }}
+{{- printf "%s" "mirantis" }}
+{{- else if eq (include "is-openshift" .) "true" }}
+{{- printf "%s" "openshift" }}
+{{- else }}
+{{- printf "%s" "unknown" }}
+{{- end }}
+{{- end }}
+
+{{- define "is-openshift" }}
+{{- $is := false }}
+{{- range (.Capabilities.APIVersions | toStrings)}}
+{{- if contains "openshift.io" . }}
+{{- $is = true }}
+{{- end }}
+{{- end }}
+{{- printf "%t" $is }}
+{{- end }}

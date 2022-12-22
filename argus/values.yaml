@@ -86,7 +86,7 @@ device_group_props:
   nodes: []
   etcd: []
   hpas: []
-    
+
 filters:
   # The filtered expression for Pod resource type. Based on this parameter, Pods would be added/deleted for discovery on LM.
   pod: []
@@ -128,7 +128,10 @@ collector:
   secretName: collector
   
   ## OPTIONAL VALUES
-
+  securityContext:
+    capabilities:
+      add: []
+      drop: []
   # The ID of the group of the collectors.
   groupID: 0
   # The ID of the escalation chain of the collectors.
@@ -143,7 +146,7 @@ collector:
   proxyUser: ""
   # The Http/s proxy password of the collectors.
   proxyPass: ""
-    
+
   # annotations to add on collector statefulset
   annotations: {}
   # labels to add on collector statefulset
@@ -159,7 +162,12 @@ collector:
         tolerations: []
         # The priority class name for Pod priority of the collector. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
         priorityClassName: ""
-        
+
+podSecurityContext: {}
+securityContext:
+  capabilities:
+    add: []
+    drop: []
 # List of resources to disable monitoring
 # for ex:
 # disableResourceMonitoring:
@@ -196,4 +204,3 @@ kube-state-metrics:
     - endpoints
     - persistentvolumeclaims
     - pods
-

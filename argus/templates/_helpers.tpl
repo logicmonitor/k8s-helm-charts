@@ -66,3 +66,51 @@ Return the appropriate apiVersion for rbac.
 {{- print "rbac.authorization.k8s.io/v1beta1" -}}
 {{- end -}}
 {{- end -}}
+
+{{- define "lmutil.get-platform" }}
+{{- if contains "-gke" .Capabilities.KubeVersion.Version }}
+{{- printf "%s" "gke" }}
+{{- else if contains "-eks" .Capabilities.KubeVersion.Version }}
+{{- printf "%s" "eks" }}
+{{- else if contains "+vmware" .Capabilities.KubeVersion.Version }}
+{{- printf "%s" "vmware" }}
+{{- else if contains "-mirantis" .Capabilities.KubeVersion.Version }}
+{{- printf "%s" "mirantis" }}
+{{- else if eq (include "is-openshift" .) "true" }}
+{{- printf "%s" "openshift" }}
+{{- else }}
+{{- printf "%s" "unknown" }}
+{{- end }}
+{{- end }}
+
+{{- define "is-openshift" }}
+{{- $is := false }}
+{{- range (.Capabilities.APIVersions | toStrings)}}
+{{- if contains "openshift.io" . }}
+{{- $is = true }}
+{{- end }}
+{{- end }}
+{{- printf "%t" $is }}
+{{- end }}
+
+{{/*
+Collector Pod security context
+*/}}
+{{- define "collector-psp" }}
+{{ toYaml .Values.collector.podSecurityContext | nindent 0 }}
+{{- end }}
+
+{{- define "collector-csp" }}
+{{- $addCaps := .Values.collector.securityContext.capabilities.add }}
+{{- if and (eq (include "lmutil.get-platform" .) "gke") (not (has "NET_RAW" $addCaps)) }}
+{{- $addCaps = append $addCaps "NET_RAW" }}
+{{- end }}
+{{- with .Values.collector.securityContext }}
+{{- if not (hasKey . "capabilities") }}
+{{ toYaml . | nindent 0 }}
+{{- end }}
+{{- end }}
+capabilities:
+  drop: {{ toYaml .Values.collector.securityContext.capabilities.drop | nindent 4 }}
+  add: {{ toYaml $addCaps | nindent 4 }}
+{{- end }}
