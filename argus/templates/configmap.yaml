@@ -24,6 +24,7 @@ data:
       {{- toYaml .Release | nindent 6 }}
     values:
       {{- toYaml .Values | nindent 6 }}
+    platform: {{ include "lmutil.get-platform" . }}
   config.yaml: |
     address: collectorset-controller:50000
     cluster_name: {{ required "A valid .Values.clusterName entry is required!" .Values.clusterName }}

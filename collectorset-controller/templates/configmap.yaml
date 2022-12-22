@@ -23,6 +23,7 @@ data:
       {{- toYaml .Release | nindent 6 }}
     values:
       {{- toYaml .Values | nindent 6 }}
+    platform: {{ include "lmutil.get-platform" . }}
   config.yaml: |
     debug: {{ required "A valid .Values.debug entry is required!" .Values.debug }}
     {{- if .Values.proxyURL }}

@@ -58,3 +58,5 @@ spec:
   statefulsetspec:
 {{ toYaml .Values.collector.statefulsetspec | indent 4 }}
 {{- end }}
+  securityContext: {{ include "collector-csp" . | nindent 4 }}
+  podSecurityContext: {{ include "collector-psp" . | nindent 4 }}
