@@ -1,0 +1,9 @@
+dependencies:
+- name: kube-state-metrics
+  repository: https://prometheus-community.github.io/helm-charts
+  version: 4.4.0
+- name: lmutil
+  repository: https://logicmonitor.github.io/helm-charts-qa
+  version: 0.1.4
+digest: sha256:166e80238faa789d185935d122a1c1adb66a1748e068c48c83da01f6e0522d6e
+generated: "2023-01-17T14:15:25.200894+05:30"

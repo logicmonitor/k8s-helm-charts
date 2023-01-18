@@ -1,0 +1,7 @@
+{{ $saUsers := list (printf "%s:%s" (include "lmutil.release.namespace" .) ("collectorset-controller")) }}
+{{ $params := list . "lm-nonroot-v2-collectorset-controller" $saUsers }}
+{{ include "lmutil.openshift-scc-nonroot-v2" $params }}
+---
+{{ $users := list (printf "%s:%s-collector" (include "lmutil.release.namespace" .) ("collector")) }}
+{{ $input := list . "lm-anyuid-collector" $users }}
+{{ include "lmutil.openshift-scc-anyuid" $input }}

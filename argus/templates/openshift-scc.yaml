@@ -1,0 +1,3 @@
+{{ $saUsers := list (printf "%s:%s" (include "lmutil.release.namespace" .) (.Release.Name)) }}
+{{ $params := list . "lm-nonroot-v2-argus" $saUsers }}
+{{ include "lmutil.openshift-scc-nonroot-v2" $params }}

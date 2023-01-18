@@ -56,7 +56,7 @@ rbacVersionOverride: ""
 # Flag to enable new resource tree to put all resources of a namespace in a single resource group
 enableNewResourceTree: true
 
-# Flag is used when #enableNewResourceTree is true - to create _deleted group in its individual namespace groups when scheduled delete is enabled
+# Flag is used when #enableNewResourceTree is true - to create _deleted group in its individual namespaceOverride groups when scheduled delete is enabled
 enableNamespacesDeletedGroups: false
 
 # Flag to register generic filter based on resource label => "logicmonitor/monitoring": "disable"

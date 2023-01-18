@@ -58,5 +58,5 @@ spec:
   statefulsetspec:
 {{ toYaml .Values.collector.statefulsetspec | indent 4 }}
 {{- end }}
-  securityContext: {{ include "collector-csp" . | nindent 4 }}
-  podSecurityContext: {{ include "collector-psp" . | nindent 4 }}
+  securityContext: {{ include "lmutil.collector-container-sec-context-nonroot" (list . "lmutil.custom-collector-container-sec-context-nonroot") | nindent 4 }}
+  podSecurityContext: {{ include "lmutil.collector-pod-sec-context-nonroot" (list . "lmutil.custom-collector-pod-sec-context-nonroot") | nindent 4 }}
