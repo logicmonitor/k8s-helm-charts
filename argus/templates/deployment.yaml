@@ -28,7 +28,7 @@ spec:
 {{ toYaml .Values.annotations | indent 8 }}
 {{- end }}
     spec:
-      securityContext: {{ toYaml .Values.podSecurityContext | nindent 8 }}
+      securityContext: {{ include "lmutil.pod-sec-context-nonroot" (list . "lmutil.custom-pod-sec-context-nonroot") | nindent 8 }}
       serviceAccountName: {{ .Release.Name }}
     {{- if .Values.affinity }}
       affinity:
@@ -47,7 +47,7 @@ spec:
     {{- end }}
       containers:
       - name: argus
-        securityContext: {{ toYaml .Values.securityContext | nindent 12 }}
+        securityContext: {{ include "lmutil.container-sec-context-nonroot" (list . "lmutil.custom-container-sec-context-nonroot") | nindent 12 }}
         image: "{{ .Values.imageRepository }}:{{ default "latest" .Values.imageTag }}"
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         {{- if .Values.resources }}

@@ -7,3 +7,9 @@ maintainers:
 - name: LogicMonitor
   email: argus@logicmonitor.com
 icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
+dependencies:
+  - name: lmutil
+    repository: https://logicmonitor.github.io/helm-charts
+    # uncomment to test umbrella chart in while developing
+    # repository: file://../lmutil
+    version: 0.1.4
