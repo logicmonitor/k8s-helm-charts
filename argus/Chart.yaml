@@ -4,16 +4,16 @@ name: argus
 version: 2.5.0-devel
 kubeVersion: ">= 1.14.0-0"
 maintainers:
-- name: LogicMonitor
-  email: argus@logicmonitor.com
+  - name: LogicMonitor
+    email: argus@logicmonitor.com
 icon: https://logicmonitor.github.io/k8s-helm-charts/lm_logo.png
 dependencies:
-- name: kube-state-metrics
-  version: "4.4.0"
-  repository: "https://prometheus-community.github.io/helm-charts"
-  condition: kube-state-metrics.enabled
-- name: lmutil
-  repository: https://logicmonitor.github.io/helm-charts-qa
-  # uncomment to test umbrella chart in while developing
-  # repository: file://../lmutil
-  version: 0.1.4
+  - name: kube-state-metrics
+    version: "4.4.0"
+    repository: "https://prometheus-community.github.io/helm-charts"
+    condition: kube-state-metrics.enabled
+  - name: lmutil
+    repository: https://logicmonitor.github.io/helm-charts
+    # uncomment to test umbrella chart in while developing
+    # repository: file://../lmutil
+    version: 0.1.5
