@@ -2,6 +2,6 @@
 {{ $params := list . "lm-nonroot-v2-argus" $saUsers }}
 {{ include "lmutil.openshift-scc-nonroot-v2" $params }}
 ---
-{{- $saUsers1 := list (printf "%s:%s" (include "lmutil.release.namespace" .) "argus-kube-state-metrics" ) -}}
+{{- $saUsers1 := list (printf "%s:%s" (include "lmutil.release.namespace" .) (printf "%s-kube-state-metrics" .Release.Name)) -}}
 {{- $params1 := list . "lm-nonroot-v2-kube-state-metrics" $saUsers1 -}}
 {{- include "lmutil.openshift-scc-nonroot-v2" $params1 -}}
