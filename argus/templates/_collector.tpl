@@ -7,7 +7,18 @@
 {{- end -}}
 
 {{- define "lmutil.custom-collector-container-sec-context-nonroot" }}
-{{- toYaml .Values.collector.securityContext | nindent 0 }}
+{{- $addCaps := .Values.collector.securityContext.capabilities.add }}
+{{- if and (or (eq (include "lmutil.get-platform" .) "gke") (eq (include "lmutil.is-openshift" .) "true")) (not (has "NET_RAW" $addCaps)) }}
+{{- $addCaps = append $addCaps "NET_RAW" }}
+{{- end }}
+{{- with .Values.collector.securityContext }}
+{{- if not (hasKey . "capabilities") }}
+{{ toYaml . | nindent 0 }}
+{{- end }}
+{{- end }}
+capabilities:
+  drop: {{ toYaml .Values.collector.securityContext.capabilities.drop | nindent 4 }}
+  add: {{ toYaml $addCaps | nindent 4 }}
 {{- end }}
 
 {{- define "lmutil.collector-container-sec-context-nonroot" -}}
