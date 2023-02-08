@@ -3,7 +3,7 @@ dependencies:
   repository: https://prometheus-community.github.io/helm-charts
   version: 4.4.0
 - name: lmutil
-  repository: https://logicmonitor.github.io/helm-charts-qa
-  version: 0.1.4
-digest: sha256:166e80238faa789d185935d122a1c1adb66a1748e068c48c83da01f6e0522d6e
-generated: "2023-01-17T14:15:25.200894+05:30"
+  repository: https://logicmonitor.github.io/helm-charts
+  version: 0.1.6
+digest: sha256:7cedf2e166fb1ae34f6709ed217140c5383a4ca0c607f4bcaae57107eb28e333
+generated: "2023-02-08T16:24:28.566711+05:30"
