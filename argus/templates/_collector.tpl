@@ -33,15 +33,16 @@ runAsNonRoot: false
 
 {{- define "lmutil.collector-default-container-sec-context-nonroot" }}
 {{- if eq (include "lmutil.is-openshift" .) "true" }}
+{{ $caps := .Values.collector.securityContext.capabilities.add }}
+{{- if not (has "NET_RAW" $caps) }}
+{{- $caps = append $caps "NET_RAW" }}
+{{- end }}
+{{- if not (has "SETFCAP" $caps) }}
+{{- $caps = append $caps "SETFCAP" }}
+{{- end }}
 allowPrivilegeEscalation: true
 capabilities:
-  add:
-    - NET_RAW
-{{- range .Values.collector.securityContext.capabilities.add }}
-    {{- if ne "NET_RAW" . }}
-    - {{ . }}
-    {{- end }}
-{{- end }}
+  add: {{ toYaml $caps | nindent 4 }}
 {{- end }}
 {{- if eq (include "lmutil.get-platform" .) "gke" }}
 capabilities:

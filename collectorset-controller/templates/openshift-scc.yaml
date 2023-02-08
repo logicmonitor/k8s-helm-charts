@@ -3,5 +3,6 @@
 {{ include "lmutil.openshift-scc-nonroot-v2" $params }}
 ---
 {{ $users := list (printf "%s:%s" (include "lmutil.release.namespace" .) ("collector")) }}
-{{ $input := list . "lm-anyuid-collector" $users }}
+{{ $caps := list "NET_RAW" "SETFCAP" }}
+{{ $input := list . "lm-anyuid-collector" $users $caps }}
 {{ include "lmutil.openshift-scc-anyuid" $input }}

@@ -16,4 +16,4 @@ dependencies:
     repository: https://logicmonitor.github.io/helm-charts
     # uncomment to test umbrella chart in while developing
     # repository: file://../lmutil
-    version: 0.1.5
+    version: 0.1.6
