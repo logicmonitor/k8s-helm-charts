@@ -121,7 +121,7 @@ collector:
   secretName: collector
   
   ## OPTIONAL VALUES
-
+  podSecurityContext: {}
   securityContext:
     capabilities:
       add: []
