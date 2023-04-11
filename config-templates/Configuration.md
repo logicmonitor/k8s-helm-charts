@@ -37,4 +37,4 @@ Latest [argus-config.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-he
 | Chart 2.1.0 | Argus 7.1.0 | [argus-config-2.1.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/argus/versioned/argus-config-2.1.0.yaml) |
 | Chart 2.2.0 | Argus 7.1.1 | [argus-config-2.2.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/argus/versioned/argus-config-2.1.0.yaml) |
 | Chart 2.3.0 | Argus 7.1.2 | [argus-config-2.3.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/argus/versioned/argus-config-2.3.0.yaml) |
-| Chart 2.4.0 | Argus 7.1.2 | [argus-config-2.4.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/argus/versioned/argus-config-2.4.0.yaml) |
+| Chart 2.4.0 | Argus 7.1.3 | [argus-config-2.4.0.yaml](https://raw.githubusercontent.com/logicmonitor/k8s-helm-charts/master/config-templates/argus/versioned/argus-config-2.4.0.yaml) |
