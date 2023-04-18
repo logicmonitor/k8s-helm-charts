@@ -1,0 +1,48 @@
+## REQUIRED VALUES
+
+# The LogicMonitor API key ID.
+accessID: ""
+# The LogicMonitor API key.
+accessKey: ""
+# The LogicMonitor account name.
+account: ""
+# To enable verbose logging at debug level.
+debug: false
+
+## OPTIONAL VALUES
+
+# Enable RBAC. If your cluster does not have RBAC enabled, this value should be set to false.
+enableRBAC: true
+# The public etcd discovery token used to add etcd hosts to the cluster device group.
+etcdDiscoveryToken: ""
+# The image repository of the [Collectorset-controller](https://hub.docker.com/r/logicmonitor/collectorset-controller) container.
+imageRepository: logicmonitor/collectorset-controller
+# The image tag of the [Collectorset-controller](https://hub.docker.com/r/logicmonitor/collectorset-controller/tags) container.
+imageTag: v3
+# The image pull policy of the Collectorset-controller container.
+imagePullPolicy: Always
+# The Http/s proxy url.
+proxyURL: ""
+# The Http/s proxy username.
+proxyUser: ""
+# The Http/s proxy password.
+proxyPass: ""
+# It provides the simplest way to run Pod on particular Node(s) based on labels on the node.
+nodeSelector: {}
+# It allows you to constrain which nodes your pod is eligible to be scheduled on.
+affinity: {}
+# The priority class name for Pod priority. If this parameter is set then user must have PriorityClass resource created otherwise Pod will be rejected.
+priorityClassName: ""
+# Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
+tolerations: []
+# Labels to apply on all objects created by Collectorset controller
+labels: {}
+# Annotations to apply on all objects created by Collectorset controller
+annotations: {}
+# Set flag to ignore ssl/tls validation
+ignore_ssl: false
+podSecurityContext: {}
+securityContext:
+  capabilities:
+    add: []
+    drop: []
